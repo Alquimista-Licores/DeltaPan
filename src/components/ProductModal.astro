@@ -1,0 +1,1271 @@
+---
+import aeImg from '../assets/AE sombra.png';
+import batedeiraImg from '../assets/batedeira sombra.png';
+import cilindroImg from '../assets/cilindro sombra.png';
+
+export interface MachineItem {
+	id: string;
+	name: string;
+	model: string;
+	shortDesc: string;
+	category: string;
+	img: any;
+	alt: string;
+	whatsappMsg?: string;
+	description: string;
+	differentials: { title: string; desc: string }[];
+	specs: { label: string; value: string }[];
+	laudoNr12Url?: string;
+	manualUrl?: string;
+	model3dUrl?: string;
+}
+
+export const defaultMachines: MachineItem[] = [
+	{
+		id: 'amassadeira-espiral',
+		name: 'Amassadeira Espiral',
+		model: 'Linha AE 40 / AE 80 kg',
+		shortDesc: 'Desenvolvimento do glúten e alto rendimento',
+		category: 'Panificação Pesada',
+		img: aeImg,
+		alt: 'Amassadeira Espiral Industrial DeltaPan',
+		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Amassadeira Espiral (Linha AE 40 / AE 80 kg).',
+		description: 'Projetada para atender demandas intensivas de panificação industrial e padarias que exigem o máximo de rendimento e padronização. Seus movimentos perfeitamente sincronizados entre o batedor espiral e o tacho em aço inox garantem rápida formação da rede de glúten, menor aquecimento da massa e absorção ideal de hidratação.',
+		differentials: [
+			{ title: 'Tacho e Espiral em Aço Inox 304', desc: 'Acabamento sanitário de grau alimentício com alta durabilidade e fácil higienização' },
+			{ title: 'Dupla Velocidade com Inversor', desc: 'Mistura lenta inicial e desenvolvimento rápido programável com transição suave' },
+			{ title: 'Transmissão Dupla Reforçada', desc: 'Duplo conjunto de correias sincronizadas de alto torque, silencioso e sem vibrações' },
+			{ title: 'Segurança Total NR-12', desc: 'Grade basculante de proteção com microchave codificada e freio de parada instantânea' }
+		],
+		specs: [
+			{ label: 'Capacidade de Massa Pronta', value: '40 kg a 80 kg' },
+			{ label: 'Capacidade de Farinha', value: '25 kg a 50 kg' },
+			{ label: 'Motorização', value: '5,0 cv / 7,5 cv trifásico' },
+			{ label: 'Tensão Elétrica', value: '220V / 380V Trifásico' }
+		],
+		laudoNr12Url: '#',
+		manualUrl: '#'
+	},
+	{
+		id: 'batedeira-planetaria',
+		name: 'Batedeira Planetária',
+		model: 'Linha BP 20 / BP 40 Litros',
+		shortDesc: 'Precisão máxima para massas leves e cremes',
+		category: 'Confeitaria & Panificação',
+		img: batedeiraImg,
+		alt: 'Batedeira Planetária Industrial DeltaPan',
+		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Batedeira Planetária (Linha BP 20 / BP 40 Litros).',
+		description: 'Versatilidade incomparável para confeitarias, cozinhas profissionais e indústrias de panificação. O movimento planetário sincrônico aliado aos 3 batedores intercambiáveis permite preparar desde cremes delicados, merengues e mousses até massas densas de tortas e pães leves com aeração perfeita e acabamento homogêneo.',
+		differentials: [
+			{ title: 'Kit com 3 Batedores Inclusos', desc: 'Globo para aeração máxima, Raquete para cremes e massas médias, e Gancho' },
+			{ title: 'Engrenagens em Banho de Óleo', desc: 'Conjunto helicoidal usinado em aço especial garantindo operação estável e silenciosa' },
+			{ title: 'Painel Eletrônico com Temporizador', desc: 'Controle preciso de tempo e velocidades programáveis para padrão industrial' },
+			{ title: 'Elevação Ergonômica com Trava', desc: 'Alavanca de engate rápido com sensor de proteção intertravado NR-12' }
+		],
+		specs: [
+			{ label: 'Capacidade Volumétrica', value: '20 Litros / 40 Litros' },
+			{ label: 'Material do Tacho', value: 'Aço inoxidável estampado sanitário' },
+			{ label: 'Potência do Motor', value: '1,5 cv / 2,5 cv com inversor' },
+			{ label: 'Tensão Elétrica', value: '220V Monofásico / Trifásico' }
+		],
+		laudoNr12Url: '#',
+		manualUrl: '#'
+	},
+	{
+		id: 'cilindro-laminador',
+		name: 'Cilindro Laminador',
+		model: 'Linha CL 500 / CL 600 mm',
+		shortDesc: 'Laminação homogênea e abertura regulável',
+		category: 'Laminação & Moldagem',
+		img: cilindroImg,
+		alt: 'Cilindro Laminador / Modeladora DeltaPan',
+		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Cilindro Laminador (Linha CL 500 / CL 600 mm).',
+		description: 'Desenvolvido para sovar e laminar massas de pães, folhados, pizzas e salgados com espessura rigorosamente uniforme. Seus rolos maciços cromados e retificados oferecem regulagem milimétrica contínua, combinando alta produtividade operacional com ergonomia e facilidade de alimentação contínua.',
+		differentials: [
+			{ title: 'Rolos Retificados e Cromados', desc: 'Aço especial usinado de alta dureza com 500 mm ou 600 mm de largura útil' },
+			{ title: 'Regulagem Milimétrica Precisa', desc: 'Manípulo ergonômico com escala visual rápida e trava anti-deslocamento' },
+			{ title: 'Raspadores Duplos Removíveis', desc: 'Higienização simples e rápida sem a necessidade de ferramentas mecânicas' },
+			{ title: 'Freio Motorizado Instantâneo', desc: 'Botão de parada tipo cogumelo e proteções mecânicas em total conformidade NR-12' }
+		],
+		specs: [
+			{ label: 'Largura Útil dos Rolos', value: '500 mm / 600 mm' },
+			{ label: 'Diâmetro dos Rolos', value: '125 mm / 160 mm retificados' },
+			{ label: 'Potência do Motor', value: '3,0 cv / 4,0 cv trifásico' },
+			{ label: 'Tensão Elétrica', value: '220V / 380V Trifásico' }
+		],
+		laudoNr12Url: '#',
+		manualUrl: '#'
+	}
+];
+
+interface Props {
+	machines?: MachineItem[];
+}
+
+const { machines = defaultMachines } = Astro.props;
+---
+
+<!-- ========================================================================= -->
+<!-- COMPONENTE REUTILIZÁVEL: MODAL DE DETALHES DO PRODUTO                      -->
+<!-- ========================================================================= -->
+<div 
+	id="product-modal-backdrop" 
+	class="modal-backdrop" 
+	role="dialog" 
+	aria-modal="true" 
+	aria-hidden="true"
+>
+	<!-- Card com Cantos 100% Arredondados e Overflow Oculto -->
+	<div class="modal-card-container">
+		
+		<!-- Botão Fechar Modal (X) -->
+		<button 
+			type="button" 
+			class="modal-close-btn" 
+			id="modal-close-btn" 
+			aria-label="Fechar detalhes do equipamento"
+		>
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</button>
+
+		<!-- Área de Scroll Interna com Scrollbar Fina e Discreta -->
+		<div class="modal-scroll-body">
+			<div class="modal-inner-layout">
+				
+				<!-- COLUNA ESQUERDA: FOTO DO PRODUTO & BOTÃO 3D -->
+				<div class="modal-media-col">
+					<div class="modal-image-box" id="modal-image-box">
+						
+						<!-- Botão Discreto de Visualização em 3D Sobreposto -->
+						<button 
+							type="button" 
+							class="btn-3d-overlay" 
+							id="btn-3d-toggle" 
+							title="Ativar rotação e visualização 3D"
+						>
+							<svg class="cube-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+								<polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+								<line x1="12" y1="22.08" x2="12" y2="12"></line>
+							</svg>
+							<span id="btn-3d-text">Ver em 3D</span>
+						</button>
+
+						<!-- Imagem do Equipamento -->
+						<div class="image-perspective-stage" id="image-stage">
+							<img 
+								src="" 
+								alt="" 
+								id="modal-product-img" 
+								class="modal-main-img" 
+							/>
+						</div>
+
+						<!-- Visualizador 3D Interativo (Rotação habilitada, Zoom desativado) -->
+						<div class="model-3d-stage" id="model-3d-stage" style="display: none;">
+							<model-viewer
+								id="modal-3d-viewer"
+								src=""
+								alt="Visualização 3D do Equipamento"
+								camera-controls
+								disable-zoom
+								disable-pan
+								interaction-prompt="none"
+								shadow-intensity="1.2"
+								shadow-softness="0.5"
+								exposure="1.0"
+								auto-rotate
+								auto-rotate-delay="1000"
+								rotation-per-second="20deg"
+							>
+								<div class="model-loading-indicator" slot="poster">
+									<div class="model-spinner"></div>
+									<span>Carregando modelo 3D...</span>
+								</div>
+							</model-viewer>
+						</div>
+
+						<div class="mode-3d-notice" id="mode-3d-notice">
+							<span class="pulse-dot"></span>
+							<span>Gire em 360° com o mouse ou toque</span>
+						</div>
+
+					</div>
+
+					<!-- Especificações Técnicas Rápidas -->
+					<div class="modal-quick-specs">
+						<h4 class="specs-heading">Ficha Técnica</h4>
+						<div class="specs-grid" id="modal-specs-list">
+							<!-- Inserido dinamicamente via JS -->
+						</div>
+					</div>
+				</div>
+
+				<!-- COLUNA DIREITA: INFORMAÇÕES, ORÇAMENTO, DIFERENCIAIS E DOWNLOADS -->
+				<div class="modal-info-col">
+					
+					<!-- Cabeçalho do Produto -->
+					<div class="modal-header-block">
+						<div class="modal-badges-row">
+							<span class="modal-category-tag" id="modal-category">Categoria</span>
+							<span class="modal-model-tag" id="modal-model">Modelo</span>
+						</div>
+						<h2 class="modal-title" id="modal-title">Nome do Equipamento</h2>
+					</div>
+
+					<!-- Descrição do Produto -->
+					<div class="modal-desc-box">
+						<p class="modal-desc" id="modal-desc">
+							Descrição completa do equipamento e sua aplicabilidade na produção...
+						</p>
+					</div>
+
+					<!-- Botão Principal: Solicitar Orçamento via WhatsApp -->
+					<div class="modal-cta-box">
+						<a 
+							href="#" 
+							id="modal-whatsapp-cta" 
+							target="_blank" 
+							rel="noopener noreferrer" 
+							class="btn-whatsapp-quote"
+						>
+							<!-- Ícone WhatsApp Oficial -->
+							<svg class="whatsapp-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12.031 2C6.495 2 2 6.495 2 12.031c0 1.97.568 3.81 1.554 5.373L2.094 22l4.767-1.428a9.98 9.98 0 0 0 5.17 1.459h.004c5.535 0 10.031-4.495 10.031-10.031A10.03 10.03 0 0 0 12.031 2zm0 18.257h-.003a8.21 8.21 0 0 1-4.2-1.157l-.3-.178-2.825.845.85-2.753-.195-.311a8.225 8.225 0 0 1-1.265-4.472c0-4.542 3.696-8.238 8.238-8.238 4.542 0 8.238 3.696 8.238 8.238 0 4.542-3.696 8.238-8.238 8.238zm4.516-6.17c-.247-.124-1.463-.722-1.69-.804-.227-.082-.392-.124-.557.124-.165.247-.64.804-.784.969-.144.165-.288.186-.535.062-.247-.124-1.043-.385-1.986-1.226-.734-.655-1.23-1.464-1.374-1.711-.144-.247-.015-.38.109-.503.111-.111.247-.288.371-.433.124-.144.165-.247.247-.412.082-.165.041-.309-.021-.433-.062-.124-.557-1.34-.763-1.835-.2-.482-.403-.417-.557-.425l-.474-.008c-.165 0-.433.062-.66.309-.227.247-.866.845-.866 2.062s.887 2.392 1.01 2.557c.124.165 1.745 2.664 4.227 3.737.59.255 1.052.408 1.411.522.593.188 1.133.161 1.56.098.477-.07 1.463-.598 1.669-1.175.206-.577.206-1.072.144-1.175-.062-.103-.227-.165-.474-.288z"/>
+							</svg>
+							<span class="btn-cta-text">
+								<strong>Solicitar Orçamento</strong>
+								<small>Atendimento direto de fábrica via WhatsApp</small>
+							</span>
+							<svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="9 18 15 12 9 6"></polyline>
+							</svg>
+						</a>
+					</div>
+
+					<!-- Seção de Diferenciais -->
+					<div class="modal-differentials-box">
+						<h3 class="differentials-title">Diferenciais e Destaques Construtivos</h3>
+						<div class="differentials-list" id="modal-differentials-list">
+							<!-- Inserido dinamicamente via JS -->
+						</div>
+					</div>
+
+					<!-- Seção de Downloads / Documentação Técnica -->
+					<div class="modal-downloads-box">
+						<h4 class="downloads-heading">Documentos e Certificações</h4>
+						<div class="downloads-actions-row">
+							
+							<!-- Botão Baixar Laudo NR-12 -->
+							<a 
+								href="#" 
+								id="modal-laudo-btn" 
+								class="btn-doc-download btn-nr12" 
+								target="_blank" 
+								rel="noopener noreferrer"
+							>
+								<div class="doc-icon-wrap">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+										<polyline points="9 12 11 14 15 10"></polyline>
+									</svg>
+								</div>
+								<div class="doc-text-wrap">
+									<span class="doc-title">Laudo Técnico NR-12</span>
+									<span class="doc-sub">Certificado de Conformidade</span>
+								</div>
+								<svg class="dl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+									<polyline points="7 10 12 15 17 10"></polyline>
+									<line x1="12" y1="15" x2="12" y2="3"></line>
+								</svg>
+							</a>
+
+							<!-- Botão Baixar Manual do Equipamento -->
+							<a 
+								href="#" 
+								id="modal-manual-btn" 
+								class="btn-doc-download btn-manual" 
+								target="_blank" 
+								rel="noopener noreferrer"
+							>
+								<div class="doc-icon-wrap">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+										<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+										<line x1="10" y1="6" x2="16" y2="6"></line>
+										<line x1="10" y1="10" x2="16" y2="10"></line>
+									</svg>
+								</div>
+								<div class="doc-text-wrap">
+									<span class="doc-title">Manual do Equipamento</span>
+									<span class="doc-sub">Instalação, Operação & Manutenção</span>
+								</div>
+								<svg class="dl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+									<polyline points="7 10 12 15 17 10"></polyline>
+									<line x1="12" y1="15" x2="12" y2="3"></line>
+								</svg>
+							</a>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- Importação do visualizador 3D Google Model Viewer e Decodificador Meshopt -->
+<script src="/models/meshopt_decoder.js" is:inline></script>
+<script type="module" src="/models/model-viewer.min.js"></script>
+
+<!-- Serialização dos dados das máquinas para consumo no script cliente -->
+<script define:vars={{ machines }}>
+	window.__DELTAPAN_MACHINES__ = machines;
+</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const backdrop = document.getElementById('product-modal-backdrop');
+		const closeBtn = document.getElementById('modal-close-btn');
+		const imgEl = document.getElementById('modal-product-img');
+		const imageBox = document.getElementById('modal-image-box');
+		const imageStage = document.getElementById('image-stage');
+		const model3dStage = document.getElementById('model-3d-stage');
+		const modelViewer = document.getElementById('modal-3d-viewer');
+		const btn3d = document.getElementById('btn-3d-toggle');
+		const btn3dText = document.getElementById('btn-3d-text');
+		const notice3d = document.getElementById('mode-3d-notice');
+		const titleEl = document.getElementById('modal-title');
+		const modelEl = document.getElementById('modal-model');
+		const categoryEl = document.getElementById('modal-category');
+		const descEl = document.getElementById('modal-desc');
+		const whatsappCta = document.getElementById('modal-whatsapp-cta');
+		const specsList = document.getElementById('modal-specs-list');
+		const diffList = document.getElementById('modal-differentials-list');
+		const laudoBtn = document.getElementById('modal-laudo-btn');
+		const manualBtn = document.getElementById('modal-manual-btn');
+
+		const machinesData = window.__DELTAPAN_MACHINES__ || [];
+		let is3dActive = false;
+		let currentOpenMachine = null;
+
+		// Configuração do decodificador meshopt para o model-viewer
+		if (typeof window !== 'undefined' && window.customElements) {
+			const setupMeshopt = () => {
+				const MV = window.customElements.get('model-viewer');
+				if (MV) {
+					MV.meshoptDecoderLocation = '/models/meshopt_decoder.js';
+				}
+			};
+			setupMeshopt();
+			window.customElements.whenDefined('model-viewer').then(setupMeshopt);
+		}
+
+		function openModal(machineId) {
+			const machine = machinesData.find(m => m.id === machineId) || machinesData[0];
+			if (!machine) return;
+			currentOpenMachine = machine;
+
+			// Verifica se este produto possui modelo 3D (exclusivo da modeladora)
+			const has3d = Boolean(machine.model3dUrl || machine.id === 'modeladora-esteira');
+
+			// Botão "Ver em 3D" visível APENAS na modeladora
+			if (btn3d) {
+				btn3d.style.display = has3d ? 'inline-flex' : 'none';
+			}
+
+			// Reset 3D status e visualizadores para o padrão (Foto 2D)
+			is3dActive = false;
+			if (imageStage) imageStage.style.display = 'flex';
+			if (model3dStage) model3dStage.style.display = 'none';
+			if (imageBox) imageBox.classList.remove('active-3d-mode');
+			if (notice3d) notice3d.classList.remove('active');
+			if (btn3dText) btn3dText.textContent = 'Ver em 3D';
+			if (modelViewer) {
+				modelViewer.removeAttribute('src');
+			}
+
+			// Populate Data
+			if (imgEl) {
+				imgEl.src = machine.img?.src || machine.img;
+				imgEl.alt = machine.alt || machine.name;
+			}
+			if (titleEl) titleEl.textContent = machine.name;
+			if (modelEl) modelEl.textContent = machine.model;
+			if (categoryEl) categoryEl.textContent = machine.category || 'Equipamento Industrial';
+			if (descEl) descEl.textContent = machine.description || machine.shortDesc;
+
+			// WhatsApp Link (+5548999274536)
+			const whatsappPhone = '5548999274536';
+			const defaultMessage = `Olá! Gostaria de solicitar um orçamento para o equipamento: ${machine.name} (${machine.model}).`;
+			const encodedMessage = encodeURIComponent(machine.whatsappMsg || defaultMessage);
+			if (whatsappCta) {
+				whatsappCta.href = `https://wa.me/${whatsappPhone}?text=${encodedMessage}`;
+			}
+
+			// Specs Grid
+			if (specsList) {
+				specsList.innerHTML = '';
+				if (machine.specs && machine.specs.length) {
+					machine.specs.forEach(s => {
+						const item = document.createElement('div');
+						item.className = 'spec-chip';
+						item.innerHTML = `
+							<span class="chip-label">${s.label}</span>
+							<span class="chip-val">${s.value}</span>
+						`;
+						specsList.appendChild(item);
+					});
+				}
+			}
+
+			// Differentials List
+			if (diffList) {
+				diffList.innerHTML = '';
+				if (machine.differentials && machine.differentials.length) {
+					machine.differentials.forEach(d => {
+						const row = document.createElement('div');
+						row.className = 'differential-item';
+						row.innerHTML = `
+							<div class="diff-bullet">
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="20 6 9 17 4 12"></polyline>
+								</svg>
+							</div>
+							<div class="diff-body">
+								<strong class="diff-name">${d.title}</strong>
+								<span class="diff-text">${d.desc}</span>
+							</div>
+						`;
+						diffList.appendChild(row);
+					});
+				}
+			}
+
+			// Download Buttons
+			const downloadHandler = (e, docType) => {
+				e.preventDefault();
+				alert(`O download do ${docType} da ${machine.name} (${machine.model}) será iniciado. Caso precise de suporte técnico imediato, fale conosco via WhatsApp!`);
+			};
+
+			if (laudoBtn) {
+				laudoBtn.onclick = (e) => downloadHandler(e, 'Laudo Técnico NR-12');
+			}
+			if (manualBtn) {
+				manualBtn.onclick = (e) => downloadHandler(e, 'Manual de Operação');
+			}
+
+			// Show Modal & Blur Body
+			if (backdrop) {
+				backdrop.classList.add('is-open');
+				backdrop.setAttribute('aria-hidden', 'false');
+			}
+			document.body.classList.add('modal-open');
+			document.documentElement.classList.add('modal-open');
+		}
+
+		function closeModal() {
+			if (!backdrop) return;
+			backdrop.classList.remove('is-open');
+			backdrop.setAttribute('aria-hidden', 'true');
+			document.body.classList.remove('modal-open');
+			document.documentElement.classList.remove('modal-open');
+			
+			// Reset 3D
+			is3dActive = false;
+			if (imageStage) imageStage.style.display = 'flex';
+			if (model3dStage) model3dStage.style.display = 'none';
+			if (imageBox) imageBox.classList.remove('active-3d-mode');
+			if (notice3d) notice3d.classList.remove('active');
+			if (btn3dText) btn3dText.textContent = 'Ver em 3D';
+			if (modelViewer) {
+				modelViewer.removeAttribute('src');
+			}
+		}
+
+		// Close events
+		if (closeBtn) {
+			closeBtn.addEventListener('click', closeModal);
+		}
+
+		if (backdrop) {
+			backdrop.addEventListener('click', (e) => {
+				if (e.target === backdrop) {
+					closeModal();
+				}
+			});
+		}
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && backdrop && backdrop.classList.contains('is-open')) {
+				closeModal();
+			}
+		});
+
+		// 3D Preview Toggle
+		if (btn3d) {
+			btn3d.addEventListener('click', () => {
+				if (!currentOpenMachine) return;
+				const modelUrl = currentOpenMachine.model3dUrl || (currentOpenMachine.id === 'modeladora-esteira' ? '/models/modeladora.glb' : null);
+				if (!modelUrl) return;
+
+				is3dActive = !is3dActive;
+				if (is3dActive) {
+					if (imageStage) imageStage.style.display = 'none';
+					if (model3dStage) model3dStage.style.display = 'flex';
+					if (modelViewer) {
+						if (modelViewer.getAttribute('src') !== modelUrl) {
+							modelViewer.setAttribute('src', modelUrl);
+						}
+					}
+					if (notice3d) notice3d.classList.add('active');
+					if (btn3dText) btn3dText.textContent = 'Ver Foto 2D';
+				} else {
+					if (imageStage) imageStage.style.display = 'flex';
+					if (model3dStage) model3dStage.style.display = 'none';
+					if (notice3d) notice3d.classList.remove('active');
+					if (btn3dText) btn3dText.textContent = 'Ver em 3D';
+				}
+			});
+		}
+
+		// Attach open modal listener to any element matching [data-open-modal]
+		document.addEventListener('click', (e) => {
+			const target = e.target.closest('[data-open-modal]');
+			if (target) {
+				const machineId = target.getAttribute('data-open-modal');
+				if (machineId) {
+					e.preventDefault();
+					openModal(machineId);
+				}
+			}
+		});
+	});
+</script>
+
+<style>
+	/* ========================================================================= */
+	/* 1. BACKDROP FIXO COM DESFOQUE FORTE                                      */
+	/* ========================================================================= */
+	.modal-backdrop {
+		position: fixed;
+		inset: 0;
+		z-index: 99999;
+		background: rgba(13, 31, 71, 0.72);
+		backdrop-filter: blur(14px);
+		-webkit-backdrop-filter: blur(14px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1.5rem;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+	}
+
+	.modal-backdrop.is-open {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	/* ========================================================================= */
+	/* 2. CARD DO MODAL (CANTOS 100% ARREDONDADOS E ISOLADOS)                     */
+	/* ========================================================================= */
+	.modal-card-container {
+		position: relative;
+		width: 100%;
+		max-width: 1080px;
+		max-height: 90vh;
+		background: #ffffff;
+		border-radius: 24px;
+		box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+		overflow: hidden; /* Corta todos os 4 cantos com exatidão */
+		display: flex;
+		flex-direction: column;
+		transform: translateY(20px) scale(0.97);
+		transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.modal-backdrop.is-open .modal-card-container {
+		transform: translateY(0) scale(1);
+	}
+
+	/* Área de rolagem interna com barra discreta */
+	.modal-scroll-body {
+		width: 100%;
+		height: 100%;
+		max-height: 90vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+		overscroll-behavior: contain;
+		scrollbar-width: thin;
+		scrollbar-color: rgba(13, 31, 71, 0.22) transparent;
+	}
+
+	/* Scrollbar fina, discreta e espaçada dos cantos */
+	.modal-scroll-body::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.modal-scroll-body::-webkit-scrollbar-track {
+		background: transparent;
+		margin: 1.5rem 0;
+	}
+
+	.modal-scroll-body::-webkit-scrollbar-thumb {
+		background-color: rgba(13, 31, 71, 0.22);
+		border-radius: 9999px;
+	}
+
+	.modal-scroll-body::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(13, 31, 71, 0.45);
+	}
+
+	/* Botão Fechar */
+	.modal-close-btn {
+		position: absolute;
+		top: 1.25rem;
+		right: 1.25rem;
+		z-index: 30;
+		width: 42px;
+		height: 42px;
+		border-radius: 50%;
+		background: rgba(241, 245, 249, 0.9);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		border: 1px solid #e2e8f0;
+		color: #475569;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	.modal-close-btn:hover {
+		background: #0D1F47;
+		color: #ffffff;
+		border-color: #0D1F47;
+		transform: rotate(90deg);
+	}
+
+	/* ========================================================================= */
+	/* 3. LAYOUT EM 2 COLUNAS                                                    */
+	/* ========================================================================= */
+	.modal-inner-layout {
+		width: 100%;
+		display: grid;
+		grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+		gap: 2.25rem;
+		padding: 2.5rem;
+		box-sizing: border-box;
+	}
+
+	/* ========================================================================= */
+	/* 4. COLUNA ESQUERDA: FOTO & 3D                                             */
+	/* ========================================================================= */
+	.modal-media-col {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		min-width: 0;
+	}
+
+	.modal-image-box {
+		position: relative;
+		background: radial-gradient(circle at 50% 50%, #f8fafc 0%, #edf2f7 100%);
+		border: 1px solid #e2e8f0;
+		border-radius: 20px;
+		padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 380px;
+		overflow: hidden;
+		perspective: 1000px;
+	}
+
+	/* Botão 3D Sobreposto Discreto */
+	.btn-3d-overlay {
+		position: absolute;
+		top: 1rem;
+		left: 1rem;
+		z-index: 10;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		background: rgba(13, 31, 71, 0.85);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		padding: 0.45rem 0.85rem;
+		border-radius: 9999px;
+		color: #ffffff;
+		font-family: 'Inter', sans-serif;
+		font-size: 0.74rem;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		cursor: pointer;
+		transition: all 0.25s ease;
+		box-shadow: 0 4px 12px rgba(13, 31, 71, 0.25);
+	}
+
+	.btn-3d-overlay:hover {
+		background: #e11d48;
+		border-color: #e11d48;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 16px rgba(225, 29, 72, 0.3);
+	}
+
+	.image-perspective-stage {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+		transform-style: preserve-3d;
+	}
+
+	.modal-main-img {
+		max-width: 100%;
+		max-height: 280px;
+		object-fit: contain;
+		filter: drop-shadow(0 18px 24px rgba(15, 23, 42, 0.2));
+		transition: transform 0.4s ease;
+	}
+
+	/* Palco do Visualizador 3D Interativo */
+	.model-3d-stage {
+		width: 100%;
+		height: 100%;
+		min-height: 280px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+
+	model-viewer#modal-3d-viewer {
+		width: 100%;
+		height: 280px;
+		max-height: 280px;
+		background-color: transparent;
+		--poster-color: transparent;
+		outline: none;
+		touch-action: pan-y;
+		--progress-bar-color: #e11d48;
+		--progress-bar-height: 3px;
+	}
+
+	.model-loading-indicator {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		width: 100%;
+		height: 100%;
+		min-height: 260px;
+		color: #64748b;
+		font-family: 'Inter', sans-serif;
+		font-size: 0.8rem;
+		font-weight: 500;
+	}
+
+	.model-spinner {
+		width: 32px;
+		height: 32px;
+		border: 3px solid rgba(13, 31, 71, 0.1);
+		border-top-color: #e11d48;
+		border-radius: 50%;
+		animation: spinModel 0.8s linear infinite;
+	}
+
+	@keyframes spinModel {
+		to { transform: rotate(360deg); }
+	}
+
+	.mode-3d-notice {
+		display: none;
+		align-items: center;
+		gap: 0.4rem;
+		margin-top: 1rem;
+		font-size: 0.72rem;
+		font-weight: 600;
+		color: #e11d48;
+		background: rgba(225, 29, 72, 0.08);
+		padding: 0.25rem 0.65rem;
+		border-radius: 9999px;
+	}
+
+	.mode-3d-notice.active {
+		display: inline-flex;
+	}
+
+	.pulse-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: #e11d48;
+		animation: pulseDot 1.5s infinite;
+	}
+
+	@keyframes pulseDot {
+		0%, 100% { opacity: 1; transform: scale(1); }
+		50% { opacity: 0.4; transform: scale(1.4); }
+	}
+
+	/* Ficha Técnica Rápida */
+	.modal-quick-specs {
+		background: #f8fafc;
+		border: 1px solid #e2e8f0;
+		border-radius: 16px;
+		padding: 1.25rem;
+	}
+
+	.specs-heading {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 0.82rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: #475569;
+		margin-bottom: 0.75rem;
+	}
+
+	.specs-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.65rem;
+	}
+
+	:global(.spec-chip) {
+		background: #ffffff;
+		border: 1px solid #e2e8f0;
+		border-radius: 10px;
+		padding: 0.6rem 0.75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		min-width: 0;
+	}
+
+	:global(.chip-label) {
+		font-size: 0.68rem;
+		font-weight: 600;
+		color: #64748b;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	:global(.chip-val) {
+		font-size: 0.8rem;
+		font-weight: 700;
+		color: #0D1F47;
+		white-space: normal;
+		overflow-wrap: break-word;
+	}
+
+	/* ========================================================================= */
+	/* 5. COLUNA DIREITA: CONTEÚDO, CTA E DIFERENCIAIS                           */
+	/* ========================================================================= */
+	.modal-info-col {
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		padding-right: 0.5rem; /* Margem livre para nunca encostar ou cortar na scrollbar */
+	}
+
+	.modal-header-block {
+		margin-bottom: 1.25rem;
+	}
+
+	.modal-badges-row {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		margin-bottom: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.modal-category-tag {
+		font-family: 'Inter', monospace;
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: #e11d48;
+		background: rgba(225, 29, 72, 0.08);
+		padding: 0.25rem 0.65rem;
+		border-radius: 9999px;
+	}
+
+	.modal-model-tag {
+		font-family: 'Inter', monospace;
+		font-size: 0.74rem;
+		font-weight: 600;
+		color: #475569;
+		background: #f1f5f9;
+		padding: 0.25rem 0.65rem;
+		border-radius: 9999px;
+	}
+
+	.modal-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: #0D1F47;
+		line-height: 1.15;
+		overflow-wrap: break-word;
+	}
+
+	.modal-desc-box {
+		margin-bottom: 1.5rem;
+	}
+
+	.modal-desc {
+		font-family: 'Inter', sans-serif;
+		font-size: 0.94rem;
+		line-height: 1.6;
+		color: #334155;
+		overflow-wrap: break-word;
+		word-break: normal;
+		white-space: normal;
+	}
+
+	/* Botão de Orçamento WhatsApp */
+	.modal-cta-box {
+		margin-bottom: 2rem;
+	}
+
+	.btn-whatsapp-quote {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: 14px;
+		padding: 0.95rem 1.4rem;
+		color: #ffffff;
+		text-decoration: none;
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		box-shadow: 0 8px 20px -4px rgba(22, 163, 74, 0.35);
+	}
+
+	.btn-whatsapp-quote:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 12px 28px -4px rgba(22, 163, 74, 0.48);
+		background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+	}
+
+	.whatsapp-icon {
+		flex-shrink: 0;
+	}
+
+	.btn-cta-text {
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+		flex: 1;
+		min-width: 0;
+	}
+
+	.btn-cta-text strong {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.02rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+	}
+
+	.btn-cta-text small {
+		font-size: 0.74rem;
+		opacity: 0.9;
+		font-weight: 400;
+	}
+
+	.arrow-icon {
+		transition: transform 0.2s ease;
+		flex-shrink: 0;
+	}
+
+	.btn-whatsapp-quote:hover .arrow-icon {
+		transform: translateX(4px);
+	}
+
+	/* Diferenciais */
+	.modal-differentials-box {
+		margin-bottom: 1.75rem;
+	}
+
+	.differentials-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 0.88rem;
+		font-weight: 700;
+		color: #0D1F47;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		margin-bottom: 0.9rem;
+	}
+
+	.differentials-list {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 0.75rem;
+	}
+
+	:global(.differential-item) {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		background: #f8fafc;
+		border: 1px solid #f1f5f9;
+		border-radius: 10px;
+		padding: 0.75rem 0.9rem;
+		transition: background 0.2s ease;
+		min-width: 0;
+	}
+
+	:global(.differential-item:hover) {
+		background: #f1f5f9;
+	}
+
+	:global(.diff-bullet) {
+		width: 22px;
+		height: 22px;
+		border-radius: 50%;
+		background: rgba(225, 29, 72, 0.1);
+		color: #e11d48;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		margin-top: 2px;
+	}
+
+	:global(.diff-body) {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		min-width: 0;
+		flex: 1;
+	}
+
+	:global(.diff-name) {
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: #0D1F47;
+		line-height: 1.3;
+		overflow-wrap: break-word;
+	}
+
+	:global(.diff-text) {
+		font-size: 0.78rem;
+		color: #475569;
+		line-height: 1.45;
+		overflow-wrap: break-word;
+		word-break: normal;
+		white-space: normal;
+	}
+
+	/* Downloads */
+	.modal-downloads-box {
+		border-top: 1px solid #e2e8f0;
+		padding-top: 1.25rem;
+	}
+
+	.downloads-heading {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 0.78rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: #64748b;
+		margin-bottom: 0.85rem;
+	}
+
+	.downloads-actions-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.85rem;
+	}
+
+	.btn-doc-download {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem 0.9rem;
+		border-radius: 12px;
+		text-decoration: none;
+		border: 1px solid #e2e8f0;
+		background: #ffffff;
+		transition: all 0.2s ease;
+		min-width: 0;
+	}
+
+	.btn-doc-download:hover {
+		border-color: #cbd5e1;
+		background: #f8fafc;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+	}
+
+	.btn-nr12 .doc-icon-wrap {
+		background: rgba(225, 29, 72, 0.08);
+		color: #e11d48;
+	}
+
+	.btn-manual .doc-icon-wrap {
+		background: rgba(13, 31, 71, 0.08);
+		color: #0D1F47;
+	}
+
+	.doc-icon-wrap {
+		width: 36px;
+		height: 36px;
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.doc-text-wrap {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		min-width: 0;
+	}
+
+	.doc-title {
+		font-size: 0.78rem;
+		font-weight: 700;
+		color: #0D1F47;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.doc-sub {
+		font-size: 0.68rem;
+		color: #64748b;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.dl-arrow {
+		color: #94a3b8;
+		flex-shrink: 0;
+		transition: transform 0.2s ease, color 0.2s ease;
+	}
+
+	.btn-doc-download:hover .dl-arrow {
+		color: #0D1F47;
+		transform: translateY(2px);
+	}
+
+	/* ========================================================================= */
+	/* 6. RESPONSIVIDADE DO MODAL (MOBILE E TABLET)                              */
+	/* ========================================================================= */
+	@media (max-width: 960px) {
+		.modal-inner-layout {
+			grid-template-columns: 1fr;
+			gap: 1.75rem;
+			padding: 2.75rem 1.5rem 1.75rem 1.5rem;
+		}
+
+		.modal-info-col {
+			padding-right: 0;
+		}
+
+		.modal-close-btn {
+			top: 0.85rem;
+			right: 0.85rem;
+			width: 38px;
+			height: 38px;
+			background: rgba(255, 255, 255, 0.95);
+			box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+		}
+
+		.modal-image-box {
+			min-height: 240px;
+			padding: 2rem 1rem 1.25rem 1rem;
+		}
+
+		.modal-main-img {
+			max-height: 200px;
+		}
+
+		.model-3d-stage {
+			min-height: 220px;
+		}
+
+		model-viewer#modal-3d-viewer {
+			height: 220px;
+			max-height: 220px;
+		}
+
+		.downloads-actions-row {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.modal-backdrop {
+			padding: 0.65rem;
+		}
+
+		.modal-card-container {
+			border-radius: 20px;
+			max-height: 94vh;
+		}
+
+		.modal-inner-layout {
+			padding: 2.5rem 0.9rem 1.25rem 0.9rem;
+			gap: 1.25rem;
+		}
+
+		.model-3d-stage {
+			min-height: 200px;
+		}
+
+		model-viewer#modal-3d-viewer {
+			height: 200px;
+			max-height: 200px;
+		}
+
+		.modal-title {
+			font-size: 1.45rem;
+		}
+
+		.btn-whatsapp-quote {
+			padding: 0.85rem 1.1rem;
+		}
+
+		.btn-cta-text strong {
+			font-size: 0.95rem;
+		}
+
+		.specs-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

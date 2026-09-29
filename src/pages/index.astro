@@ -1,11 +1,858 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import logo from '../assets/logo.png';
+import heroImg from '../assets/hero.jpg';
+import amassadeiraImg from '../assets/amassadeira-espiral.png';
+import divisoraImg from '../assets/divisora-de-mesa.png';
+import modeladoraImg from '../assets/modeladora.jpg';
 ---
 
 <Layout>
-	<Welcome />
+	<!-- Header Global com suporte a menu sanduíche no mobile e desfoque no topo -->
+	<Header currentPage="inicio" />
+
+	<!-- ========================================================================= -->
+	<!-- 1. HERO: FOTO ORIGINAL ALINHADA ÀS LATERAIS COM LOGO TRANSPARENTE         -->
+	<!-- ========================================================================= -->
+	<section id="inicio" class="hero-section">
+		
+		<!-- Imagem de Fundo Original com Parallax Leve (Edge-to-Edge) -->
+		<div class="hero-image-container">
+			<img 
+				src={heroImg.src} 
+				alt="Fábrica de Máquinas para Panificação DeltaPan" 
+				class="hero-bg-image" 
+			/>
+		</div>
+
+		<!-- Conteúdo Sobreposto no Lado Esquerdo -->
+		<div class="hero-content-wrapper">
+			<div class="hero-left-column">
+				
+				<!-- Logo na Hero (Transição discreta subindo para o header ao rolar) -->
+				<div class="hero-logo-box" id="hero-logo">
+					<img 
+						src={logo.src} 
+						alt="DeltaPan Máquinas para Panificação" 
+						class="hero-overlaid-logo" 
+						width="320" 
+						height="80" 
+					/>
+				</div>
+
+				<!-- Título Principal com Cor Escura e Alta Legibilidade -->
+				<h1 class="hero-title">
+					Equipamentos que fazem sua produção render mais
+				</h1>
+
+				<!-- Subtítulo -->
+				<p class="hero-description">
+					Máquinas profissionais para padarias, confeitarias<br />
+					e indústrias que buscam mais produtividade,<br />
+					padronização e eficiência na produção.
+				</p>
+
+			</div>
+		</div>
+
+	</section>
+
+	<!-- ========================================================================= -->
+	<!-- 2. SEGUNDA DOBRA: APRESENTAÇÃO DOS EQUIPAMENTOS                          -->
+	<!-- ========================================================================= -->
+	<section id="maquinas" class="equipments-section">
+		<div class="equipments-container">
+			
+			<!-- Cabeçalho da Seção -->
+			<div class="section-header">
+				<h2 class="section-title">
+					Equipamentos Projetados para Alta Produtividade
+				</h2>
+				<p class="section-subtitle">
+					Do preparo da massa ao formato final: precisão, robustez e eficiência em cada detalhe.
+				</p>
+			</div>
+
+			<!-- Grid dos 3 Equipamentos -->
+			<div class="equipments-grid">
+				
+				<!-- Equipamento 1: Amassadeira Espiral AE80 -->
+				<div class="equipment-card">
+					<div class="card-image-box">
+						<img 
+							src={amassadeiraImg.src} 
+							alt="Amassadeira Espiral AE80" 
+							class="equipment-img" 
+							loading="lazy" 
+						/>
+						<span class="model-tag">AE80</span>
+					</div>
+					<div class="card-body">
+						<div class="step-counter">Etapa 01</div>
+						<h3 class="equipment-name">Amassadeira espiral</h3>
+						<div class="equipment-action-badge">Prepare a massa</div>
+						<p class="equipment-desc">
+							Desenvolvimento perfeito do glúten, homogeneização rápida e controle térmico para receitas de alto rendimento.
+						</p>
+					</div>
+				</div>
+
+				<!-- Equipamento 2: Divisora de Mesa -->
+				<div class="equipment-card">
+					<div class="card-image-box">
+						<img 
+							src={divisoraImg.src} 
+							alt="Divisora de Mesa" 
+							class="equipment-img" 
+							loading="lazy" 
+						/>
+						<span class="model-tag">Manual / Semi</span>
+					</div>
+					<div class="card-body">
+						<div class="step-counter">Etapa 02</div>
+						<h3 class="equipment-name">Divisora de mesa</h3>
+						<div class="equipment-action-badge">Divida</div>
+						<p class="equipment-desc">
+							Divisão exata em porções iguais com rapidez e sem agredir a estrutura da massa, garantindo peso padrão.
+						</p>
+					</div>
+				</div>
+
+				<!-- Equipamento 3: Modeladora -->
+				<div class="equipment-card">
+					<div class="card-image-box">
+						<img 
+							src={modeladoraImg.src} 
+							alt="Modeladora de Pães" 
+							class="equipment-img" 
+							loading="lazy" 
+						/>
+						<span class="model-tag">Industrial</span>
+					</div>
+					<div class="card-body">
+						<div class="step-counter">Etapa 03</div>
+						<h3 class="equipment-name">Modeladora</h3>
+						<div class="equipment-action-badge">Modele</div>
+						<p class="equipment-desc">
+							Enrolamento contínuo e uniforme com esteira de alta tração para pães franceses, baguetes e especiais.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Bloco Abaixo dos Três Equipamentos: Linha Completa para Panificação -->
+			<div class="full-line-action-box">
+				<h3 class="full-line-heading">Linha completa para panificação</h3>
+				<a href="/equipamentos" class="btn-explore-products">
+					<span>Conhecer Todos os Equipamentos</span>
+					<svg class="icon-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- ========================================================================= -->
+	<!-- 3. TERCEIRA DOBRA: INSTITUCIONAL (MISSÃO, VISÃO E VALORES) COM PARALLAX  -->
+	<!-- ========================================================================= -->
+	<section id="sobre" class="institutional-section">
+		
+		<!-- Elemento Decorativo com Parallax Leve de Fundo -->
+		<div class="institutional-bg-grid parallax-layer" data-speed="0.08"></div>
+
+		<div class="institutional-container">
+			
+			<!-- Cabeçalho da Seção -->
+			<div class="section-header">
+				<h2 class="section-title">
+					Compromisso com o Sucesso da sua Panificação
+				</h2>
+				<p class="section-subtitle">
+					Princípios sólidos, engenharia de ponta e relacionamentos de longo prazo.
+				</p>
+			</div>
+
+			<!-- Grid dos 3 Cards (Missão, Visão, Valores) com Parallax Leve -->
+			<div class="institutional-grid">
+				
+				<!-- Card 1: MISSÃO -->
+				<div class="institutional-card parallax-card" data-speed="0.04">
+					<div class="inst-icon-box">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="12" r="10"></circle>
+							<circle cx="12" cy="12" r="6"></circle>
+							<circle cx="12" cy="12" r="2"></circle>
+						</svg>
+					</div>
+					<h3 class="inst-card-title">MISSÃO</h3>
+					<p class="inst-card-text">
+						Desenvolver equipamentos para panificação que unam desempenho, qualidade e confiabilidade, ajudando nossos clientes a tornar sua produção mais eficiente, segura e produtiva.
+					</p>
+					<a href="#contato" class="inst-link">
+						<span>Saiba Mais</span>
+						<svg class="inst-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</a>
+				</div>
+
+				<!-- Card 2: VISÃO -->
+				<div class="institutional-card parallax-card" data-speed="0.07">
+					<div class="inst-icon-box">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+							<circle cx="12" cy="12" r="3"></circle>
+						</svg>
+					</div>
+					<h3 class="inst-card-title">VISÃO</h3>
+					<p class="inst-card-text">
+						Ser reconhecida pela excelência em equipamentos para panificação, ampliando nossa presença no mercado por meio da inovação, da qualidade e de relações duradouras com nossos clientes e parceiros.
+					</p>
+					<a href="#contato" class="inst-link">
+						<span>Saiba Mais</span>
+						<svg class="inst-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</a>
+				</div>
+
+				<!-- Card 3: VALORES -->
+				<div class="institutional-card parallax-card" data-speed="0.05">
+					<div class="inst-icon-box">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+						</svg>
+					</div>
+					<h3 class="inst-card-title">VALORES</h3>
+					<p class="inst-card-text">
+						Qualidade, compromisso, confiança, inovação e respeito fazem parte de cada etapa do nosso trabalho. Buscamos oferecer equipamentos duráveis, atendimento próximo e soluções que contribuam de forma real para o crescimento dos nossos clientes.
+					</p>
+					<a href="#contato" class="inst-link">
+						<span>Saiba Mais</span>
+						<svg class="inst-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</a>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Footer Global Reutilizável com telefones, e-mails e marca d'água aproximada -->
+	<Footer />
 </Layout>
+
+<script>
+	// Gerenciador de scroll: acoplamento do header, transição do logo e parallax leve
+	document.addEventListener('DOMContentLoaded', () => {
+		const header = document.getElementById('site-header');
+		const heroLogo = document.getElementById('hero-logo');
+		const heroBg = document.querySelector('.hero-bg-image');
+		const parallaxCards = document.querySelectorAll('.parallax-card');
+		const parallaxLayer = document.querySelector('.parallax-layer');
+
+		let ticking = false;
+
+		function onScroll() {
+			const scrollPos = window.scrollY || window.pageYOffset;
+			
+			// 1. Logo transition na Hero (desktop)
+			const scrollThreshold = Math.max(window.innerHeight * 0.22, 200);
+			if (scrollPos > scrollThreshold) {
+				heroLogo?.classList.add('is-scrolled');
+			} else {
+				heroLogo?.classList.remove('is-scrolled');
+			}
+
+			// 2. Parallax suave na imagem de fundo da Hero
+			if (heroBg && scrollPos < window.innerHeight) {
+				(heroBg as HTMLElement).style.transform = `translateY(${scrollPos * 0.15}px) scale(1.04)`;
+			}
+
+			// 3. Parallax leve nos cards e grid institucional
+			if (parallaxLayer) {
+				const rect = (parallaxLayer as HTMLElement).getBoundingClientRect();
+				if (rect.top < window.innerHeight && rect.bottom > 0) {
+					const offset = (window.innerHeight - rect.top) * 0.06;
+					(parallaxLayer as HTMLElement).style.transform = `translateY(-${offset}px)`;
+				}
+			}
+
+			parallaxCards.forEach((card) => {
+				const speed = parseFloat(card.getAttribute('data-speed') || '0.04');
+				const rect = card.getBoundingClientRect();
+				if (rect.top < window.innerHeight && rect.bottom > 0) {
+					const offset = (window.innerHeight - rect.top) * speed;
+					(card as HTMLElement).style.transform = `translateY(-${offset}px)`;
+				}
+			});
+
+			ticking = false;
+		}
+
+		window.addEventListener('scroll', () => {
+			if (!ticking) {
+				window.requestAnimationFrame(onScroll);
+				ticking = true;
+			}
+		}, { passive: true });
+
+		onScroll();
+	});
+</script>
+
+<style>
+	/* ========================================================================= */
+	/* 1. HERO RESPONSIVO                                                        */
+	/* ========================================================================= */
+	@media (max-width: 992px) {
+		.hero-logo-box {
+			display: none !important; /* No mobile o logo já fica exibido no header flutuante */
+		}
+		.hero-content-wrapper {
+			padding-top: 6.5rem;
+		}
+	}
+
+	/* ========================================================================= */
+	/* 2. HERO: FOTO ORIGINAL ALINHADA ÀS LATERAIS COM LOGO TRANSPARENTE         */
+	/* ========================================================================= */
+	.hero-section {
+		position: relative;
+		width: 100vw;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		background-color: #f8fafc;
+	}
+
+	.hero-image-container {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		overflow: hidden;
+	}
+
+	.hero-bg-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		display: block;
+		will-change: transform;
+		transition: transform 0.1s ease-out;
+	}
+
+	/* Conteúdo no lado esquerdo */
+	.hero-content-wrapper {
+		position: relative;
+		z-index: 10;
+		width: 100%;
+		max-width: 1360px;
+		margin: 0 auto;
+		padding: 8rem 2rem 5rem 2rem;
+		display: flex;
+		align-items: center;
+	}
+
+	.hero-left-column {
+		max-width: 660px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	/* Logo sobrepondo a imagem na hero com animação discreta em direção ao header */
+	/* Logo sobrepondo a imagem na hero com animação de entrada fade + blur */
+	.hero-logo-box {
+		margin-bottom: 2rem;
+		display: block;
+		filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.12));
+		opacity: 1;
+		transform: translate3d(0, 0, 0) scale(1);
+		transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+		will-change: transform, opacity, filter;
+		animation: heroLogoFadeBlurIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards;
+	}
+
+	/* Ao rolar a página, o logo sobe em direção ao header e transfere o foco para o logo fixado */
+	.hero-logo-box.is-scrolled {
+		opacity: 0;
+		transform: translate3d(0, -90px, 0) scale(0.55);
+		pointer-events: none;
+	}
+
+	.hero-overlaid-logo {
+		width: 100%;
+		max-width: 320px;
+		height: auto;
+		max-height: 95px;
+		object-fit: contain;
+		display: block;
+	}
+
+	/* Tipografia no tema claro com animação escalonada fade in + blur in */
+	.hero-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2.85rem;
+		font-weight: 800;
+		line-height: 1.14;
+		color: #0f172a;
+		letter-spacing: -0.025em;
+		margin-bottom: 1.25rem;
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
+		animation: heroTextFadeBlurIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s backwards;
+		will-change: opacity, filter, transform;
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2rem;
+		}
+		.hero-overlaid-logo {
+			max-width: 240px;
+		}
+	}
+
+	.hero-description {
+		font-size: 1.125rem;
+		line-height: 1.65;
+		color: #1e293b;
+		font-weight: 500;
+		max-width: 580px;
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+		animation: heroTextFadeBlurIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.65s backwards;
+		will-change: opacity, filter, transform;
+	}
+
+	/* Animações de Entrada Suaves (Fade In + Blur In) com Atraso Escalonado */
+	@keyframes heroLogoFadeBlurIn {
+		0% {
+			opacity: 0;
+			filter: blur(14px) drop-shadow(0 4px 14px rgba(0, 0, 0, 0));
+			transform: translate3d(0, 16px, 0);
+		}
+		100% {
+			opacity: 1;
+			filter: blur(0px) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.12));
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+	@keyframes heroTextFadeBlurIn {
+		0% {
+			opacity: 0;
+			filter: blur(12px);
+			transform: translateY(18px);
+		}
+		100% {
+			opacity: 1;
+			filter: blur(0px);
+			transform: translateY(0);
+		}
+	}
+
+	/* ========================================================================= */
+	/* 3. SEGUNDA DOBRA: APRESENTAÇÃO DOS EQUIPAMENTOS                          */
+	/* ========================================================================= */
+	.equipments-section {
+		position: relative;
+		width: 100%;
+		background-color: #f8fafc;
+		padding: 6rem 1.5rem 6.5rem 1.5rem;
+		border-top: 1px solid rgba(226, 232, 240, 0.8);
+	}
+
+	.equipments-container {
+		width: 100%;
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+
+	/* Cabeçalho da Seção */
+	.section-header {
+		text-align: center;
+		max-width: 720px;
+		margin: 0 auto 4rem auto;
+	}
+
+	.section-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.35rem 0.9rem;
+		border-radius: 8px;
+		background: #ffffff;
+		border: 1px solid rgba(203, 213, 225, 0.9);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+		margin-bottom: 1rem;
+	}
+
+	.badge-dot {
+		width: 7px;
+		height: 7px;
+		border-radius: 4px;
+		background: #e11d48;
+		box-shadow: 0 0 8px rgba(225, 29, 72, 0.5);
+	}
+
+	.badge-text {
+		font-family: 'Inter', monospace;
+		font-size: 0.6875rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: #334155;
+	}
+
+	.section-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2.25rem;
+		font-weight: 800;
+		color: #0f172a;
+		letter-spacing: -0.025em;
+		margin-bottom: 1rem;
+		line-height: 1.2;
+	}
+
+	.section-subtitle {
+		font-size: 1.05rem;
+		color: #64748b;
+		line-height: 1.6;
+	}
+
+	/* Grid de 3 Cards de Equipamentos */
+	.equipments-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+		margin-bottom: 3.5rem;
+	}
+
+	@media (max-width: 980px) {
+		.equipments-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+	}
+
+	/* Card Individual do Equipamento */
+	.equipment-card {
+		background: #ffffff;
+		border-radius: 2rem;
+		border: 1px solid rgba(226, 232, 240, 0.85);
+		box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+		position: relative;
+	}
+
+	.equipment-card:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 22px 45px -10px rgba(0, 0, 0, 0.09), 0 0 0 1px rgba(15, 23, 42, 0.06);
+		border-color: #cbd5e1;
+	}
+
+	/* Caixa de Imagem do Equipamento */
+	.card-image-box {
+		width: 100%;
+		height: 280px;
+		background: #f8fafc;
+		border-radius: 1.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1.5rem;
+		margin-bottom: 1.75rem;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.equipment-img {
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+		display: block;
+		transition: transform 0.4s ease;
+	}
+
+	.equipment-card:hover .equipment-img {
+		transform: scale(1.05);
+	}
+
+	.model-tag {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		font-family: 'Inter', monospace;
+		font-size: 0.6875rem;
+		font-weight: 700;
+		color: #475569;
+		background: #ffffff;
+		padding: 0.25rem 0.65rem;
+		border-radius: 6px;
+		border: 1px solid #e2e8f0;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+	}
+
+	/* Conteúdo do Card */
+	.card-body {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.step-counter {
+		font-family: 'Inter', monospace;
+		font-size: 0.6875rem;
+		font-weight: 700;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: #94a3b8;
+		margin-bottom: 0.4rem;
+	}
+
+	.equipment-name {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.35rem;
+		font-weight: 800;
+		color: #0f172a;
+		margin-bottom: 0.6rem;
+		letter-spacing: -0.015em;
+	}
+
+	.equipment-action-badge {
+		display: inline-block;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 0.8125rem;
+		font-weight: 700;
+		color: #001ba0;
+		background: #eef2ff;
+		padding: 0.25rem 0.75rem;
+		border-radius: 8px;
+		margin-bottom: 0.85rem;
+		border: 1px solid #c7d2fe;
+	}
+
+	.equipment-desc {
+		font-size: 0.925rem;
+		line-height: 1.55;
+		color: #475569;
+		margin-bottom: 0.5rem;
+	}
+
+	/* ========================================================================= */
+	/* 4. BLOCO ABAIXO: LINHA COMPLETA PARA PANIFICAÇÃO                         */
+	/* ========================================================================= */
+	.full-line-action-box {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding-top: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.full-line-heading {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2.15rem;
+		font-weight: 800;
+		color: #0f172a;
+		letter-spacing: -0.025em;
+		margin-bottom: 1.5rem;
+		line-height: 1.2;
+	}
+
+	@media (max-width: 768px) {
+		.full-line-heading {
+			font-size: 1.65rem;
+		}
+	}
+
+	.btn-explore-products {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.65rem;
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: #ffffff;
+		background: #0D1F47;
+		padding: 0.95rem 2.25rem;
+		border-radius: 10px;
+		box-shadow: 0 10px 25px -5px rgba(13, 31, 71, 0.28);
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		white-space: nowrap;
+	}
+
+	.btn-explore-products:hover {
+		background: #162f6b;
+		transform: translateY(-2px) scale(1.02);
+		box-shadow: 0 16px 35px -5px rgba(13, 31, 71, 0.38);
+	}
+
+	.btn-explore-products:active {
+		transform: translateY(0) scale(0.98);
+	}
+
+	.icon-btn-arrow {
+		width: 16px !important;
+		height: 16px !important;
+		min-width: 16px !important;
+		max-width: 16px !important;
+		transition: transform 0.25s ease;
+	}
+
+	.btn-explore-products:hover .icon-btn-arrow {
+		transform: translateX(3px);
+	}
+
+	/* ========================================================================= */
+	/* 5. TERCEIRA DOBRA: INSTITUCIONAL (MISSÃO, VISÃO E VALORES) COM PARALLAX  */
+	/* ========================================================================= */
+	.institutional-section {
+		position: relative;
+		width: 100%;
+		background-color: #ffffff;
+		padding: 7rem 1.5rem 8rem 1.5rem;
+		border-top: 1px solid rgba(226, 232, 240, 0.8);
+		overflow: hidden;
+	}
+
+	/* Grid sutil decorativa com parallax */
+	.institutional-bg-grid {
+		position: absolute;
+		inset: -100px 0;
+		background-image: radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+		background-size: 32px 32px;
+		pointer-events: none;
+		z-index: 0;
+		will-change: transform;
+	}
+
+	.institutional-container {
+		position: relative;
+		z-index: 10;
+		width: 100%;
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+
+	/* Grid de Missão, Visão e Valores */
+	.institutional-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2.25rem;
+	}
+
+	@media (max-width: 980px) {
+		.institutional-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+	}
+
+	/* Card Individual de Missão / Visão / Valores */
+	.institutional-card {
+		background: #f8fafc;
+		border-radius: 2rem;
+		border: 1px solid rgba(226, 232, 240, 0.95);
+		box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.02);
+		padding: 2.5rem 2.25rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+		will-change: transform;
+	}
+
+	.institutional-card:hover {
+		background: #ffffff;
+		border-color: #cbd5e1;
+		box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(15, 23, 42, 0.05);
+	}
+
+	.inst-icon-box {
+		width: 52px;
+		height: 52px;
+		border-radius: 1.25rem;
+		background: #ffffff;
+		border: 1px solid #e2e8f0;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #0f172a;
+		margin-bottom: 1.75rem;
+		transition: transform 0.3s ease, background 0.3s ease;
+	}
+
+	.institutional-card:hover .inst-icon-box {
+		transform: scale(1.08);
+		background: #0D1F47;
+		color: #ffffff;
+		border-color: #0D1F47;
+	}
+
+	.inst-card-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.45rem;
+		font-weight: 800;
+		color: #0f172a;
+		letter-spacing: -0.015em;
+		margin-bottom: 1rem;
+	}
+
+	.inst-card-text {
+		font-size: 0.975rem;
+		line-height: 1.65;
+		color: #475569;
+		margin-bottom: 2rem;
+		flex-grow: 1;
+	}
+
+	.inst-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.875rem;
+		font-weight: 700;
+		color: #0f172a;
+		transition: all 0.25s ease;
+		width: fit-content;
+	}
+
+	.inst-link-arrow {
+		width: 14px !important;
+		height: 14px !important;
+		transition: transform 0.25s ease;
+	}
+
+	.inst-link:hover {
+		color: #e11d48;
+	}
+
+	.inst-link:hover .inst-link-arrow {
+		transform: translateX(4px);
+	}
+
+
+</style>

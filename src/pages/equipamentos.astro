@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import EquipamentosShowcase from '../components/EquipamentosShowcase.astro';
+import ProductModal from '../components/ProductModal.astro';
+
+import aeImg from '../assets/AE sombra.png';
+import batedeiraImg from '../assets/batedeira sombra.png';
+import cilindroImg from '../assets/cilindro sombra.png';
+
+import modeladoraEsteiraImg from '../assets/modeladora-esteira.png';
+import divisoraColunaImg from '../assets/divisora-coluna.png';
+import divisoraAlavancaImg from '../assets/divisora-alavanca.png';
+
+// Lote 1 de equipamentos (existente mantido intacto)
+const machines = [
+	{
+		id: 'amassadeira-espiral',
+		name: 'Amassadeira Espiral',
+		model: 'Linha AE 40 / AE 80 kg',
+		shortDesc: 'Desenvolvimento do glúten e alto rendimento',
+		category: 'Panificação Pesada',
+		img: aeImg,
+		alt: 'Amassadeira Espiral Industrial DeltaPan',
+		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Amassadeira Espiral (Linha AE 40 / AE 80 kg).',
+		description: 'Projetada para atender demandas intensivas de panificação industrial e padarias que exigem o máximo de rendimento e padronização. Seus movimentos perfeitamente sincronizados entre o batedor espiral e o tacho em aço inox garantem rápida formação da rede de glúten, menor aquecimento da massa e absorção ideal de hidratação.',
+		differentials: [
+			{ title: 'Tacho e Espiral em Aço Inox 304', desc: 'Acabamento sanitário de grau alimentício com alta durabilidade e fácil higienização' },
+			{ title: 'Dupla Velocidade com Inversor', desc: 'Mistura lenta inicial e desenvolvimento rápido programável com transição suave' },
+			{ title: 'Transmissão Dupla Reforçada', desc: 'Duplo conjunto de correias sincronizadas de alto torque, silencioso e sem vibrações' },
+			{ title: 'Segurança Total NR-12', desc: 'Grade basculante de proteção com microchave codificada e freio de parada instantânea' }
+		],
+		specs: [
+			{ label: 'Capacidade de Massa Pronta', value: '40 kg a 80 kg' },
+			{ label: 'Capacidade de Farinha', value: '25 kg a 50 kg' },
+			{ label: 'Motorização', value: '5,0 cv / 7,5 cv trifásico' },
+			{ label: 'Tensão Elétrica', value: '220V / 380V Trifásico' }
+		],
+		laudoNr12Url: '#',
+		manualUrl: '#'
+	},
+	{
+		id: 'batedeira-planetaria',
+		name: 'Batedeira Planetária',
+		model: 'Linha BP 20 / BP 40 Litros',
+		shortDesc: 'Precisão máxima para massas leves e cremes',
+		category: 'Confeitaria & Panificação',
+		img: batedeiraImg,
+		alt: 'Batedeira Planetária Industrial DeltaPan',
+		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Batedeira Planetária (Linha BP 20 / BP 40 Litros).',
+		description: 'Versatilidade incomparável para confeitarias, cozinhas profissionais e indústrias de panificação. O movimento planetário sincrônico aliado aos 3 batedores intercambiáveis permite preparar desde cremes delicados, merengues e mousses até massas densas de tortas e pães leves com aeração perfeita e acabamento homogêneo.',
+		differentials: [
+			{ title: 'Kit com 3 Batedores Inclusos', desc: 'Globo para aeração máxima, Raquete para cremes e massas médias, e Gancho' },
+			{ title: 'Engrenagens em Banho de Óleo', desc: 'Conjunto helicoidal usinado em aço especial garantindo operação estável e silenciosa' },
+			{ title: 'Painel Eletrônico com Temporizador', desc: 'Controle preciso de tempo e velocidades programáveis para padrão industrial' },
+			{ title: 'Elevação Ergonômica com Trava', desc: 'Alavanca de engate rápido com sensor de proteção intertravado NR-12' }
+		],
+		specs: [
+			{ label: 'Capacidade Volumétrica', value: '20 Litros / 40 Litros' },
+			{ label: 'Material do Tacho', value: 'Aço inoxidável estampado sanitário' },
+			{ label: 'Potência do Motor', value: '1,5 cv / 2,5 cv com inversor' },
+			{ label: 'Tensão Elétrica', value: '220V Monofásico / Trifásico' }
+		],
+		laudoNr12Url: '#',
+		manualUrl: '#'
+	},
+	{
+		id: 'cilindro-laminador',
+		name: 'Cilindro Laminador',
+		model: 'Linha CL 500 / CL 600 mm',
+		shortDesc: 'Laminação homogênea e abertura regulável',
+		category: 'Laminação & Moldagem',
+		img: cilindroImg,
+		alt: 'Cilindro Laminador / Modeladora DeltaPan',
+		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Cilindro Laminador (Linha CL 500 / CL 600 mm).',
+		description: 'Desenvolvido para sovar e laminar massas de pães, folhados, pizzas e salgados com espessura rigorosamente uniforme. Seus rolos maciços cromados e retificados oferecem regulagem milimétrica contínua, combinando alta produtividade operacional com ergonomia e facilidade de alimentação contínua.',
+		differentials: [
+			{ title: 'Rolos Retificados e Cromados', desc: 'Aço especial usinado de alta dureza com 500 mm ou 600 mm de largura útil' },
+			{ title: 'Regulagem Milimétrica Precisa', desc: 'Manípulo ergonômico com escala visual rápida e trava anti-deslocamento' },
+			{ title: 'Raspadores Duplos Removíveis', desc: 'Higienização simples e rápida sem a necessidade de ferramentas mecânicas' },
+			{ title: 'Freio Motorizado Instantâneo', desc: 'Botão de parada tipo cogumelo e proteções mecânicas em total conformidade NR-12' }
+		],
+		specs: [
+			{ label: 'Largura Útil dos Rolos', value: '500 mm / 600 mm' },
+			{ label: 'Diâmetro dos Rolos', value: '125 mm / 160 mm retificados' },
+			{ label: 'Potência do Motor', value: '3,0 cv / 4,0 cv trifásico' },
+			{ label: 'Tensão Elétrica', value: '220V / 380V Trifásico' }
+		],
+		laudoNr12Url: '#',
+		manualUrl: '#'
+	}
+];
+
+// Lote 2 de equipamentos (novos produtos solicitados)
+const machinesBatch2 = [
+	{
+		id: 'modeladora-esteira',
+		name: 'Modeladora com Esteira',
+		model: 'Linha MP 500 / MP Inox',
+		shortDesc: 'Enrolamento e modelagem contínua em aço inox',
+		category: 'Modelagem & Formato',
+		img: modeladoraEsteiraImg,
+		alt: 'Modeladora de Pães com Esteira DeltaPan',
+		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Modeladora com Esteira (Linha MP 500 / MP Inox).',
+		description: 'Desenvolvida para padronizar e agilizar o enrolamento e modelagem de pães franceses, bisnagas, baguetes e massas especiais. Estrutura integral em aço inoxidável com esteira de lona sanitária contínua, sistema de segurança com botão de emergência e regulagem de abertura dos rolos para diferentes formatos e gramaturas de massa.',
+		differentials: [
+			{ title: 'Esteira Transportadora Sanitária', desc: 'Lona de alta aderência alimentar com condução contínua e suave da massa' },
+			{ title: 'Estrutura Integral em Aço Inox 304', desc: 'Carenagem anticorrosiva montada sobre rodízios com travas de segurança' },
+			{ title: 'Regulagem Dupla Milimétrica', desc: 'Ajuste de espessura de entrada e formato de enrolamento do pão com manípulo' },
+			{ title: 'Conformidade Total NR-12', desc: 'Sensor de segurança na entrada da esteira e botão de parada tipo cogumelo' }
+		],
+		specs: [
+			{ label: 'Capacidade Produtiva', value: 'Até 4.000 pães/hora' },
+			{ label: 'Largura Útil dos Rolos', value: '500 mm retificados' },
+			{ label: 'Potência do Motor', value: '1,0 cv com motoredutor' },
+			{ label: 'Tensão Elétrica', value: '220V Monofásico / Trifásico' }
+		],
+		laudoNr12Url: '#',
+		manualUrl: '#',
+		model3dUrl: '/models/modeladora.glb'
+	},
+	{
+		id: 'divisora-mesa',
+		name: 'Divisora de Mesa',
+		model: 'Linha DM 30 Mesa',
+		shortDesc: 'Divisão uniforme de 30 porções com base de bancada',
+		category: 'Divisão & Porcionamento',
+		img: divisoraColunaImg,
+		alt: 'Divisora de Mesa DeltaPan',
+		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Divisora de Mesa (Linha DM 30 Mesa).',
+		description: 'Ideal para padarias e confeitarias que buscam alta produtividade com padronização rigorosa no peso das porções. Equipada com navalhas em aço inox de alta afiação e prato basculante que garante divisão exata em 30 porções iguais sem rasgar ou desgastar a estrutura da massa.',
+		differentials: [
+			{ title: 'Corte de 30 Divisões Iguais', desc: 'Conjunto de facas estampadas em aço inox com corte preciso e uniforme' },
+			{ title: 'Estrutura Compacta de Mesa', desc: 'Perfeita para bancadas ou cavalete de suporte em padarias e confeitarias' },
+			{ title: 'Prato Basculante Sanitário', desc: 'Alumínio naval de alta resistência com acabamento polido antiaderente' },
+			{ title: 'Alavanca Superior Balanceada', desc: 'Mecanismo multiplicador de torque exigindo mínimo esforço do operador' }
+		],
+		specs: [
+			{ label: 'Número de Divisões', value: '30 porções simultâneas' },
+			{ label: 'Capacidade de Massa', value: '0,9 kg a 3,0 kg por ciclo' },
+			{ label: 'Material das Lâminas', value: 'Aço inoxidável sanitário' },
+			{ label: 'Estrutura / Base', value: 'Base compacta para bancada / mesa' }
+		],
+		laudoNr12Url: '#',
+		manualUrl: '#'
+	},
+	{
+		id: 'divisora-coluna',
+		name: 'Divisora de Coluna',
+		model: 'Linha DC 30 Coluna',
+		shortDesc: 'Engenharia pesada e coluna estrutural de alta precisão',
+		category: 'Divisão de Precisão',
+		img: divisoraAlavancaImg,
+		alt: 'Divisora de Coluna DeltaPan',
+		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Divisora de Coluna (Linha DC 30 Coluna).',
+		description: 'Projetada com engenharia mecânica pesada montada sobre coluna estrutural em ferro fundido nodular. Possui alavanca lateral ergonômica com sistema multiplicador de força, cabeçote com navalhas radiais e anel de prensagem que proporciona corte uniforme e instantâneo até nas massas mais densas, com máxima durabilidade operacional.',
+		differentials: [
+			{ title: 'Corpo e Coluna em Ferro Fundido Maciço', desc: 'Extrema estabilidade operacional sem flexão ou vibrações' },
+			{ title: 'Alavanca Lateral com Engrenamento', desc: 'Transmissão mecânica suave que reduz o esforço físico na prensagem' },
+			{ title: 'Cabeçote Radial de Precisão', desc: 'Divisão exata em 30 pedaços calibrados com corte limpo das fibras' },
+			{ title: 'Base Redonda com Pré-Furos', desc: 'Fixação firme e segura diretamente no piso ou bancada de trabalho' }
+		],
+		specs: [
+			{ label: 'Número de Divisões', value: '30 pedaços calibrados' },
+			{ label: 'Faixa de Peso', value: '30g a 100g por unidade' },
+			{ label: 'Acabamento', value: 'Ferro fundido usinado e cromado' },
+			{ label: 'Estrutura / Base', value: 'Coluna estrutural fundida' }
+		],
+		laudoNr12Url: '#',
+		manualUrl: '#'
+	}
+];
+---
+
+<Layout>
+	<!-- Header Flutuante Reutilizável -->
+	<Header currentPage="equipamentos" />
+
+	<main class="equipamentos-main">
+		
+		<!-- Dobra 1: Apresentação dos Equipamentos (Existente mantida intacta) -->
+		<EquipamentosShowcase machines={machines} />
+
+		<!-- Dobra 2: Nova Linha de Equipamentos (Modeladora e Divisoras) -->
+		<EquipamentosShowcase machines={machinesBatch2} />
+
+	</main>
+
+	<!-- Modal Interativo com Suporte a Todos os Equipamentos -->
+	<ProductModal machines={[...machines, ...machinesBatch2]} />
+
+	<!-- Footer Reutilizável -->
+	<Footer />
+</Layout>
+
+<style>
+	/* ========================================================================= */
+	/* 1. LAYOUT PRINCIPAL                                                       */
+	/* ========================================================================= */
+	.equipamentos-main {
+		width: 100%;
+		padding-top: 5.5rem;
+		padding-bottom: 4rem;
+		background: #f8fafc;
+		min-height: calc(100vh - 100px);
+		transition: filter 0.35s ease;
+	}
+
+	/* Desfoque do fundo da página quando o modal estiver aberto */
+	:global(body.modal-open .equipamentos-main),
+	:global(body.modal-open #main-header),
+	:global(body.modal-open footer) {
+		filter: blur(8px);
+		transition: filter 0.35s ease;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	:global(body.modal-open) {
+		overflow: hidden;
+	}
+</style>

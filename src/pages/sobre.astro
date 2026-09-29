@@ -1,0 +1,815 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import factoryImg from '../assets/sobre-fabrica.jpg';
+
+const valuesList = [
+	{
+		title: 'Qualidade e Engenharia Robusta',
+		desc: 'Uso de aço inoxidável certificado, eixos retificados e componentes de primeira linha dimensionados para regimes severos.'
+	},
+	{
+		title: 'Segurança Humana (NR-12)',
+		desc: 'Proteções mecânicas, sensores codificados e paradas instantâneas protegendo os operadores em cada etapa do processo.'
+	},
+	{
+		title: 'Inovação e Produtividade',
+		desc: 'Controles digitais, inversores de frequência e mecânica silenciosa que aumentam a taxa de rendimento das massas.'
+	},
+	{
+		title: 'Compromisso com o Cliente',
+		desc: 'Atendimento direto da fábrica, pós-venda técnico especializado e prontidão no envio de peças de reposição.'
+	}
+];
+---
+
+<Layout>
+	<!-- Header Flutuante Global -->
+	<Header currentPage="sobre" />
+
+	<main class="sobre-main">
+		
+		<!-- ========================================================================= -->
+		<!-- 1. HERO INSTITUCIONAL: ORIGEM E IDENTIDADE                                -->
+		<!-- ========================================================================= -->
+		<section class="sobre-hero">
+			<div class="sobre-hero-container">
+				
+				<h1 class="hero-heading">
+					Engenharia catarinense projetada para impulsionar a panificação no Brasil
+				</h1>
+
+				<p class="hero-lead">
+					A <strong>DeltaPan Equipamentos</strong> nasceu no polo industrial do Sul Catarinense, unindo tradição metalmecânica, tecnologia de automação e rigor no desenvolvimento de maquinários para panificação e confeitaria.
+				</p>
+
+				<!-- Indicadores Rápidos -->
+				<div class="hero-stats-row">
+					<div class="stat-card">
+						<span class="stat-number">100%</span>
+						<span class="stat-label">Fabricação e Engenharia Nacional</span>
+					</div>
+					<div class="stat-card">
+						<span class="stat-number">NR-12</span>
+						<span class="stat-label">Conformidade Total de Segurança</span>
+					</div>
+					<div class="stat-card">
+						<span class="stat-number">Criciúma / SC</span>
+						<span class="stat-label">Parque Fabril no Sul Catarinense</span>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ========================================================================= -->
+		<!-- 2. NOSSA HISTÓRIA E ENGENHARIA FABRIL                                      -->
+		<!-- ========================================================================= -->
+		<section class="history-section">
+			<div class="history-container">
+				
+				<div class="history-text-col">
+					<h2 class="section-title">
+						Nascida onde a indústria e a precisão técnica se encontram
+					</h2>
+					<p class="section-p">
+						Sediada em <strong>Criciúma, Santa Catarina</strong> — um dos mais consolidados polos de transformação metalmecânica do país —, a DeltaPan Equipamentos projeta e fabrica maquinários desenvolvidos sob medida para os desafios reais da panificação profissional.
+					</p>
+					<p class="section-p">
+						Nossas instalações combinam tecnologia de corte, conformação e solda de alta precisão com rigoroso controle dimensional. Do tacho em aço inox ao balanceamento milimétrico dos rolos laminadores e batedores, cada máquina é concebida para durar anos com máxima estabilidade e baixo custo de manutenção.
+					</p>
+					
+					<div class="location-box">
+						<div class="location-icon">
+							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+								<circle cx="12" cy="10" r="3"></circle>
+							</svg>
+						</div>
+						<div class="location-info">
+							<strong>Parque Fabril DeltaPan</strong>
+							<p>Rodovia Archimedes Naspolini, 2120 • Mina do Mato • Criciúma, SC — CEP 88810-560</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="history-media-col">
+					<div class="media-card-wrapper">
+						<img 
+							src={factoryImg.src} 
+							alt="Parque fabril de usinagem e fabricação de equipamentos DeltaPan" 
+							class="media-main-img" 
+							loading="lazy"
+						/>
+						<div class="media-floating-badge">
+							<span class="badge-title">Tecnologia & Robustez</span>
+							<span class="badge-sub">Estrutura pensada para regimes industriais contínuos</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ========================================================================= -->
+		<!-- 3. MISSÃO, VISÃO E VALORES                                                -->
+		<!-- ========================================================================= -->
+		<section class="mvv-section">
+			<div class="mvv-container">
+				
+				<div class="section-header-center">
+					<h2 class="section-title center">Nossos Princípios e Propósito</h2>
+					<p class="section-subtitle center">
+						A filosofia de engenharia e relacionamento que orienta cada máquina entregue pela DeltaPan.
+					</p>
+				</div>
+
+				<div class="mvv-grid">
+					
+					<!-- Card 1: MISSÃO -->
+					<div class="mvv-card">
+						<div class="mvv-icon-wrap icon-mission">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="10"></circle>
+								<circle cx="12" cy="12" r="6"></circle>
+								<circle cx="12" cy="12" r="2"></circle>
+							</svg>
+						</div>
+						<span class="mvv-kicker">PROPÓSITO</span>
+						<h3 class="mvv-card-title">Missão</h3>
+						<p class="mvv-card-desc">
+							Desenvolver equipamentos para panificação que unam desempenho, robustez e confiabilidade, ajudando nossos clientes a tornar sua produção mais eficiente, segura e produtiva.
+						</p>
+					</div>
+
+					<!-- Card 2: VISÃO -->
+					<div class="mvv-card">
+						<div class="mvv-icon-wrap icon-vision">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+								<circle cx="12" cy="12" r="3"></circle>
+							</svg>
+						</div>
+						<span class="mvv-kicker">FUTURO</span>
+						<h3 class="mvv-card-title">Visão</h3>
+						<p class="mvv-card-desc">
+							Ser reconhecida pela excelência em equipamentos para panificação no Brasil, ampliando nossa presença no mercado por meio da inovação contínua, da qualidade e de relações duradouras com nossos clientes e parceiros.
+						</p>
+					</div>
+
+					<!-- Card 3: VALORES -->
+					<div class="mvv-card">
+						<div class="mvv-icon-wrap icon-values">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+							</svg>
+						</div>
+						<span class="mvv-kicker">CONDUTA</span>
+						<h3 class="mvv-card-title">Valores</h3>
+						<p class="mvv-card-desc">
+							Qualidade intransigente, compromisso, confiança mútua, inovação permanente e respeito irrestrito fazem parte de cada etapa do nosso processo e da nossa relação com o cliente.
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ========================================================================= -->
+		<!-- 4. PILARES DE FABRICAÇÃO E ENGENHARIA                                      -->
+		<!-- ========================================================================= -->
+		<section class="pillars-section">
+			<div class="pillars-container">
+				
+				<div class="pillars-header">
+					<h2 class="section-title">
+						Pilares construtivos que diferenciam cada equipamento
+					</h2>
+				</div>
+
+				<div class="pillars-grid">
+					{valuesList.map((item, idx) => (
+						<div class="pillar-card">
+							<div class="pillar-number">0{idx + 1}</div>
+							<h4 class="pillar-title">{item.title}</h4>
+							<p class="pillar-desc">{item.desc}</p>
+						</div>
+					))}
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ========================================================================= -->
+		<!-- 5. BANNER CTA DE FECHAMENTO                                               -->
+		<!-- ========================================================================= -->
+		<section class="sobre-cta-section">
+			<div class="sobre-cta-container">
+				<div class="sobre-cta-card">
+					<div class="cta-content">
+						<h2 class="cta-heading">Conheça a linha completa de equipamentos DeltaPan</h2>
+						<p class="cta-desc">
+							Descubra como nossas amassadeiras, batedeiras e cilindros podem transformar a capacidade produtiva da sua empresa.
+						</p>
+						<div class="cta-actions">
+							<a href="/equipamentos" class="btn-primary-cta">
+								<span>Ver Equipamentos</span>
+								<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<line x1="5" y1="12" x2="19" y2="12"></line>
+									<polyline points="12 5 19 12 12 19"></polyline>
+								</svg>
+							</a>
+							<a href="/#contato" class="btn-secondary-cta">
+								<span>Falar com Nossos Especialistas</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<!-- Footer Global Reutilizável -->
+	<Footer />
+</Layout>
+
+<style>
+	/* ========================================================================= */
+	/* 1. LAYOUT PRINCIPAL                                                       */
+	/* ========================================================================= */
+	.sobre-main {
+		width: 100%;
+		padding-top: 5.5rem;
+		background: #f8fafc;
+		min-height: 100vh;
+	}
+
+	/* ========================================================================= */
+	/* 2. HERO INSTITUCIONAL                                                     */
+	/* ========================================================================= */
+	.sobre-hero {
+		width: 100%;
+		padding: 3rem 1.5rem 4.5rem 1.5rem;
+		position: relative;
+		background: radial-gradient(circle at 50% 10%, rgba(226, 232, 240, 0.4) 0%, transparent 60%);
+	}
+
+	.sobre-hero-container {
+		width: 100%;
+		max-width: 1140px;
+		margin: 0 auto;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.hero-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		background: #ffffff;
+		border: 1px solid #e2e8f0;
+		padding: 0.45rem 1.1rem;
+		border-radius: 9999px;
+		font-family: 'Inter', monospace;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		color: #475569;
+		margin-bottom: 1.75rem;
+		box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+	}
+
+	.badge-dot {
+		width: 7px;
+		height: 7px;
+		background-color: #e11d48;
+		border-radius: 50%;
+		display: inline-block;
+	}
+
+	.hero-heading {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+		font-size: clamp(1.85rem, 3.8vw, 3.25rem);
+		font-weight: 800;
+		color: #0f172a;
+		letter-spacing: -0.03em;
+		line-height: 1.18;
+		max-width: 960px;
+		margin-bottom: 1.5rem;
+	}
+
+	.hero-lead {
+		font-family: 'Inter', sans-serif;
+		font-size: clamp(1rem, 1.4vw, 1.18rem);
+		color: #475569;
+		line-height: 1.65;
+		max-width: 780px;
+		margin-bottom: 3rem;
+	}
+
+	.hero-lead strong {
+		color: #0f172a;
+	}
+
+	/* Stats Row */
+	.hero-stats-row {
+		width: 100%;
+		max-width: 900px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1.5rem;
+	}
+
+	.stat-card {
+		background: #ffffff;
+		border: 1px solid #e2e8f0;
+		border-radius: 16px;
+		padding: 1.5rem 1.25rem;
+		box-shadow: 0 8px 25px -5px rgba(15, 23, 42, 0.05);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		transition: transform 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.stat-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 14px 30px -8px rgba(15, 23, 42, 0.1);
+	}
+
+	.stat-number {
+		font-family: 'Montserrat', 'Inter', sans-serif;
+		font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+		font-weight: 800;
+		color: #0f172a;
+		margin-bottom: 0.35rem;
+	}
+
+	.stat-label {
+		font-size: 0.8125rem;
+		font-weight: 500;
+		color: #64748b;
+		text-align: center;
+		line-height: 1.4;
+	}
+
+	/* ========================================================================= */
+	/* 3. SEÇÃO HISTÓRIA & LOCALIZAÇÃO (CRICIÚMA/SC)                             */
+	/* ========================================================================= */
+	.history-section {
+		width: 100%;
+		padding: 5rem 1.5rem;
+		background: #ffffff;
+		border-top: 1px solid #e2e8f0;
+		border-bottom: 1px solid #e2e8f0;
+	}
+
+	.history-container {
+		width: 100%;
+		max-width: 1240px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1.15fr 0.85fr;
+		gap: 4rem;
+		align-items: center;
+	}
+
+	.section-tag {
+		display: inline-flex;
+		align-items: center;
+		font-family: 'Inter', monospace;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: #64748b;
+		background: #f1f5f9;
+		padding: 0.35rem 0.85rem;
+		border-radius: 6px;
+		margin-bottom: 1.25rem;
+	}
+
+	.section-tag.center {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.section-title {
+		font-family: 'Inter', sans-serif;
+		font-size: clamp(1.65rem, 2.6vw, 2.35rem);
+		font-weight: 800;
+		color: #0f172a;
+		letter-spacing: -0.025em;
+		line-height: 1.25;
+		margin-bottom: 1.5rem;
+	}
+
+	.section-title.center {
+		text-align: center;
+	}
+
+	.section-subtitle.center {
+		text-align: center;
+		font-size: 1rem;
+		color: #64748b;
+		max-width: 620px;
+		margin: 0 auto 3rem auto;
+		line-height: 1.6;
+	}
+
+	.section-p {
+		font-size: 0.95rem;
+		color: #475569;
+		line-height: 1.7;
+		margin-bottom: 1.25rem;
+	}
+
+	.section-p strong {
+		color: #0f172a;
+	}
+
+	.location-box {
+		margin-top: 2rem;
+		background: #f8fafc;
+		border: 1px solid #e2e8f0;
+		border-radius: 12px;
+		padding: 1.25rem 1.5rem;
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.location-icon {
+		color: #e11d48;
+		margin-top: 0.15rem;
+		flex-shrink: 0;
+	}
+
+	.location-info strong {
+		display: block;
+		font-size: 0.92rem;
+		color: #0f172a;
+		margin-bottom: 0.25rem;
+	}
+
+	.location-info p {
+		font-size: 0.84rem;
+		color: #64748b;
+		line-height: 1.45;
+	}
+
+	.history-media-col {
+		position: relative;
+	}
+
+	.media-card-wrapper {
+		position: relative;
+		border-radius: 16px;
+		overflow: hidden;
+		box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.16);
+	}
+
+	.media-main-img {
+		width: 100%;
+		height: 440px;
+		object-fit: cover;
+		display: block;
+		transition: transform 0.4s ease;
+	}
+
+	.media-card-wrapper:hover .media-main-img {
+		transform: scale(1.03);
+	}
+
+	.media-floating-badge {
+		position: absolute;
+		bottom: 1.25rem;
+		left: 1.25rem;
+		right: 1.25rem;
+		background: rgba(13, 31, 71, 0.88);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		padding: 1rem 1.25rem;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.badge-title {
+		font-size: 0.92rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+		margin-bottom: 0.2rem;
+	}
+
+	.badge-sub {
+		font-size: 0.78rem;
+		color: #cbd5e1;
+		line-height: 1.35;
+	}
+
+	/* ========================================================================= */
+	/* 4. MISSÃO, VISÃO E VALORES                                                */
+	/* ========================================================================= */
+	.mvv-section {
+		width: 100%;
+		padding: 5.5rem 1.5rem;
+		background: #f8fafc;
+	}
+
+	.mvv-container {
+		width: 100%;
+		max-width: 1240px;
+		margin: 0 auto;
+	}
+
+	.section-header-center {
+		text-align: center;
+		margin-bottom: 3.5rem;
+	}
+
+	.mvv-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 2rem;
+	}
+
+	.mvv-card {
+		background: 
+			linear-gradient(#ffffff, #ffffff) padding-box,
+			linear-gradient(135deg, #090981 0%, #9f0101 100%) border-box;
+		border: 1px solid transparent;
+		border-radius: 18px;
+		padding: 2.25rem 1.75rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+		box-shadow: 0 10px 30px -8px rgba(15, 23, 42, 0.05);
+	}
+
+	.mvv-card:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+	}
+
+	.mvv-icon-wrap {
+		width: 54px;
+		height: 54px;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 1.5rem;
+	}
+
+	.icon-mission {
+		background: rgba(225, 29, 72, 0.1);
+		color: #e11d48;
+	}
+
+	.icon-vision {
+		background: rgba(13, 31, 71, 0.08);
+		color: #0D1F47;
+	}
+
+	.icon-values {
+		background: rgba(30, 41, 59, 0.08);
+		color: #1e293b;
+	}
+
+	.mvv-kicker {
+		font-family: 'Inter', monospace;
+		font-size: 0.6875rem;
+		font-weight: 700;
+		letter-spacing: 0.15em;
+		color: #94a3b8;
+		text-transform: uppercase;
+		margin-bottom: 0.4rem;
+	}
+
+	.mvv-card-title {
+		font-family: 'Inter', sans-serif;
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #0f172a;
+		letter-spacing: -0.02em;
+		margin-bottom: 0.85rem;
+	}
+
+	.mvv-card-desc {
+		font-size: 0.93rem;
+		color: #475569;
+		line-height: 1.65;
+	}
+
+	/* ========================================================================= */
+	/* 5. PILARES DE FABRICAÇÃO                                                  */
+	/* ========================================================================= */
+	.pillars-section {
+		width: 100%;
+		padding: 5rem 1.5rem;
+		background: #ffffff;
+		border-top: 1px solid #e2e8f0;
+	}
+
+	.pillars-container {
+		width: 100%;
+		max-width: 1240px;
+		margin: 0 auto;
+	}
+
+	.pillars-header {
+		max-width: 680px;
+		margin-bottom: 3.5rem;
+	}
+
+	.pillars-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+	}
+
+	.pillar-card {
+		background: #f8fafc;
+		border: 1px solid #e2e8f0;
+		border-radius: 14px;
+		padding: 1.75rem 1.5rem;
+		display: flex;
+		flex-direction: column;
+		transition: all 0.25s ease;
+	}
+
+	.pillar-card:hover {
+		background: #ffffff;
+		border-color: #cbd5e1;
+		transform: translateY(-3px);
+		box-shadow: 0 10px 25px -6px rgba(15, 23, 42, 0.08);
+	}
+
+	.pillar-number {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.25rem;
+		font-weight: 800;
+		color: #cbd5e1;
+		margin-bottom: 1rem;
+	}
+
+	.pillar-title {
+		font-family: 'Inter', sans-serif;
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: #0f172a;
+		line-height: 1.35;
+		margin-bottom: 0.65rem;
+	}
+
+	.pillar-desc {
+		font-size: 0.85rem;
+		color: #64748b;
+		line-height: 1.55;
+	}
+
+	/* ========================================================================= */
+	/* 6. BANNER CTA                                                             */
+	/* ========================================================================= */
+	.sobre-cta-section {
+		width: 100%;
+		padding: 4.5rem 1.5rem 5.5rem 1.5rem;
+	}
+
+	.sobre-cta-container {
+		width: 100%;
+		max-width: 1140px;
+		margin: 0 auto;
+	}
+
+	.sobre-cta-card {
+		background: #0D1F47;
+		border-radius: 20px;
+		padding: 3.5rem 2.5rem;
+		text-align: center;
+		color: #ffffff;
+		box-shadow: 0 25px 50px -12px rgba(13, 31, 71, 0.35);
+	}
+
+	.cta-content {
+		max-width: 700px;
+		margin: 0 auto;
+	}
+
+	.cta-heading {
+		font-family: 'Inter', sans-serif;
+		font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+		font-weight: 800;
+		letter-spacing: -0.025em;
+		margin-bottom: 1rem;
+		line-height: 1.25;
+	}
+
+	.cta-desc {
+		font-size: 1rem;
+		color: #94a3b8;
+		line-height: 1.6;
+		margin-bottom: 2rem;
+	}
+
+	.cta-actions {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.btn-primary-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		background: #e11d48;
+		color: #ffffff;
+		font-weight: 600;
+		font-size: 0.9rem;
+		padding: 0.85rem 1.75rem;
+		border-radius: 10px;
+		transition: background-color 0.2s ease, transform 0.2s ease;
+	}
+
+	.btn-primary-cta:hover {
+		background: #be123c;
+		transform: translateY(-2px);
+	}
+
+	.btn-secondary-cta {
+		display: inline-flex;
+		align-items: center;
+		background: rgba(255, 255, 255, 0.1);
+		color: #ffffff;
+		font-weight: 600;
+		font-size: 0.9rem;
+		padding: 0.85rem 1.75rem;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		transition: background-color 0.2s ease, transform 0.2s ease;
+	}
+
+	.btn-secondary-cta:hover {
+		background: rgba(255, 255, 255, 0.16);
+		transform: translateY(-2px);
+	}
+
+	/* ========================================================================= */
+	/* RESPONSIVIDADE MOBILE & TABLET                                            */
+	/* ========================================================================= */
+	@media (max-width: 992px) {
+		.history-container {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.media-main-img {
+			height: 340px;
+		}
+
+		.mvv-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.pillars-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.hero-stats-row {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.pillars-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.sobre-cta-card {
+			padding: 2.5rem 1.5rem;
+		}
+
+		.cta-actions {
+			flex-direction: column;
+			width: 100%;
+		}
+
+		.btn-primary-cta, .btn-secondary-cta {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+</style>

@@ -1,0 +1,448 @@
+---
+import cenarioImg from '../assets/cenario-equipamentos.png';
+import aeImg from '../assets/AE sombra.png';
+import batedeiraImg from '../assets/batedeira sombra.png';
+import cilindroImg from '../assets/cilindro sombra.png';
+
+export interface MachineShowcaseItem {
+	id: string;
+	name: string;
+	model: string;
+	shortDesc: string;
+	img: any;
+	alt: string;
+}
+
+interface Props {
+	machines?: MachineShowcaseItem[];
+}
+
+const defaultMachines: MachineShowcaseItem[] = [
+	{
+		id: 'amassadeira-espiral',
+		name: 'Amassadeira Espiral',
+		model: 'Linha AE 40 / AE 80 kg',
+		shortDesc: 'Desenvolvimento do glúten e alto rendimento',
+		img: aeImg,
+		alt: 'Amassadeira Espiral Industrial DeltaPan'
+	},
+	{
+		id: 'batedeira-planetaria',
+		name: 'Batedeira Planetária',
+		model: 'Linha BP 20 / BP 40 Litros',
+		shortDesc: 'Precisão máxima para massas leves e cremes',
+		img: batedeiraImg,
+		alt: 'Batedeira Planetária Industrial DeltaPan'
+	},
+	{
+		id: 'cilindro-laminador',
+		name: 'Cilindro Laminador',
+		model: 'Linha CL 500 / CL 600 mm',
+		shortDesc: 'Laminação homogênea e abertura regulável',
+		img: cilindroImg,
+		alt: 'Cilindro Laminador / Modeladora DeltaPan'
+	}
+];
+
+const { machines = defaultMachines } = Astro.props;
+---
+
+<!-- ========================================================================= -->
+<!-- SHOWCASE: COMPOSIÇÃO COM FUNDO LIMITADO E MÁQUINAS SOBREPOSTAS            -->
+<!-- ========================================================================= -->
+<section class="showcase-section">
+	<div class="showcase-outer-container">
+		
+		<!-- Moldura Principal (Fundo limitado, mais largo que o header 1200px -> 1380px) -->
+		<div class="showcase-composite-card">
+			
+			<!-- 1. Cenário de Fundo com Máquinas Sobrepostas -->
+			<div class="scene-stage">
+				<!-- Imagem de Fundo (Ambiente de Panificação Industrial) -->
+				<img 
+					src={cenarioImg.src} 
+					alt="Cenário de Produção DeltaPan" 
+					class="scene-background-img"
+				/>
+
+				<!-- Camada das 3 Máquinas Sobrepostas no Chão da Cena -->
+				<div class="machines-overlay-grid">
+					
+					<!-- Máquina 1: Amassadeira Espiral (Esquerda) -->
+					<div class="machine-col machine-left" data-open-modal={machines[0].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[0].name}`}>
+						<div class="machine-inner">
+							<img 
+								src={machines[0].img.src} 
+								alt={machines[0].alt} 
+								class="machine-item-img img-ae" 
+								loading="eager"
+							/>
+						</div>
+					</div>
+
+					<!-- Máquina 2: Batedeira Planetária (Centro) -->
+					<div class="machine-col machine-center" data-open-modal={machines[1].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[1].name}`}>
+						<div class="machine-inner">
+							<img 
+								src={machines[1].img.src} 
+								alt={machines[1].alt} 
+								class="machine-item-img img-batedeira" 
+								loading="eager"
+							/>
+						</div>
+					</div>
+
+					<!-- Máquina 3: Cilindro Laminador (Direita) -->
+					<div class="machine-col machine-right" data-open-modal={machines[2].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[2].name}`}>
+						<div class="machine-inner">
+							<img 
+								src={machines[2].img.src} 
+								alt={machines[2].alt} 
+								class="machine-item-img img-cilindro" 
+								loading="eager"
+							/>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- 2. Faixa Inferior com Informações dos Modelos (Fundo 100% transparente) -->
+			<div class="models-bar">
+				<div class="models-columns-grid">
+					
+					<!-- Coluna 1: Modelo da Máquina 1 -->
+					<div class="model-info-column" data-open-modal={machines[0].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[0].name}`}>
+						<h2 class="model-title">
+							<span>{machines[0].name}</span>
+						</h2>
+						<p class="model-name">{machines[0].model}</p>
+						<p class="model-desc">{machines[0].shortDesc}</p>
+					</div>
+
+					<!-- Coluna 2: Modelo da Máquina 2 -->
+					<div class="model-info-column" data-open-modal={machines[1].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[1].name}`}>
+						<h2 class="model-title">
+							<span>{machines[1].name}</span>
+						</h2>
+						<p class="model-name">{machines[1].model}</p>
+						<p class="model-desc">{machines[1].shortDesc}</p>
+					</div>
+
+					<!-- Coluna 3: Modelo da Máquina 3 -->
+					<div class="model-info-column" data-open-modal={machines[2].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[2].name}`}>
+						<h2 class="model-title">
+							<span>{machines[2].name}</span>
+						</h2>
+						<p class="model-name">{machines[2].model}</p>
+						<p class="model-desc">{machines[2].shortDesc}</p>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</section>
+
+<style>
+	/* ========================================================================= */
+	/* SHOWCASE: FUNDO LIMITADO & MOLDURA ARREDONDADA COM SOMBRA                */
+	/* ========================================================================= */
+	.showcase-section {
+		width: 100%;
+		padding: 1.5rem 1.25rem 3.5rem 1.25rem;
+	}
+
+	/* O header possui max-width: 1200px. Este container tem 1380px (um pouco maior nas laterais) */
+	.showcase-outer-container {
+		width: 100%;
+		max-width: 1380px;
+		margin: 0 auto;
+	}
+
+	/* Container da composição do showcase com fundo transparente */
+	.showcase-composite-card {
+		position: relative;
+		width: 100%;
+		background: transparent;
+		border-radius: 0;
+		overflow: visible;
+		box-shadow: none;
+		border: none;
+	}
+
+	/* 1. Palco do Cenário com Imagem de Fundo e Máquinas Sobrepostas (Moldura com cantos menos arredondados) */
+	.scene-stage {
+		position: relative;
+		width: 100%;
+		/* Proporção compacta em altura */
+		aspect-ratio: 16 / 4.8;
+		min-height: 320px;
+		background: #f1f5f9;
+		overflow: hidden;
+		border-radius: 8px;
+		box-shadow: 0 16px 35px -10px rgba(15, 23, 42, 0.08);
+		display: flex;
+		align-items: flex-end;
+	}
+
+	@media (max-width: 1024px) {
+		.scene-stage {
+			aspect-ratio: 16 / 5.5;
+			min-height: 290px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.scene-stage {
+			aspect-ratio: 16 / 6.5;
+			min-height: 250px;
+		}
+	}
+
+	@media (max-width: 540px) {
+		.scene-stage {
+			aspect-ratio: 16 / 8.5;
+			min-height: 200px;
+		}
+	}
+
+	.scene-background-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center bottom; /* Corta o topo da imagem de fundo preservando o chão */
+		z-index: 1;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	/* Grid das 3 Máquinas Sobrepostas sobre o chão da imagem de fundo */
+	.machines-overlay-grid {
+		position: relative;
+		z-index: 5;
+		width: 100%;
+		height: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		align-items: flex-end;
+		padding: 0 1.5rem 0.35rem 1.5rem; /* Posiciona os equipamentos bem próximos da base da moldura */
+	}
+
+	.machine-col {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		position: relative;
+		cursor: pointer;
+		outline: none;
+	}
+
+	.machine-col:focus-visible {
+		outline: 2px solid #e11d48;
+		outline-offset: 4px;
+		border-radius: 12px;
+	}
+
+	.machine-inner {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: flex-end; /* Alinhamento pela base comum */
+		justify-content: center;
+		transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+	}
+
+	.machine-col:hover .machine-inner {
+		transform: translateY(-8px) scale(1.03);
+		filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+	}
+
+	.machine-item-img {
+		display: block;
+		width: auto;
+		object-fit: contain;
+		object-position: bottom center;
+		vertical-align: bottom;
+		filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.2));
+		pointer-events: none;
+		user-select: none;
+	}
+
+	/* Equipamentos ampliados em 20% para maior destaque visual sobre o cenário */
+	.img-ae {
+		height: clamp(192px, 19.2vw, 276px);
+		max-height: 72%;
+		max-width: 90%;
+	}
+
+	/* Ajuste de tamanho da imagem da Modeladora (-10%) */
+	.machine-col[data-open-modal="modeladora-esteira"] .machine-item-img {
+		height: clamp(225px, 22.5vw, 324px);
+		max-height: 85%;
+		max-width: 86%;
+	}
+
+	.img-batedeira {
+		height: clamp(216px, 21.6vw, 312px);
+		max-height: 80%;
+		max-width: 72%;
+	}
+
+	.img-cilindro {
+		height: clamp(204px, 20.4vw, 294px);
+		max-height: 75%;
+		max-width: 90%;
+	}
+
+	/* 2. Faixa Inferior de Nomes dos Modelos (Fundo 100% transparente) */
+	.models-bar {
+		position: relative;
+		z-index: 10;
+		width: 100%;
+		background: transparent;
+		padding: 1.5rem 1.5rem 2rem 1.5rem;
+		border: none;
+	}
+
+	.models-columns-grid {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr; /* Sempre 3 colunas lado a lado em qualquer resolução */
+		gap: 1.5rem;
+		text-align: center;
+	}
+
+	.model-info-column {
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0.5rem 0.4rem;
+		border-radius: 12px;
+		transition: all 0.25s ease;
+		overflow-wrap: break-word;
+		word-break: normal;
+		cursor: pointer;
+		outline: none;
+	}
+
+	.model-info-column:hover {
+		transform: translateY(-3px);
+		background: rgba(255, 255, 255, 0.4);
+	}
+
+	.model-info-column:focus-visible {
+		outline: 2px solid #e11d48;
+		outline-offset: 2px;
+	}
+
+	.model-title {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+		font-size: clamp(0.85rem, 1.6vw, 1.3rem);
+		font-weight: 600;
+		color: #0f172a;
+		letter-spacing: -0.01em;
+		margin-bottom: 0.25rem;
+		line-height: 1.2;
+		text-align: center;
+		white-space: normal;
+		overflow-wrap: break-word;
+		word-break: normal;
+		width: 100%;
+		transition: color 0.2s ease;
+	}
+
+	.model-info-column:hover .model-title {
+		color: #e11d48;
+	}
+
+
+	.model-name {
+		font-family: 'Inter', sans-serif;
+		font-size: clamp(0.75rem, 1.1vw, 0.92rem);
+		font-weight: 500;
+		color: #475569;
+		margin-bottom: 0.2rem;
+		line-height: 1.3;
+		text-align: center;
+		white-space: normal;
+		overflow-wrap: break-word;
+		width: 100%;
+	}
+
+	.model-desc {
+		font-family: 'Inter', sans-serif;
+		font-size: clamp(0.75rem, 1vw, 0.85rem);
+		color: #64748b;
+		line-height: 1.4;
+		max-width: 280px;
+	}
+
+	@media (max-width: 768px) {
+		.models-bar {
+			padding: 1rem 0.5rem 1.25rem 0.5rem;
+		}
+
+		.models-columns-grid {
+			gap: 0.5rem;
+		}
+
+		.model-info-column {
+			padding: 0 0.15rem;
+		}
+
+		.model-title {
+			font-size: clamp(0.78rem, 2.3vw, 0.95rem);
+			white-space: normal;
+			line-height: 1.2;
+		}
+
+		.model-name {
+			font-size: clamp(0.68rem, 1.9vw, 0.8rem);
+			white-space: normal;
+			line-height: 1.2;
+		}
+	}
+
+	/* No mobile, mantém SEMPRE um ao lado do outro, permitindo quebra de linha limpa */
+	@media (max-width: 640px) {
+		.models-bar {
+			padding: 0.85rem 0.25rem 1rem 0.25rem;
+		}
+
+		.models-columns-grid {
+			grid-template-columns: 1fr 1fr 1fr; /* Força 3 colunas contínuas */
+			gap: 0.25rem;
+		}
+
+		.model-info-column {
+			padding: 0 0.1rem;
+			border: none;
+		}
+
+		.model-title {
+			font-size: clamp(0.7rem, 2.8vw, 0.82rem);
+			font-weight: 600;
+			white-space: normal;
+			line-height: 1.15;
+		}
+
+		.model-name {
+			font-size: clamp(0.6rem, 2.2vw, 0.72rem);
+			line-height: 1.2;
+			white-space: normal;
+		}
+
+		/* Oculta descrição longa no mobile para garantir disposição lado a lado limpa */
+		.model-desc {
+			display: none;
+		}
+	}
+</style>
