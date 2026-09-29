@@ -1,0 +1,1179 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contato | DeltaPan — Máquinas e Equipamentos para Panificação">
+	<!-- Header Flutuante da Página Interna -->
+	<Header currentPage="contato" />
+
+	<main class="contato-main">
+		
+		<!-- ========================================================================= -->
+		<!-- 1. HERO / CABEÇALHO DA PÁGINA DE CONTATO                                  -->
+		<!-- ========================================================================= -->
+		<section class="contato-hero">
+			<div class="contato-hero-container">
+				<div class="breadcrumb-trail">
+					<a href="/" class="breadcrumb-item">Início</a>
+					<span class="breadcrumb-separator">/</span>
+					<span class="breadcrumb-current">Contato</span>
+				</div>
+
+				<div class="hero-tag-pill">
+					<span class="tag-dot"></span>
+					<span>FALE COM A DELTAPAN</span>
+				</div>
+
+				<h1 class="hero-title">
+					Estamos prontos para <span class="highlight-navy">impulsionar</span> a sua produção
+				</h1>
+
+				<p class="hero-desc">
+					Solicite um orçamento sob medida, tire dúvidas técnicas com nossos engenheiros ou agende um atendimento personalizado para a sua padaria ou indústria.
+				</p>
+			</div>
+		</section>
+
+		<!-- ========================================================================= -->
+		<!-- 2. SEÇÃO PRINCIPAL DE CONTATO: FORMULÁRIO + CANAIS DIRETOS                -->
+		<!-- ========================================================================= -->
+		<section class="contato-content-section">
+			<div class="contato-content-container">
+				
+				<!-- Grid de 2 Colunas -->
+				<div class="contato-grid">
+					
+					<!-- COLUNA 1: FORMULÁRIO AMIGÁVEL E MODERNO -->
+					<div class="form-card-wrapper">
+						<div class="form-card-header">
+							<div class="form-badge-icon">
+								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+								</svg>
+							</div>
+							<div>
+								<h2 class="form-card-title">Envie sua mensagem</h2>
+								<p class="form-card-subtitle">Preencha o formulário abaixo e retornaremos rapidamente.</p>
+							</div>
+						</div>
+
+						<form id="contact-form" class="friendly-form" novalidate>
+							
+							<div class="form-row two-cols">
+								<!-- Campo Nome -->
+								<div class="form-group">
+									<label for="form-name" class="form-label">
+										Nome Completo <span class="required">*</span>
+									</label>
+									<div class="input-wrapper">
+										<input 
+											type="text" 
+											id="form-name" 
+											name="name" 
+											class="form-input" 
+											placeholder="Ex: João da Silva" 
+											required 
+										/>
+										<svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+											<circle cx="12" cy="7" r="4"></circle>
+										</svg>
+									</div>
+									<span class="field-error-msg" id="name-error">Por favor, informe seu nome.</span>
+								</div>
+
+								<!-- Campo WhatsApp / Telefone -->
+								<div class="form-group">
+									<label for="form-phone" class="form-label">
+										WhatsApp / Telefone <span class="required">*</span>
+									</label>
+									<div class="input-wrapper">
+										<input 
+											type="tel" 
+											id="form-phone" 
+											name="phone" 
+											class="form-input" 
+											placeholder="(11) 99999-9999" 
+											required 
+										/>
+										<svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+										</svg>
+									</div>
+									<span class="field-error-msg" id="phone-error">Informe um telefone de contato válido.</span>
+								</div>
+							</div>
+
+							<div class="form-row two-cols">
+								<!-- Campo E-mail -->
+								<div class="form-group">
+									<label for="form-email" class="form-label">
+										E-mail Corporativo ou Pessoal <span class="required">*</span>
+									</label>
+									<div class="input-wrapper">
+										<input 
+											type="email" 
+											id="form-email" 
+											name="email" 
+											class="form-input" 
+											placeholder="seuemail@empresa.com.br" 
+											required 
+										/>
+										<svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+											<polyline points="22,6 12,13 2,6"></polyline>
+										</svg>
+									</div>
+									<span class="field-error-msg" id="email-error">Informe um endereço de e-mail válido.</span>
+								</div>
+
+								<!-- Campo Empresa / Estabelecimento -->
+								<div class="form-group">
+									<label for="form-company" class="form-label">
+										Nome da Empresa / Padaria <span class="optional">(Opcional)</span>
+									</label>
+									<div class="input-wrapper">
+										<input 
+											type="text" 
+											id="form-company" 
+											name="company" 
+											class="form-input" 
+											placeholder="Ex: Padaria Bela Vista" 
+										/>
+										<svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+											<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+										</svg>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-row two-cols">
+								<!-- Campo Segmento -->
+								<div class="form-group">
+									<label for="form-segment" class="form-label">
+										Segmento de Atuação
+									</label>
+									<div class="select-wrapper">
+										<select id="form-segment" name="segment" class="form-select">
+											<option value="">Selecione o seu segmento...</option>
+											<option value="padaria">Padaria & Panificadora</option>
+											<option value="confeitaria">Confeitaria & Doceria</option>
+											<option value="pizzaria">Pizzaria & Massas</option>
+											<option value="cozinha_industrial">Cozinha Industrial & Restaurante</option>
+											<option value="supermercado">Supermercado & Hipermercado</option>
+											<option value="distribuidor">Distribuidor & Revenda</option>
+											<option value="outro">Outro Segmento</option>
+										</select>
+										<svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="6 9 12 15 18 9"></polyline>
+										</svg>
+									</div>
+								</div>
+
+								<!-- Campo Equipamento de Interesse -->
+								<div class="form-group">
+									<label for="form-equipment" class="form-label">
+										Equipamento de Interesse
+									</label>
+									<div class="select-wrapper">
+										<select id="form-equipment" name="equipment" class="form-select">
+											<option value="">Selecione o equipamento...</option>
+											<option value="amassadeira">Amassadeira Espiral</option>
+											<option value="batedeira">Batedeira Planetária</option>
+											<option value="cilindro">Cilindro Laminador</option>
+											<option value="divisora_mesa">Divisora de Mesa</option>
+											<option value="divisora_coluna">Divisora de Coluna</option>
+											<option value="modeladora">Modeladora de Pães</option>
+											<option value="linha_completa">Linha Completa / Projeto Novo</option>
+											<option value="outro">Outras Peças ou Dúvidas</option>
+										</select>
+										<svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="6 9 12 15 18 9"></polyline>
+										</svg>
+									</div>
+								</div>
+							</div>
+
+							<!-- Campo Mensagem -->
+							<div class="form-group">
+								<label for="form-message" class="form-label">
+									Mensagem ou Detalhes da sua Necessidade <span class="required">*</span>
+								</label>
+								<div class="textarea-wrapper">
+									<textarea 
+										id="form-message" 
+										name="message" 
+										class="form-textarea" 
+										rows="4" 
+										placeholder="Conte-nos sobre o que você precisa: capacidade de produção desejada, especificações elétricas, localização para entrega..." 
+										required
+									></textarea>
+								</div>
+								<span class="field-error-msg" id="message-error">Por favor, escreva uma breve mensagem.</span>
+							</div>
+
+							<!-- Checkbox Opt-in -->
+							<div class="form-checkbox-group">
+								<label class="custom-checkbox-label">
+									<input type="checkbox" name="optin_catalog" class="custom-checkbox-input" checked />
+									<span class="checkbox-box">
+										<svg class="check-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="20 6 9 17 4 12"></polyline>
+										</svg>
+									</span>
+									<span class="checkbox-text">Desejo receber o catálogo técnico completo da DeltaPan em PDF no meu e-mail.</span>
+								</label>
+							</div>
+
+							<!-- Botão de Envio e Feedback -->
+							<div class="form-submit-row">
+								<button type="submit" class="btn-form-submit" id="btn-submit-form">
+									<span class="btn-text">Enviar Mensagem e Solicitar Orçamento</span>
+									<svg class="btn-submit-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+										<line x1="22" y1="2" x2="11" y2="13"></line>
+										<polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+									</svg>
+									<span class="spinner" aria-hidden="true"></span>
+								</button>
+							</div>
+
+							<!-- Card de Feedback de Sucesso -->
+							<div class="form-success-banner" id="form-success-banner" aria-live="polite">
+								<div class="success-icon-wrap">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+										<polyline points="22 4 12 14.01 9 11.01"></polyline>
+									</svg>
+								</div>
+								<div class="success-content">
+									<h4 class="success-title">Mensagem enviada com sucesso!</h4>
+									<p class="success-text">Agradecemos o seu contato. Nossa equipe técnica e comercial entrará em contato em breve.</p>
+								</div>
+							</div>
+
+						</form>
+					</div>
+
+					<!-- COLUNA 2: ATENDIMENTO DIRETO, WHATSAPP E INFORMAÇÕES -->
+					<aside class="contato-sidebar">
+						
+						<!-- Card WhatsApp Direto -->
+						<div class="sidebar-card whatsapp-highlight-card">
+							<div class="whatsapp-badge-row">
+								<span class="pulse-online-badge">
+									<span class="pulse-dot"></span>
+									<span>Atendimento Online</span>
+								</span>
+							</div>
+							<h3 class="whatsapp-card-title">Precisa de resposta imediata?</h3>
+							<p class="whatsapp-card-desc">
+								Fale diretamente com um consultor técnico pelo WhatsApp e receba cotações e fichas técnicas em minutos.
+							</p>
+							<a 
+								href="https://wa.me/5511987654321?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20equipamentos%20DeltaPan." 
+								target="_blank" 
+								rel="noopener noreferrer" 
+								class="btn-whatsapp-direct"
+							>
+								<svg class="wa-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.155.57 4.178 1.564 5.926l-1.662 6.074 6.236-1.637c1.684.921 3.619 1.437 5.862 1.437 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+								</svg>
+								<span>Iniciar Conversa no WhatsApp</span>
+							</a>
+						</div>
+
+						<!-- Card de Canais Oficiais -->
+						<div class="sidebar-card contact-info-card">
+							<h3 class="sidebar-section-title">Canais Oficiais de Atendimento</h3>
+							
+							<div class="contact-methods-list">
+								<!-- Telefone -->
+								<div class="method-item">
+									<div class="method-icon-box">
+										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+										</svg>
+									</div>
+									<div class="method-details">
+										<span class="method-label">Central Telefônica</span>
+										<a href="tel:+551140028922" class="method-value">(11) 4002-8922</a>
+										<span class="method-sub">Segunda a Sexta, das 08h às 18h</span>
+									</div>
+								</div>
+
+								<!-- E-mail Comercial -->
+								<div class="method-item">
+									<div class="method-icon-box">
+										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+											<polyline points="22,6 12,13 2,6"></polyline>
+										</svg>
+									</div>
+									<div class="method-details">
+										<span class="method-label">Vendas & Orçamentos</span>
+										<a href="mailto:vendas@deltapan.com.br" class="method-value">vendas@deltapan.com.br</a>
+										<span class="method-sub">Propostas comerciais e cotações</span>
+									</div>
+								</div>
+
+								<!-- Suporte & Pós-Venda -->
+								<div class="method-item">
+									<div class="method-icon-box">
+										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="12" r="10"></circle>
+											<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+											<line x1="12" y1="17" x2="12.01" y2="17"></line>
+										</svg>
+									</div>
+									<div class="method-details">
+										<span class="method-label">Suporte Técnico & Peças</span>
+										<a href="mailto:assistencia@deltapan.com.br" class="method-value">assistencia@deltapan.com.br</a>
+										<span class="method-sub">Manutenção e peças genuínas</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Card de Garantia e Cobertura -->
+						<div class="sidebar-card trust-card">
+							<h3 class="sidebar-section-title">Por que escolher a DeltaPan?</h3>
+							<ul class="trust-list">
+								<li class="trust-item">
+									<div class="trust-check-icon">
+										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="20 6 9 17 4 12"></polyline>
+										</svg>
+									</div>
+									<div class="trust-text">
+										<strong>Cobertura Nacional:</strong> Envio seguro e montagem em todo o território brasileiro.
+									</div>
+								</li>
+								<li class="trust-item">
+									<div class="trust-check-icon">
+										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="20 6 9 17 4 12"></polyline>
+										</svg>
+									</div>
+									<div class="trust-text">
+										<strong>Garantia Direta de Fábrica:</strong> Suporte especializado e peças originais a pronta entrega.
+									</div>
+								</li>
+								<li class="trust-item">
+									<div class="trust-check-icon">
+										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="20 6 9 17 4 12"></polyline>
+										</svg>
+									</div>
+									<div class="trust-text">
+										<strong>Adequação às Normas:</strong> 100% em conformidade com as normas de segurança NR-12.
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</aside>
+
+				</div>
+
+			</div>
+		</section>
+
+	</main>
+
+	<!-- Footer Global Reutilizável -->
+	<Footer />
+</Layout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const form = document.getElementById('contact-form') as HTMLFormElement | null;
+		const submitBtn = document.getElementById('btn-submit-form') as HTMLButtonElement | null;
+		const successBanner = document.getElementById('form-success-banner');
+
+		if (!form || !submitBtn) return;
+
+		// Validação e Envio
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+
+			let isValid = true;
+
+			// Campos
+			const nameInput = document.getElementById('form-name') as HTMLInputElement;
+			const phoneInput = document.getElementById('form-phone') as HTMLInputElement;
+			const emailInput = document.getElementById('form-email') as HTMLInputElement;
+			const messageInput = document.getElementById('form-message') as HTMLTextAreaElement;
+
+			const nameError = document.getElementById('name-error');
+			const phoneError = document.getElementById('phone-error');
+			const emailError = document.getElementById('email-error');
+			const messageError = document.getElementById('message-error');
+
+			// Limpar erros prévios
+			[nameInput, phoneInput, emailInput, messageInput].forEach(input => {
+				input?.classList.remove('has-error');
+			});
+			[nameError, phoneError, emailError, messageError].forEach(err => {
+				if (err) err.style.display = 'none';
+			});
+
+			// Validar Nome
+			if (!nameInput.value.trim()) {
+				isValid = false;
+				nameInput.classList.add('has-error');
+				if (nameError) nameError.style.display = 'block';
+			}
+
+			// Validar Telefone
+			if (!phoneInput.value.trim() || phoneInput.value.trim().length < 8) {
+				isValid = false;
+				phoneInput.classList.add('has-error');
+				if (phoneError) phoneError.style.display = 'block';
+			}
+
+			// Validar Email
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+				isValid = false;
+				emailInput.classList.add('has-error');
+				if (emailError) emailError.style.display = 'block';
+			}
+
+			// Validar Mensagem
+			if (!messageInput.value.trim()) {
+				isValid = false;
+				messageInput.classList.add('has-error');
+				if (messageError) messageError.style.display = 'block';
+			}
+
+			if (!isValid) {
+				const firstError = form.querySelector('.has-error') as HTMLElement;
+				firstError?.focus();
+				return;
+			}
+
+			// Animação de envio
+			submitBtn.classList.add('is-loading');
+			submitBtn.disabled = true;
+
+			setTimeout(() => {
+				submitBtn.classList.remove('is-loading');
+				form.reset();
+				if (successBanner) {
+					successBanner.classList.add('is-visible');
+					successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+				}
+				submitBtn.disabled = false;
+			}, 1000);
+		});
+
+		// Máscara simplificada amigável de telefone
+		const phoneInput = document.getElementById('form-phone') as HTMLInputElement | null;
+		if (phoneInput) {
+			phoneInput.addEventListener('input', (e) => {
+				const target = e.target as HTMLInputElement;
+				let val = target.value.replace(/\D/g, '');
+				if (val.length > 11) val = val.slice(0, 11);
+
+				if (val.length > 10) {
+					target.value = `(${val.slice(0, 2)}) ${val.slice(2, 7)}-${val.slice(7)}`;
+				} else if (val.length > 6) {
+					target.value = `(${val.slice(0, 2)}) ${val.slice(2, 6)}-${val.slice(6)}`;
+				} else if (val.length > 2) {
+					target.value = `(${val.slice(0, 2)}) ${val.slice(2)}`;
+				} else if (val.length > 0) {
+					target.value = `(${val}`;
+				}
+			});
+		}
+	});
+</script>
+
+<style>
+	/* ========================================================================= */
+	/* 1. LAYOUT PRINCIPAL                                                       */
+	/* ========================================================================= */
+	.contato-main {
+		width: 100%;
+		padding-top: 5.5rem;
+		background: #f8fafc;
+		min-height: 100vh;
+	}
+
+	/* ========================================================================= */
+	/* 2. HERO DA PÁGINA DE CONTATO                                              */
+	/* ========================================================================= */
+	.contato-hero {
+		padding: 2.5rem 1.5rem 2rem 1.5rem;
+		background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+		border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+	}
+
+	.contato-hero-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.breadcrumb-trail {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.8125rem;
+		color: #64748b;
+		margin-bottom: 1.25rem;
+	}
+
+	.breadcrumb-item {
+		color: #64748b;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.breadcrumb-item:hover {
+		color: #0D1F47;
+	}
+
+	.breadcrumb-separator {
+		color: #cbd5e1;
+	}
+
+	.breadcrumb-current {
+		color: #0D1F47;
+		font-weight: 600;
+	}
+
+	.hero-tag-pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		background: rgba(13, 31, 71, 0.06);
+		color: #0D1F47;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		padding: 0.35rem 0.85rem;
+		border-radius: 9999px;
+		margin-bottom: 1rem;
+		border: 1px solid rgba(13, 31, 71, 0.1);
+	}
+
+	.tag-dot {
+		width: 6px;
+		height: 6px;
+		background-color: #e11d48;
+		border-radius: 50%;
+	}
+
+	.hero-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+		font-weight: 800;
+		color: #0f172a;
+		letter-spacing: -0.03em;
+		line-height: 1.2;
+		margin-bottom: 1rem;
+		max-width: 850px;
+	}
+
+	.highlight-navy {
+		color: #0D1F47;
+		position: relative;
+	}
+
+	.hero-desc {
+		font-size: 1.05rem;
+		line-height: 1.6;
+		color: #475569;
+		max-width: 720px;
+	}
+
+	/* ========================================================================= */
+	/* 3. SEÇÃO DE CONTEÚDO & GRID 2 COLUNAS                                     */
+	/* ========================================================================= */
+	.contato-content-section {
+		padding: 3rem 1.5rem 5.5rem 1.5rem;
+	}
+
+	.contato-content-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.contato-grid {
+		display: grid;
+		grid-template-columns: 1.35fr 0.95fr;
+		gap: 2.5rem;
+		align-items: flex-start;
+	}
+
+	/* ========================================================================= */
+	/* 4. FORMULÁRIO AMIGÁVEL (COLUNA 1)                                         */
+	/* ========================================================================= */
+	.form-card-wrapper {
+		background: #ffffff;
+		border-radius: 24px;
+		border: 1px solid rgba(226, 232, 240, 0.95);
+		box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.02);
+		padding: 2.5rem 2.25rem;
+	}
+
+	.form-card-header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 2rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid #f1f5f9;
+	}
+
+	.form-badge-icon {
+		width: 46px;
+		height: 46px;
+		border-radius: 12px;
+		background: rgba(13, 31, 71, 0.06);
+		color: #0D1F47;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.form-card-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.35rem;
+		font-weight: 700;
+		color: #0f172a;
+		letter-spacing: -0.015em;
+		margin-bottom: 0.25rem;
+	}
+
+	.form-card-subtitle {
+		font-size: 0.875rem;
+		color: #64748b;
+	}
+
+	.friendly-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.form-row.two-cols {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.25rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.45rem;
+	}
+
+	.form-label {
+		font-size: 0.84rem;
+		font-weight: 600;
+		color: #334155;
+	}
+
+	.required {
+		color: #e11d48;
+	}
+
+	.optional {
+		font-weight: 400;
+		color: #94a3b8;
+		font-size: 0.8rem;
+	}
+
+	.input-wrapper,
+	.select-wrapper,
+	.textarea-wrapper {
+		position: relative;
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+
+	.form-input,
+	.form-select,
+	.form-textarea {
+		width: 100%;
+		font-family: 'Inter', sans-serif;
+		font-size: 0.925rem;
+		color: #0f172a;
+		background: #f8fafc;
+		border: 1px solid #cbd5e1;
+		border-radius: 12px;
+		padding: 0.75rem 1rem 0.75rem 2.5rem;
+		outline: none;
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.form-select {
+		padding-left: 1rem;
+		padding-right: 2.5rem;
+		appearance: none;
+		-webkit-appearance: none;
+		cursor: pointer;
+	}
+
+	.form-textarea {
+		padding: 0.85rem 1rem;
+		resize: vertical;
+		min-height: 110px;
+	}
+
+	.input-icon {
+		position: absolute;
+		left: 0.85rem;
+		color: #94a3b8;
+		pointer-events: none;
+		transition: color 0.2s ease;
+	}
+
+	.select-arrow {
+		position: absolute;
+		right: 1rem;
+		color: #64748b;
+		pointer-events: none;
+	}
+
+	.form-input:hover,
+	.form-select:hover,
+	.form-textarea:hover {
+		border-color: #94a3b8;
+		background: #ffffff;
+	}
+
+	.form-input:focus,
+	.form-select:focus,
+	.form-textarea:focus {
+		background: #ffffff;
+		border-color: #0D1F47;
+		box-shadow: 0 0 0 4px rgba(13, 31, 71, 0.1);
+	}
+
+	.form-input:focus + .input-icon,
+	.input-wrapper:focus-within .input-icon {
+		color: #0D1F47;
+	}
+
+	.form-input.has-error,
+	.form-textarea.has-error {
+		border-color: #e11d48;
+		background: #fff5f5;
+	}
+
+	.field-error-msg {
+		display: none;
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: #e11d48;
+		margin-top: 0.2rem;
+	}
+
+	/* Checkbox estilizado */
+	.form-checkbox-group {
+		margin-top: 0.5rem;
+	}
+
+	.custom-checkbox-label {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	.custom-checkbox-input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+	}
+
+	.checkbox-box {
+		width: 20px;
+		height: 20px;
+		border-radius: 6px;
+		border: 1.5px solid #cbd5e1;
+		background: #ffffff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		margin-top: 2px;
+		transition: all 0.2s ease;
+	}
+
+	.check-icon {
+		color: #ffffff;
+		opacity: 0;
+		transform: scale(0.5);
+		transition: all 0.2s ease;
+	}
+
+	.custom-checkbox-input:checked ~ .checkbox-box {
+		background: #0D1F47;
+		border-color: #0D1F47;
+	}
+
+	.custom-checkbox-input:checked ~ .checkbox-box .check-icon {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	.checkbox-text {
+		font-size: 0.84rem;
+		color: #475569;
+		line-height: 1.45;
+	}
+
+	/* Linha de Envio */
+	.form-submit-row {
+		margin-top: 0.75rem;
+	}
+
+	.btn-form-submit {
+		width: 100%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.65rem;
+		background: #0D1F47;
+		color: #ffffff;
+		font-size: 0.95rem;
+		font-weight: 600;
+		padding: 0.95rem 1.75rem;
+		border-radius: 14px;
+		box-shadow: 0 10px 25px -5px rgba(13, 31, 71, 0.25);
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		position: relative;
+	}
+
+	.btn-form-submit:hover {
+		background: #162f6b;
+		transform: translateY(-2px);
+		box-shadow: 0 14px 30px -5px rgba(13, 31, 71, 0.35);
+	}
+
+	.btn-form-submit:active {
+		transform: translateY(0);
+	}
+
+	.btn-submit-icon {
+		transition: transform 0.25s ease;
+	}
+
+	.btn-form-submit:hover .btn-submit-icon {
+		transform: translateX(3px) translateY(-2px);
+	}
+
+	/* Spinner de Carregamento */
+	.spinner {
+		display: none;
+		width: 18px;
+		height: 18px;
+		border: 2.5px solid rgba(255, 255, 255, 0.3);
+		border-top-color: #ffffff;
+		border-radius: 50%;
+		animation: spin 0.75s linear infinite;
+	}
+
+	@keyframes spin {
+		to { transform: rotate(360deg); }
+	}
+
+	.btn-form-submit.is-loading .btn-text,
+	.btn-form-submit.is-loading .btn-submit-icon {
+		display: none;
+	}
+
+	.btn-form-submit.is-loading .spinner {
+		display: block;
+	}
+
+	/* Banner de Sucesso */
+	.form-success-banner {
+		display: none;
+		margin-top: 1.25rem;
+		background: #f0fdf4;
+		border: 1px solid #bbf7d0;
+		border-radius: 14px;
+		padding: 1.25rem 1.5rem;
+		gap: 1rem;
+		align-items: flex-start;
+		animation: fadeInUp 0.4s ease forwards;
+	}
+
+	.form-success-banner.is-visible {
+		display: flex;
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(8px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.success-icon-wrap {
+		color: #16a34a;
+		flex-shrink: 0;
+		margin-top: 2px;
+	}
+
+	.success-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: #15803d;
+		margin-bottom: 0.25rem;
+	}
+
+	.success-text {
+		font-size: 0.85rem;
+		color: #166534;
+		line-height: 1.45;
+	}
+
+	/* ========================================================================= */
+	/* 5. SIDEBAR / ATENDIMENTO DIRETO (COLUNA 2)                                */
+	/* ========================================================================= */
+	.contato-sidebar {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.sidebar-card {
+		background: #ffffff;
+		border-radius: 24px;
+		border: 1px solid rgba(226, 232, 240, 0.95);
+		box-shadow: 0 10px 30px -8px rgba(15, 23, 42, 0.04);
+		padding: 2rem 1.75rem;
+	}
+
+	/* Destaque WhatsApp */
+	.whatsapp-highlight-card {
+		background: linear-gradient(145deg, #0D1F47 0%, #08132c 100%);
+		color: #ffffff;
+		border: none;
+		box-shadow: 0 20px 45px -10px rgba(13, 31, 71, 0.35);
+	}
+
+	.whatsapp-badge-row {
+		margin-bottom: 1rem;
+	}
+
+	.pulse-online-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		background: rgba(34, 197, 94, 0.18);
+		border: 1px solid rgba(34, 197, 94, 0.35);
+		color: #4ade80;
+		font-size: 0.725rem;
+		font-weight: 600;
+		padding: 0.25rem 0.65rem;
+		border-radius: 9999px;
+	}
+
+	.pulse-dot {
+		width: 6px;
+		height: 6px;
+		background-color: #22c55e;
+		border-radius: 50%;
+		box-shadow: 0 0 8px #22c55e;
+		animation: pulseGlow 1.8s infinite;
+	}
+
+	@keyframes pulseGlow {
+		0%, 100% { opacity: 1; transform: scale(1); }
+		50% { opacity: 0.4; transform: scale(0.85); }
+	}
+
+	.whatsapp-card-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #ffffff;
+		margin-bottom: 0.65rem;
+	}
+
+	.whatsapp-card-desc {
+		font-size: 0.875rem;
+		color: #94a3b8;
+		line-height: 1.55;
+		margin-bottom: 1.5rem;
+	}
+
+	.btn-whatsapp-direct {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.65rem;
+		background: #22c55e;
+		color: #ffffff;
+		font-size: 0.9rem;
+		font-weight: 700;
+		padding: 0.85rem 1.25rem;
+		border-radius: 12px;
+		text-decoration: none;
+		transition: all 0.25s ease;
+		box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+	}
+
+	.btn-whatsapp-direct:hover {
+		background: #16a34a;
+		transform: translateY(-2px);
+		box-shadow: 0 12px 25px rgba(34, 197, 94, 0.4);
+	}
+
+	/* Card Canais */
+	.sidebar-section-title {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: #0f172a;
+		margin-bottom: 1.5rem;
+		padding-bottom: 0.75rem;
+		border-bottom: 1px solid #f1f5f9;
+	}
+
+	.contact-methods-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.35rem;
+	}
+
+	.method-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.method-icon-box {
+		width: 40px;
+		height: 40px;
+		border-radius: 10px;
+		background: #f1f5f9;
+		color: #0D1F47;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.method-details {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+
+	.method-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: #64748b;
+	}
+
+	.method-value {
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: #0f172a;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.method-value:hover {
+		color: #e11d48;
+	}
+
+	.method-sub {
+		font-size: 0.8rem;
+		color: #94a3b8;
+	}
+
+	/* Card Benefícios */
+	.trust-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.trust-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+
+	.trust-check-icon {
+		width: 22px;
+		height: 22px;
+		border-radius: 50%;
+		background: rgba(225, 29, 72, 0.1);
+		color: #e11d48;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		margin-top: 2px;
+	}
+
+	.trust-text {
+		font-size: 0.85rem;
+		color: #475569;
+		line-height: 1.5;
+	}
+
+	.trust-text strong {
+		color: #0f172a;
+	}
+
+	/* ========================================================================= */
+	/* 6. RESPONSIVIDADE MOBILE E TABLET                                         */
+	/* ========================================================================= */
+	@media (max-width: 992px) {
+		.contato-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.contato-sidebar {
+			order: 2;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.contato-main {
+			padding-top: 4.5rem;
+		}
+
+		.form-card-wrapper {
+			padding: 1.75rem 1.25rem;
+		}
+
+		.form-row.two-cols {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.sidebar-card {
+			padding: 1.75rem 1.25rem;
+		}
+	}
+</style>

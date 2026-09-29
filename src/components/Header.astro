@@ -1,6 +1,6 @@
 ---
 interface Props {
-	currentPage?: 'inicio' | 'equipamentos' | 'sobre' | 'assistencia' | 'contato';
+	currentPage?: 'inicio' | 'equipamentos' | 'sobre' | 'contato';
 }
 
 const { currentPage = 'equipamentos' } = Astro.props;
@@ -30,13 +30,12 @@ import logo from '../assets/logo.png';
 			<a href="/" class={`nav-link ${currentPage === 'inicio' ? 'active' : ''}`}>Início</a>
 			<a href="/equipamentos" class={`nav-link ${currentPage === 'equipamentos' ? 'active' : ''}`}>Equipamentos</a>
 			<a href="/sobre" class={`nav-link ${currentPage === 'sobre' ? 'active' : ''}`}>Sobre Nós</a>
-			<a href="/#assistencia" class={`nav-link ${currentPage === 'assistencia' ? 'active' : ''}`}>Assistência</a>
-			<a href="/#contato" class={`nav-link ${currentPage === 'contato' ? 'active' : ''}`}>Contato</a>
+			<a href="/contato" class={`nav-link ${currentPage === 'contato' ? 'active' : ''}`}>Contato</a>
 		</nav>
 
 		<!-- Botão de Ação Direita (Desktop) -->
 		<div class="header-cta-box">
-			<a href="/#contato" class="btn-header-cta">
+			<a href="/contato" class="btn-header-cta">
 				<span>Solicitar Orçamento</span>
 				<svg class="icon-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
@@ -65,11 +64,10 @@ import logo from '../assets/logo.png';
 			<a href="/" class={`mobile-nav-link ${currentPage === 'inicio' ? 'active' : ''}`}>Início</a>
 			<a href="/equipamentos" class={`mobile-nav-link ${currentPage === 'equipamentos' ? 'active' : ''}`}>Equipamentos</a>
 			<a href="/sobre" class={`mobile-nav-link ${currentPage === 'sobre' ? 'active' : ''}`}>Sobre Nós</a>
-			<a href="/#assistencia" class={`mobile-nav-link ${currentPage === 'assistencia' ? 'active' : ''}`}>Assistência</a>
-			<a href="/#contato" class={`mobile-nav-link ${currentPage === 'contato' ? 'active' : ''}`}>Contato</a>
+			<a href="/contato" class={`mobile-nav-link ${currentPage === 'contato' ? 'active' : ''}`}>Contato</a>
 		</nav>
 		<div class="mobile-cta-wrap">
-			<a href="/#contato" class="btn-mobile-cta">
+			<a href="/contato" class="btn-mobile-cta">
 				<span>Solicitar Orçamento</span>
 				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
@@ -108,21 +106,21 @@ import logo from '../assets/logo.png';
 
 <style>
 	/* ========================================================================= */
-	/* 1. GRADIENTE DE DESFOQUE FLUIDO NO TOPO (SEM CAMADAS VISÍVEIS)            */
+	/* 1. PROGRESSIVE BACKDROP BLUR NO TOPO (70px, 100% TRANSPARENTE)            */
 	/* ========================================================================= */
 	.top-blur-gradient-wrapper {
 		position: fixed;
 		top: 0;
 		left: 0;
-		right: 0;
-		height: calc(1.25rem + 32px); /* Termina suavemente no eixo central do header */
+		width: 100%;
+		height: 70px;
 		pointer-events: none;
 		z-index: 90;
-		backdrop-filter: blur(16px);
-		-webkit-backdrop-filter: blur(16px);
-		background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0) 100%);
-		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 35%, rgba(0, 0, 0, 0.3) 70%, transparent 100%);
-		-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 35%, rgba(0, 0, 0, 0.3) 70%, transparent 100%);
+		background: transparent;
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
+		-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
 	}
 
 
@@ -192,16 +190,16 @@ import logo from '../assets/logo.png';
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.5rem;
+		gap: 1.5rem;
 		flex: 1;
 	}
 
 	.nav-link {
 		position: relative;
-		font-size: 0.84rem;
+		font-size: 0.88rem;
 		font-weight: 500;
 		color: #475569;
-		padding: 0.45rem 0.9rem;
+		padding: 0.45rem 1rem;
 		border-radius: 0;
 		background: transparent;
 		transition: color 0.2s ease;
@@ -215,8 +213,8 @@ import logo from '../assets/logo.png';
 		content: '';
 		position: absolute;
 		bottom: 2px;
-		left: 0.9rem;
-		right: 0.9rem;
+		left: 1rem;
+		right: 1rem;
 		height: 2px;
 		background-color: #e11d48;
 		border-radius: 2px;
@@ -289,27 +287,27 @@ import logo from '../assets/logo.png';
 		justify-content: center;
 		align-items: center;
 		gap: 5px;
-		width: 40px;
-		height: 40px;
+		width: 32px;
+		height: 32px;
 		padding: 0;
-		border-radius: 8px;
-		background: rgba(241, 245, 249, 0.8);
-		border: 1px solid rgba(226, 232, 240, 0.8);
+		background: transparent;
+		border: none;
 		cursor: pointer;
-		transition: background-color 0.2s ease, transform 0.2s ease;
+		color: #0D1F47;
+		transition: transform 0.2s ease;
 	}
 
 	.mobile-menu-btn:hover {
-		background: #e2e8f0;
+		background: transparent;
 	}
 
 	.hamburger-line {
 		display: block;
-		width: 18px;
+		width: 22px;
 		height: 2px;
-		background-color: #0D1F47;
+		background-color: currentColor;
 		border-radius: 2px;
-		transition: transform 0.3s ease, opacity 0.3s ease;
+		transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
 	}
 
 	/* Animação do botão para X */

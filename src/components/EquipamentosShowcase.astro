@@ -289,6 +289,14 @@ const { machines = defaultMachines } = Astro.props;
 		max-width: 86%;
 	}
 
+	/* Ajuste de tamanho da imagem da Divisora de Mesa (+20%) e elevação */
+	.machine-col[data-open-modal="divisora-mesa"] .machine-item-img {
+		height: clamp(235px, 23.5vw, 340px);
+		max-height: 88%;
+		max-width: 88%;
+		transform: scale(1.2) translateY(-10px);
+	}
+
 	.img-batedeira {
 		height: clamp(216px, 21.6vw, 312px);
 		max-height: 80%;

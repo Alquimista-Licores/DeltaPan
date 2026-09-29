@@ -1,0 +1,526 @@
+---
+interface Props {
+	currentPage?: 'inicio' | 'equipamentos' | 'sobre' | 'contato';
+}
+
+const { currentPage = 'inicio' } = Astro.props;
+import logo from '../assets/logo.png';
+---
+
+<!-- ========================================================================= -->
+<!-- GRADIENTE DE DESFOQUE SUAVE E FLUIDO NO TOPO                              -->
+<!-- ========================================================================= -->
+<div class="top-blur-gradient-wrapper" aria-hidden="true"></div>
+
+<!-- ========================================================================= -->
+<!-- HEADER EXCLUSIVO DA HOME: STUCK NO TOPO (<200px) & FLUTUANTE (>=200px)    -->
+<!-- ========================================================================= -->
+<header class="home-header-wrapper" id="site-header-home">
+	<div class="home-header-pill">
+		
+		<!-- COLUNA 1: Logo DeltaPan (Oculto <200px, surge com Fade In + Deslocamento >=200px) -->
+		<div class="header-logo-col">
+			<a href="/" class="header-logo-link" id="header-home-logo" title="DeltaPan — Página Inicial">
+				<img 
+					src={logo.src} 
+					alt="DeltaPan Logo" 
+					class="header-logo-img" 
+					width="135" 
+					height="34" 
+				/>
+			</a>
+		</div>
+
+		<!-- COLUNA 2: Navegação Centralizada (Desktop) -->
+		<nav class="header-nav">
+			<a href="/" class={`nav-link ${currentPage === 'inicio' ? 'active' : ''}`}>Início</a>
+			<a href="/equipamentos" class={`nav-link ${currentPage === 'equipamentos' ? 'active' : ''}`}>Equipamentos</a>
+			<a href="/sobre" class={`nav-link ${currentPage === 'sobre' ? 'active' : ''}`}>Sobre Nós</a>
+			<a href="/contato" class={`nav-link ${currentPage === 'contato' ? 'active' : ''}`}>Contato</a>
+		</nav>
+
+		<!-- COLUNA 3: Botão de Ação Direita (Desktop) -->
+		<div class="header-cta-box">
+			<a href="/contato" class="btn-header-cta">
+				<span>Solicitar Orçamento</span>
+				<svg class="icon-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+		</div>
+
+		<!-- Botão Menu Sanduíche (Exclusivo Mobile) -->
+		<button 
+			type="button" 
+			class="mobile-menu-btn" 
+			id="mobile-menu-toggle" 
+			aria-label="Abrir Menu de Navegação"
+			aria-expanded="false"
+		>
+			<span class="hamburger-line line-1"></span>
+			<span class="hamburger-line line-2"></span>
+			<span class="hamburger-line line-3"></span>
+		</button>
+	</div>
+
+	<!-- Menu Dropdown Mobile -->
+	<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+		<nav class="mobile-nav">
+			<a href="/" class={`mobile-nav-link ${currentPage === 'inicio' ? 'active' : ''}`}>Início</a>
+			<a href="/equipamentos" class={`mobile-nav-link ${currentPage === 'equipamentos' ? 'active' : ''}`}>Equipamentos</a>
+			<a href="/sobre" class={`mobile-nav-link ${currentPage === 'sobre' ? 'active' : ''}`}>Sobre Nós</a>
+			<a href="/contato" class={`mobile-nav-link ${currentPage === 'contato' ? 'active' : ''}`}>Contato</a>
+		</nav>
+		<div class="mobile-cta-wrap">
+			<a href="/contato" class="btn-mobile-cta">
+				<span>Solicitar Orçamento</span>
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+		</div>
+	</div>
+</header>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const headerWrapper = document.getElementById('site-header-home');
+		const toggleBtn = document.getElementById('mobile-menu-toggle');
+		const drawer = document.getElementById('mobile-drawer');
+
+		// 1. Controle de Scroll da Home: Transição de < 202px para >= 202px
+		function handleHomeHeaderScroll() {
+			const scrollPos = window.scrollY || window.pageYOffset;
+			if (scrollPos >= 202) {
+				headerWrapper?.classList.add('is-scrolled');
+			} else {
+				headerWrapper?.classList.remove('is-scrolled');
+			}
+		}
+
+		window.addEventListener('scroll', handleHomeHeaderScroll, { passive: true });
+		handleHomeHeaderScroll();
+
+		// 2. Menu Mobile
+		if (toggleBtn && drawer) {
+			toggleBtn.addEventListener('click', () => {
+				const isOpened = toggleBtn.classList.toggle('is-active');
+				drawer.classList.toggle('is-open', isOpened);
+				toggleBtn.setAttribute('aria-expanded', String(isOpened));
+				drawer.setAttribute('aria-hidden', String(!isOpened));
+			});
+
+			drawer.querySelectorAll('a').forEach(link => {
+				link.addEventListener('click', () => {
+					toggleBtn.classList.remove('is-active');
+					drawer.classList.remove('is-open');
+					toggleBtn.setAttribute('aria-expanded', 'false');
+					drawer.setAttribute('aria-hidden', 'true');
+				});
+			});
+		}
+	});
+</script>
+
+<style>
+	/* ========================================================================= */
+	/* 1. PROGRESSIVE BACKDROP BLUR NO TOPO (70px, 100% TRANSPARENTE)            */
+	/* ========================================================================= */
+	.top-blur-gradient-wrapper {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 70px;
+		pointer-events: none;
+		z-index: 90;
+		background: transparent;
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
+		-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
+	}
+
+	/* ========================================================================= */
+	/* 2. HEADER DA HOME: ESTADO INICIAL GRUDADO NO TOPO (< 202px)               */
+	/* Grudado no topo, arredondado embaixo, links e botão 100% aparentes        */
+	/* ========================================================================= */
+	.home-header-wrapper {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0 1.25rem;
+		pointer-events: none;
+		transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.home-header-pill {
+		pointer-events: auto;
+		width: 100%;
+		max-width: 1200px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.65rem 1.75rem;
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border-radius: 0 0 28px 28px;
+		border: 1px solid rgba(255, 255, 255, 0.95);
+		border-top: none;
+		box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.1);
+		transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.home-header-pill:hover {
+		background: #ffffff;
+		box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.14);
+	}
+
+	/* Coluna 1: Logo DeltaPan (Oculto e recolhido < 202px) */
+	.header-logo-col {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		width: 0;
+		max-width: 0;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		opacity: 0;
+		transform: translateY(12px);
+		pointer-events: none;
+		transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1), margin 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+	}
+
+	.header-logo-link {
+		display: flex;
+		align-items: center;
+	}
+
+	.header-logo-link:hover {
+		transform: scale(1.02);
+	}
+
+	.header-logo-img {
+		height: 34px;
+		width: auto;
+		max-width: 140px;
+		object-fit: contain;
+		display: block;
+	}
+
+	/* Coluna 2: Navegação Centralizada entre o canto esquerdo e o botão CTA */
+	.header-nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		flex: 1;
+	}
+
+	.nav-link {
+		position: relative;
+		font-size: 0.88rem;
+		font-weight: 500;
+		color: #475569;
+		padding: 0.45rem 1rem;
+		border-radius: 0;
+		background: transparent;
+		transition: color 0.2s ease;
+		white-space: nowrap;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.nav-link::after {
+		content: '';
+		position: absolute;
+		bottom: 2px;
+		left: 1rem;
+		right: 1rem;
+		height: 2px;
+		background-color: #e11d48;
+		border-radius: 2px;
+		transform: scaleX(0);
+		transform-origin: center;
+		transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.nav-link:hover {
+		color: #0D1F47;
+		background: transparent;
+	}
+
+	.nav-link:hover::after {
+		transform: scaleX(1);
+	}
+
+	.nav-link.active {
+		color: #0D1F47;
+		font-weight: 700;
+		background: transparent;
+	}
+
+	.nav-link.active::after {
+		transform: scaleX(1);
+	}
+
+	/* Coluna 3: Botão CTA */
+	.header-cta-box {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		flex-shrink: 0;
+	}
+
+	.btn-header-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		background-color: #0D1F47;
+		color: #ffffff;
+		font-size: 0.84rem;
+		font-weight: 600;
+		padding: 0.55rem 1.25rem;
+		border-radius: 9999px;
+		text-decoration: none;
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		box-shadow: 0 4px 12px rgba(13, 31, 71, 0.2);
+	}
+
+	.btn-header-cta:hover {
+		background-color: #e11d48;
+		color: #ffffff;
+		box-shadow: 0 6px 18px rgba(225, 29, 72, 0.35);
+		transform: translateY(-1px);
+	}
+
+	.icon-arrow {
+		transition: transform 0.25s ease;
+	}
+
+	.btn-header-cta:hover .icon-arrow {
+		transform: translateX(3px);
+	}
+
+	.mobile-menu-btn {
+		display: none;
+	}
+
+	/* Painel Drawer Mobile (Oculto no Desktop) */
+	.mobile-drawer {
+		display: none;
+	}
+
+	/* ========================================================================= */
+	/* 3. ESTADO DESGRUDADO / FLUTUANTE (window.scrollY >= 202px)                 */
+	/* Desgruda do topo com animação leve e arredonda completamente              */
+	/* ========================================================================= */
+	.home-header-wrapper.is-scrolled {
+		top: 1.25rem;
+		padding: 0 1.25rem;
+	}
+
+	.home-header-wrapper.is-scrolled .home-header-pill {
+		max-width: 1200px;
+		border-radius: 9999px;
+		border: 1px solid rgba(255, 255, 255, 0.95);
+		padding: 0.65rem 1.75rem;
+		box-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+	}
+
+	.home-header-wrapper.is-scrolled .home-header-pill:hover {
+		background: #ffffff;
+		box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.05);
+	}
+
+	/* Logo surge com Fade In e Deslocamento suave de baixo para cima */
+	.home-header-wrapper.is-scrolled .header-logo-col {
+		width: auto;
+		max-width: 160px;
+		margin-right: 1.25rem;
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	/* ========================================================================= */
+	/* 4. RESPONSIVIDADE (MOBILE & TABLET: IDÊNTICO AO HEADER DAS OUTRAS PÁGINAS) */
+	/* ========================================================================= */
+	@media (max-width: 992px) {
+		.home-header-wrapper {
+			top: 0.75rem !important;
+			padding: 0 0.75rem !important;
+		}
+
+		.home-header-pill {
+			display: flex;
+			justify-content: space-between;
+			padding: 0.55rem 1rem 0.55rem 1.25rem;
+			border-radius: 9999px !important;
+			max-width: 100%;
+			background: rgba(255, 255, 255, 0.95);
+			border: 1px solid rgba(255, 255, 255, 0.95);
+			box-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+		}
+
+		.header-logo-col {
+			display: flex !important;
+			width: auto !important;
+			max-width: 160px !important;
+			margin: 0 !important;
+			padding: 0 !important;
+			opacity: 1 !important;
+			transform: translateY(0) !important;
+			pointer-events: auto !important;
+		}
+
+		.header-logo-link {
+			display: flex !important;
+			opacity: 1 !important;
+			transform: translateY(0) !important;
+			pointer-events: auto !important;
+		}
+
+		.header-logo-img {
+			height: 30px;
+			max-width: 125px;
+		}
+
+		.header-nav,
+		.header-cta-box {
+			display: none !important;
+		}
+
+		/* Menu sanduíche composto apenas por 3 riscos */
+		.mobile-menu-btn {
+			display: flex !important;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 5px;
+			width: 32px;
+			height: 32px;
+			padding: 0;
+			background: transparent;
+			border: none;
+			cursor: pointer;
+			color: #0D1F47;
+			transition: transform 0.2s ease;
+		}
+
+		.mobile-menu-btn:hover {
+			background: transparent;
+		}
+
+		.hamburger-line {
+			display: block;
+			width: 22px;
+			height: 2px;
+			background-color: currentColor;
+			border-radius: 2px;
+			transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+		}
+
+		.mobile-menu-btn.is-active .line-1 {
+			transform: translateY(7px) rotate(45deg);
+		}
+
+		.mobile-menu-btn.is-active .line-2 {
+			opacity: 0;
+			transform: scaleX(0);
+		}
+
+		.mobile-menu-btn.is-active .line-3 {
+			transform: translateY(-7px) rotate(-45deg);
+		}
+
+		/* Drawer Mobile */
+		.mobile-drawer {
+			display: none;
+			pointer-events: auto;
+			width: 100%;
+			max-width: 1200px;
+			margin-top: 0.6rem;
+			background: rgba(255, 255, 255, 0.98);
+			backdrop-filter: blur(24px);
+			-webkit-backdrop-filter: blur(24px);
+			border: 1px solid rgba(226, 232, 240, 0.9);
+			border-radius: 20px;
+			box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18);
+			padding: 1.25rem;
+			opacity: 0;
+			transform: translateY(-10px);
+			transition: opacity 0.25s ease, transform 0.25s ease;
+		}
+
+		.mobile-drawer.is-open {
+			display: flex;
+			flex-direction: column;
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.mobile-nav {
+			display: flex;
+			flex-direction: column;
+			gap: 0.35rem;
+			width: 100%;
+		}
+
+		.mobile-nav-link {
+			font-size: 1rem;
+			font-weight: 500;
+			color: #334155;
+			text-decoration: none;
+			padding: 0.75rem 1rem;
+			border-radius: 12px;
+			transition: all 0.2s ease;
+		}
+
+		.mobile-nav-link:hover {
+			background-color: rgba(13, 31, 71, 0.05);
+			color: #0D1F47;
+		}
+
+		.mobile-nav-link.active {
+			background-color: rgba(225, 29, 72, 0.08);
+			color: #e11d48;
+			font-weight: 600;
+		}
+
+		.mobile-cta-wrap {
+			padding-top: 0.75rem;
+			border-top: 1px solid #f1f5f9;
+		}
+
+		.btn-mobile-cta {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.6rem;
+			width: 100%;
+			background-color: #0D1F47;
+			color: #ffffff;
+			font-size: 0.95rem;
+			font-weight: 600;
+			padding: 0.85rem 1.5rem;
+			border-radius: 14px;
+			text-decoration: none;
+			transition: all 0.25s ease;
+		}
+
+		.btn-mobile-cta:hover {
+			background-color: #e11d48;
+		}
+	}
+</style>

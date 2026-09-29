@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import HeaderHome from '../components/HeaderHome.astro';
 import Footer from '../components/Footer.astro';
 import logo from '../assets/logo.png';
 import heroImg from '../assets/hero.jpg';
@@ -10,8 +10,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 ---
 
 <Layout>
-	<!-- Header Global com suporte a menu sanduíche no mobile e desfoque no topo -->
-	<Header currentPage="inicio" />
+	<!-- Header Exclusivo da Página Inicial (Stuck no topo < 200px, Flutuante >= 200px) -->
+	<HeaderHome currentPage="inicio" />
 
 	<!-- ========================================================================= -->
 	<!-- 1. HERO: FOTO ORIGINAL ALINHADA ÀS LATERAIS COM LOGO TRANSPARENTE         -->
@@ -105,7 +105,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 						<img 
 							src={divisoraImg.src} 
 							alt="Divisora de Mesa" 
-							class="equipment-img" 
+							class="equipment-img img-divisora-mesa" 
 							loading="lazy" 
 						/>
 						<span class="model-tag">Manual / Semi</span>
@@ -143,9 +143,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 
 			</div>
 
-			<!-- Bloco Abaixo dos Três Equipamentos: Linha Completa para Panificação -->
+			<!-- Botão de Ação: Conhecer Todos os Equipamentos -->
 			<div class="full-line-action-box">
-				<h3 class="full-line-heading">Linha completa para panificação</h3>
 				<a href="/equipamentos" class="btn-explore-products">
 					<span>Conhecer Todos os Equipamentos</span>
 					<svg class="icon-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -194,13 +193,6 @@ import modeladoraImg from '../assets/modeladora.jpg';
 					<p class="inst-card-text">
 						Desenvolver equipamentos para panificação que unam desempenho, qualidade e confiabilidade, ajudando nossos clientes a tornar sua produção mais eficiente, segura e produtiva.
 					</p>
-					<a href="#contato" class="inst-link">
-						<span>Saiba Mais</span>
-						<svg class="inst-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-							<line x1="5" y1="12" x2="19" y2="12"></line>
-							<polyline points="12 5 19 12 12 19"></polyline>
-						</svg>
-					</a>
 				</div>
 
 				<!-- Card 2: VISÃO -->
@@ -215,13 +207,6 @@ import modeladoraImg from '../assets/modeladora.jpg';
 					<p class="inst-card-text">
 						Ser reconhecida pela excelência em equipamentos para panificação, ampliando nossa presença no mercado por meio da inovação, da qualidade e de relações duradouras com nossos clientes e parceiros.
 					</p>
-					<a href="#contato" class="inst-link">
-						<span>Saiba Mais</span>
-						<svg class="inst-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-							<line x1="5" y1="12" x2="19" y2="12"></line>
-							<polyline points="12 5 19 12 12 19"></polyline>
-						</svg>
-					</a>
 				</div>
 
 				<!-- Card 3: VALORES -->
@@ -235,13 +220,6 @@ import modeladoraImg from '../assets/modeladora.jpg';
 					<p class="inst-card-text">
 						Qualidade, compromisso, confiança, inovação e respeito fazem parte de cada etapa do nosso trabalho. Buscamos oferecer equipamentos duráveis, atendimento próximo e soluções que contribuam de forma real para o crescimento dos nossos clientes.
 					</p>
-					<a href="#contato" class="inst-link">
-						<span>Saiba Mais</span>
-						<svg class="inst-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-							<line x1="5" y1="12" x2="19" y2="12"></line>
-							<polyline points="12 5 19 12 12 19"></polyline>
-						</svg>
-					</a>
 				</div>
 
 			</div>
@@ -267,9 +245,9 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		function onScroll() {
 			const scrollPos = window.scrollY || window.pageYOffset;
 			
-			// 1. Logo transition na Hero (desktop)
-			const scrollThreshold = Math.max(window.innerHeight * 0.22, 200);
-			if (scrollPos > scrollThreshold) {
+			// 1. Logo transition na Hero: some com fade e reduz a escala para o centro quando window.scrollY >= 202
+			const scrollThreshold = 202;
+			if (scrollPos >= scrollThreshold) {
 				heroLogo?.classList.add('is-scrolled');
 			} else {
 				heroLogo?.classList.remove('is-scrolled');
@@ -317,6 +295,9 @@ import modeladoraImg from '../assets/modeladora.jpg';
 	/* 1. HERO RESPONSIVO                                                        */
 	/* ========================================================================= */
 	@media (max-width: 992px) {
+		.hero-bg-image {
+			object-position: 78% center !important;
+		}
 		.hero-logo-box {
 			display: none !important; /* No mobile o logo já fica exibido no header flutuante */
 		}
@@ -376,23 +357,23 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		align-items: flex-start;
 	}
 
-	/* Logo sobrepondo a imagem na hero com animação discreta em direção ao header */
 	/* Logo sobrepondo a imagem na hero com animação de entrada fade + blur */
 	.hero-logo-box {
 		margin-bottom: 2rem;
-		display: block;
+		display: inline-block;
 		filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.12));
 		opacity: 1;
-		transform: translate3d(0, 0, 0) scale(1);
-		transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-		will-change: transform, opacity, filter;
+		transform: scale(1);
+		transform-origin: center center;
+		transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+		will-change: opacity, transform, filter;
 		animation: heroLogoFadeBlurIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards;
 	}
 
-	/* Ao rolar a página, o logo sobe em direção ao header e transfere o foco para o logo fixado */
+	/* Quando window.scrollY >= 202, o logo desaparece com fade e reduz a escala para o centro dele mesmo */
 	.hero-logo-box.is-scrolled {
 		opacity: 0;
-		transform: translate3d(0, -90px, 0) scale(0.55);
+		transform: scale(0.75);
 		pointer-events: none;
 	}
 
@@ -444,12 +425,10 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		0% {
 			opacity: 0;
 			filter: blur(14px) drop-shadow(0 4px 14px rgba(0, 0, 0, 0));
-			transform: translate3d(0, 16px, 0);
 		}
 		100% {
 			opacity: 1;
 			filter: blur(0px) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.12));
-			transform: translate3d(0, 0, 0);
 		}
 	}
 
@@ -597,6 +576,15 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		transform: scale(1.05);
 	}
 
+	/* Divisora de mesa ampliada em 20% e elevada no desktop */
+	.equipment-img.img-divisora-mesa {
+		transform: scale(1.2) translateY(-12px);
+	}
+
+	.equipment-card:hover .equipment-img.img-divisora-mesa {
+		transform: scale(1.26) translateY(-14px);
+	}
+
 	.model-tag {
 		position: absolute;
 		top: 1rem;
@@ -659,7 +647,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 	}
 
 	/* ========================================================================= */
-	/* 4. BLOCO ABAIXO: LINHA COMPLETA PARA PANIFICAÇÃO                         */
+	/* 4. BOTÃO ABAIXO DOS CARDS                                                 */
 	/* ========================================================================= */
 	.full-line-action-box {
 		width: 100%;
@@ -668,24 +656,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		padding-top: 1.5rem;
-		margin-top: 1.5rem;
-	}
-
-	.full-line-heading {
-		font-family: 'Montserrat', sans-serif;
-		font-size: 2.15rem;
-		font-weight: 800;
-		color: #0f172a;
-		letter-spacing: -0.025em;
-		margin-bottom: 1.5rem;
-		line-height: 1.2;
-	}
-
-	@media (max-width: 768px) {
-		.full-line-heading {
-			font-size: 1.65rem;
-		}
+		padding-top: 0.5rem;
+		margin-top: 1rem;
 	}
 
 	.btn-explore-products {
@@ -825,33 +797,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		font-size: 0.975rem;
 		line-height: 1.65;
 		color: #475569;
-		margin-bottom: 2rem;
+		margin-bottom: 0;
 		flex-grow: 1;
-	}
-
-	.inst-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-size: 0.875rem;
-		font-weight: 700;
-		color: #0f172a;
-		transition: all 0.25s ease;
-		width: fit-content;
-	}
-
-	.inst-link-arrow {
-		width: 14px !important;
-		height: 14px !important;
-		transition: transform 0.25s ease;
-	}
-
-	.inst-link:hover {
-		color: #e11d48;
-	}
-
-	.inst-link:hover .inst-link-arrow {
-		transform: translateX(4px);
 	}
 
 
