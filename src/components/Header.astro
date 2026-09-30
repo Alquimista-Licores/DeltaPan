@@ -8,9 +8,16 @@ import logo from '../assets/logo.png';
 ---
 
 <!-- ========================================================================= -->
-<!-- GRADIENTE DE DESFOQUE SUAVE E FLUIDO NO TOPO                              -->
+<!-- PROGRESSIVE BACKDROP BLUR NO TOPO (70px, 100% TRANSPARENTE)                -->
 <!-- ========================================================================= -->
-<div class="top-blur-gradient-wrapper" aria-hidden="true"></div>
+<div class="top-blur-gradient-wrapper" aria-hidden="true">
+	<div class="p-blur-1"></div>
+	<div class="p-blur-2"></div>
+	<div class="p-blur-3"></div>
+	<div class="p-blur-4"></div>
+	<div class="p-blur-5"></div>
+	<div class="p-blur-6"></div>
+</div>
 
 <header class="floating-header-wrapper is-scrolled" id="site-header">
 	<div class="floating-header-pill">
@@ -116,11 +123,50 @@ import logo from '../assets/logo.png';
 		height: 70px;
 		pointer-events: none;
 		z-index: 90;
+	}
+
+	.top-blur-gradient-wrapper > div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
 		background: transparent;
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
-		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
-		-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
+	}
+
+	.p-blur-1 {
+		height: 70px;
+		backdrop-filter: blur(2px);
+		-webkit-backdrop-filter: blur(2px);
+	}
+
+	.p-blur-2 {
+		height: 58px;
+		backdrop-filter: blur(3px);
+		-webkit-backdrop-filter: blur(3px);
+	}
+
+	.p-blur-3 {
+		height: 46px;
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
+	}
+
+	.p-blur-4 {
+		height: 35px;
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+	}
+
+	.p-blur-5 {
+		height: 24px;
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
+	}
+
+	.p-blur-6 {
+		height: 14px;
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
 	}
 
 
