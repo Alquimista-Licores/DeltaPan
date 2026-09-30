@@ -49,9 +49,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 
 				<!-- Subtítulo -->
 				<p class="hero-description">
-					Máquinas profissionais para padarias, confeitarias<br />
-					e indústrias que buscam mais produtividade,<br />
-					padronização e eficiência na produção.
+					Máquinas profissionais para padarias, confeitarias <br class="desktop-br" />e indústrias que buscam mais produtividade, <br class="desktop-br" />padronização e eficiência na produção.
 				</p>
 
 			</div>
@@ -78,65 +76,59 @@ import modeladoraImg from '../assets/modeladora.jpg';
 			<!-- Grid dos 3 Equipamentos -->
 			<div class="equipments-grid">
 				
-				<!-- Equipamento 1: Amassadeira Espiral AE80 -->
+				<!-- Equipamento 1: Prepare a massa -->
 				<div class="equipment-card">
 					<div class="card-image-box">
 						<img 
 							src={amassadeiraImg.src} 
-							alt="Amassadeira Espiral AE80" 
+							alt="Prepare a massa" 
 							class="equipment-img" 
 							loading="lazy" 
 						/>
-						<span class="model-tag">AE80</span>
 					</div>
 					<div class="card-body">
 						<div class="step-counter">Etapa 01</div>
-						<h3 class="equipment-name">Amassadeira espiral</h3>
-						<div class="equipment-action-badge">Prepare a massa</div>
+						<h3 class="equipment-step-title">Prepare a massa</h3>
 						<p class="equipment-desc">
-							Desenvolvimento perfeito do glúten, homogeneização rápida e controle térmico para receitas de alto rendimento.
+							Desenvolvimento perfeito do glúten, homogeneização rápida e controle térmico
 						</p>
 					</div>
 				</div>
 
-				<!-- Equipamento 2: Divisora de Mesa -->
+				<!-- Equipamento 2: Divida -->
 				<div class="equipment-card">
 					<div class="card-image-box">
 						<img 
 							src={divisoraImg.src} 
-							alt="Divisora de Mesa" 
+							alt="Divida" 
 							class="equipment-img img-divisora-mesa" 
 							loading="lazy" 
 						/>
-						<span class="model-tag">Manual / Semi</span>
 					</div>
 					<div class="card-body">
 						<div class="step-counter">Etapa 02</div>
-						<h3 class="equipment-name">Divisora de mesa</h3>
-						<div class="equipment-action-badge">Divida</div>
+						<h3 class="equipment-step-title">Divida</h3>
 						<p class="equipment-desc">
-							Divisão exata em porções iguais com rapidez e sem agredir a estrutura da massa, garantindo peso padrão.
+							Divisão exata em porções iguais com rapidez e sem agredir a estrutura da massa.
 						</p>
 					</div>
 				</div>
 
-				<!-- Equipamento 3: Modeladora -->
+				<!-- Equipamento 3: Modele -->
 				<div class="equipment-card">
 					<div class="card-image-box">
 						<img 
 							src={modeladoraImg.src} 
-							alt="Modeladora de Pães" 
+							alt="Modele" 
 							class="equipment-img" 
 							loading="lazy" 
 						/>
-						<span class="model-tag">Industrial</span>
 					</div>
 					<div class="card-body">
 						<div class="step-counter">Etapa 03</div>
-						<h3 class="equipment-name">Modeladora</h3>
-						<div class="equipment-action-badge">Modele</div>
+						<h3 class="equipment-step-title">Modele</h3>
 						<p class="equipment-desc">
-							Enrolamento contínuo e uniforme com esteira de alta tração para pães franceses, baguetes e especiais.
+							Enrolamento contínuo e uniforme com esteira de alta tração.
 						</p>
 					</div>
 				</div>
@@ -153,6 +145,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 					</svg>
 				</a>
 			</div>
+
+
 
 		</div>
 	</section>
@@ -224,6 +218,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 
 			</div>
 
+
+
 		</div>
 	</section>
 
@@ -294,15 +290,22 @@ import modeladoraImg from '../assets/modeladora.jpg';
 	/* ========================================================================= */
 	/* 1. HERO RESPONSIVO                                                        */
 	/* ========================================================================= */
+	.desktop-br {
+		display: inline;
+	}
+
 	@media (max-width: 992px) {
 		.hero-bg-image {
-			object-position: 78% center !important;
+			object-position: calc(78% - 70px) center !important;
 		}
 		.hero-logo-box {
 			display: none !important; /* No mobile o logo já fica exibido no header flutuante */
 		}
 		.hero-content-wrapper {
-			padding-top: 6.5rem;
+			padding-top: 5.75rem;
+			padding-bottom: 2rem;
+			padding-left: 1.25rem;
+			padding-right: 1.25rem;
 		}
 	}
 
@@ -401,11 +404,54 @@ import modeladoraImg from '../assets/modeladora.jpg';
 	}
 
 	@media (max-width: 768px) {
-		.hero-title {
-			font-size: 2rem;
+		.desktop-br {
+			display: none;
 		}
+
+		.hero-section {
+			min-height: 100svh;
+			min-height: 100vh;
+			align-items: center;
+		}
+
+		.hero-content-wrapper {
+			padding-top: 5.75rem;
+			padding-bottom: 2rem;
+			padding-left: 1.25rem;
+			padding-right: 1.25rem;
+			background: transparent;
+		}
+
+		.hero-left-column {
+			background: none;
+			border: none;
+			box-shadow: none;
+			padding: 0;
+			max-width: 100%;
+			width: 100%;
+		}
+
+		.hero-title {
+			font-size: clamp(1.75rem, 6.2vw, 2.25rem);
+			line-height: 1.18;
+			margin-bottom: 0.95rem;
+			color: #0f172a;
+			font-weight: 800;
+			text-shadow: 0 1px 3px rgba(255, 255, 255, 1), 0 0 18px rgba(255, 255, 255, 0.95), 0 0 30px rgba(255, 255, 255, 0.9);
+		}
+
 		.hero-overlaid-logo {
 			max-width: 240px;
+		}
+
+		.hero-description {
+			font-size: clamp(0.95rem, 3.8vw, 1.05rem);
+			line-height: 1.55;
+			color: #091224;
+			font-weight: 600;
+			text-shadow: 0 1px 2px rgba(255, 255, 255, 1), 0 0 16px rgba(255, 255, 255, 0.95), 0 0 28px rgba(255, 255, 255, 0.9);
+			max-width: 100%;
+			overflow-wrap: break-word;
 		}
 	}
 
@@ -518,15 +564,9 @@ import modeladoraImg from '../assets/modeladora.jpg';
 	.equipments-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 2rem;
+		gap: 2.5rem;
 		margin-bottom: 3.5rem;
-	}
-
-	@media (max-width: 980px) {
-		.equipments-grid {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-		}
+		position: relative;
 	}
 
 	/* Card Individual do Equipamento */
@@ -547,6 +587,68 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		transform: translateY(-6px);
 		box-shadow: 0 22px 45px -10px rgba(0, 0, 0, 0.09), 0 0 0 1px rgba(15, 23, 42, 0.06);
 		border-color: #cbd5e1;
+	}
+
+	/* Linha conectora de fluxo entre os cards (Desktop) */
+	.equipment-card:not(:last-child)::after {
+		content: '';
+		position: absolute;
+		top: 172px;
+		right: -2.5rem;
+		width: 2.5rem;
+		height: 2px;
+		background: linear-gradient(90deg, #cbd5e1 0%, #0D1F47 100%);
+		z-index: 10;
+		pointer-events: none;
+	}
+
+	/* Seta indicadora da direção do fluxo (Desktop) */
+	.equipment-card:not(:last-child)::before {
+		content: '';
+		position: absolute;
+		top: 172px;
+		right: -1.45rem;
+		width: 8px;
+		height: 8px;
+		border-top: 2px solid #0D1F47;
+		border-right: 2px solid #0D1F47;
+		transform: translateY(-50%) rotate(45deg);
+		z-index: 11;
+		pointer-events: none;
+	}
+
+	@media (max-width: 980px) {
+		.equipments-grid {
+			grid-template-columns: 1fr;
+			gap: 3.25rem;
+		}
+
+		/* Linha vertical conectora de fluxo (Mobile) */
+		.equipment-card:not(:last-child)::after {
+			top: auto;
+			bottom: -3.25rem;
+			left: 50%;
+			right: auto;
+			width: 2px;
+			height: 3.25rem;
+			background: linear-gradient(180deg, #cbd5e1 0%, #0D1F47 100%);
+			transform: translateX(-50%);
+		}
+
+		/* Seta indicadora para baixo (Mobile) */
+		.equipment-card:not(:last-child)::before {
+			top: auto;
+			bottom: -2.15rem;
+			left: 50%;
+			right: auto;
+			width: 8px;
+			height: 8px;
+			border-top: none;
+			border-left: none;
+			border-bottom: 2px solid #0D1F47;
+			border-right: 2px solid #0D1F47;
+			transform: translateX(-50%) rotate(45deg);
+		}
 	}
 
 	/* Caixa de Imagem do Equipamento */
@@ -585,20 +687,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		transform: scale(1.26) translateY(-14px);
 	}
 
-	.model-tag {
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		font-family: 'Inter', monospace;
-		font-size: 0.6875rem;
-		font-weight: 700;
-		color: #475569;
-		background: #ffffff;
-		padding: 0.25rem 0.65rem;
-		border-radius: 6px;
-		border: 1px solid #e2e8f0;
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-	}
+
 
 	/* Conteúdo do Card */
 	.card-body {
@@ -609,39 +698,26 @@ import modeladoraImg from '../assets/modeladora.jpg';
 
 	.step-counter {
 		font-family: 'Inter', monospace;
-		font-size: 0.6875rem;
+		font-size: 0.75rem;
 		font-weight: 700;
 		letter-spacing: 0.15em;
 		text-transform: uppercase;
 		color: #94a3b8;
-		margin-bottom: 0.4rem;
+		margin-bottom: 0.5rem;
 	}
 
-	.equipment-name {
+	.equipment-step-title {
 		font-family: 'Montserrat', sans-serif;
 		font-size: 1.35rem;
 		font-weight: 800;
 		color: #0f172a;
-		margin-bottom: 0.6rem;
+		margin-bottom: 0.75rem;
 		letter-spacing: -0.015em;
 	}
 
-	.equipment-action-badge {
-		display: inline-block;
-		font-family: 'Montserrat', sans-serif;
-		font-size: 0.8125rem;
-		font-weight: 700;
-		color: #001ba0;
-		background: #eef2ff;
-		padding: 0.25rem 0.75rem;
-		border-radius: 8px;
-		margin-bottom: 0.85rem;
-		border: 1px solid #c7d2fe;
-	}
-
 	.equipment-desc {
-		font-size: 0.925rem;
-		line-height: 1.55;
+		font-size: 0.95rem;
+		line-height: 1.6;
 		color: #475569;
 		margin-bottom: 0.5rem;
 	}
@@ -696,6 +772,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 	.btn-explore-products:hover .icon-btn-arrow {
 		transform: translateX(3px);
 	}
+
+
 
 	/* ========================================================================= */
 	/* 5. TERCEIRA DOBRA: INSTITUCIONAL (MISSÃO, VISÃO E VALORES) COM PARALLAX  */

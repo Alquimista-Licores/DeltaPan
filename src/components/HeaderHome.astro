@@ -169,19 +169,19 @@ import logo from '../assets/logo.png';
 		align-items: center;
 		justify-content: space-between;
 		padding: 0.65rem 1.75rem;
-		background: rgba(255, 255, 255, 0.95);
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
+		background: rgba(255, 255, 255, 0.75);
+		backdrop-filter: blur(20px) saturate(180%);
+		-webkit-backdrop-filter: blur(20px) saturate(180%);
 		border-radius: 0 0 28px 28px;
-		border: 1px solid rgba(255, 255, 255, 0.95);
+		border: 1px solid rgba(255, 255, 255, 0.75);
 		border-top: none;
-		box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
 		transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.home-header-pill:hover {
-		background: #ffffff;
-		box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.14);
+		background: rgba(255, 255, 255, 0.88);
+		box-shadow: 0 18px 42px -8px rgba(15, 23, 42, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 	}
 
 	/* Coluna 1: Logo DeltaPan (Oculto e recolhido < 202px) */
@@ -333,14 +333,15 @@ import logo from '../assets/logo.png';
 	.home-header-wrapper.is-scrolled .home-header-pill {
 		max-width: 1200px;
 		border-radius: 9999px;
-		border: 1px solid rgba(255, 255, 255, 0.95);
+		background: rgba(255, 255, 255, 0.78);
+		border: 1px solid rgba(255, 255, 255, 0.75);
 		padding: 0.65rem 1.75rem;
-		box-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+		box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.9), inset 0 -1px 1px rgba(255, 255, 255, 0.2);
 	}
 
 	.home-header-wrapper.is-scrolled .home-header-pill:hover {
-		background: #ffffff;
-		box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.05);
+		background: rgba(255, 255, 255, 0.88);
+		box-shadow: 0 20px 48px -10px rgba(15, 23, 42, 0.16), inset 0 1px 1px rgba(255, 255, 255, 0.95);
 	}
 
 	/* Logo surge com Fade In e Deslocamento suave de baixo para cima */
@@ -368,9 +369,9 @@ import logo from '../assets/logo.png';
 			padding: 0.55rem 1rem 0.55rem 1.25rem;
 			border-radius: 9999px !important;
 			max-width: 100%;
-			background: rgba(255, 255, 255, 0.95);
-			border: 1px solid rgba(255, 255, 255, 0.95);
-			box-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+			background: rgba(255, 255, 255, 0.8);
+			border: 1px solid rgba(255, 255, 255, 0.75);
+			box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.9);
 		}
 
 		.header-logo-col {
@@ -451,12 +452,12 @@ import logo from '../assets/logo.png';
 			width: 100%;
 			max-width: 1200px;
 			margin-top: 0.6rem;
-			background: rgba(255, 255, 255, 0.98);
-			backdrop-filter: blur(24px);
-			-webkit-backdrop-filter: blur(24px);
-			border: 1px solid rgba(226, 232, 240, 0.9);
+			background: rgba(255, 255, 255, 0.82);
+			backdrop-filter: blur(24px) saturate(180%);
+			-webkit-backdrop-filter: blur(24px) saturate(180%);
+			border: 1px solid rgba(255, 255, 255, 0.75);
 			border-radius: 20px;
-			box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18);
+			box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.16), inset 0 1px 1px rgba(255, 255, 255, 0.9);
 			padding: 1.25rem;
 			opacity: 0;
 			transform: translateY(-10px);

@@ -95,6 +95,31 @@ const machines = [
 // Lote 2 de equipamentos (novos produtos solicitados)
 const machinesBatch2 = [
 	{
+		id: 'divisora-mesa',
+		name: 'Divisora de Mesa',
+		model: 'Linha DM 30 Mesa',
+		shortDesc: 'Divisão uniforme de 30 porções com base de bancada',
+		category: 'Divisão & Porcionamento',
+		img: divisoraColunaImg,
+		alt: 'Divisora de Mesa DeltaPan',
+		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Divisora de Mesa (Linha DM 30 Mesa).',
+		description: 'Ideal para padarias e confeitarias que buscam alta produtividade com padronização rigorosa no peso das porções. Equipada com navalhas em aço inox de alta afiação e prato basculante que garante divisão exata em 30 porções iguais sem rasgar ou desgastar a estrutura da massa.',
+		differentials: [
+			{ title: 'Corte de 30 Divisões Iguais', desc: 'Conjunto de facas estampadas em aço inox com corte preciso e uniforme' },
+			{ title: 'Estrutura Compacta de Mesa', desc: 'Perfeita para bancadas ou cavalete de suporte em padarias e confeitarias' },
+			{ title: 'Prato Basculante Sanitário', desc: 'Alumínio naval de alta resistência com acabamento polido antiaderente' },
+			{ title: 'Alavanca Superior Balanceada', desc: 'Mecanismo multiplicador de torque exigindo mínimo esforço do operador' }
+		],
+		specs: [
+			{ label: 'Número de Divisões', value: '30 porções simultâneas' },
+			{ label: 'Capacidade de Massa', value: '0,9 kg a 3,0 kg por ciclo' },
+			{ label: 'Material das Lâminas', value: 'Aço inoxidável sanitário' },
+			{ label: 'Estrutura / Base', value: 'Base compacta para bancada / mesa' }
+		],
+		laudoNr12Url: '#',
+		manualUrl: '#'
+	},
+	{
 		id: 'modeladora-esteira',
 		name: 'Modeladora com Esteira',
 		model: 'Linha MP 500 / MP Inox',
@@ -119,31 +144,6 @@ const machinesBatch2 = [
 		laudoNr12Url: '#',
 		manualUrl: '#',
 		model3dUrl: '/models/modeladora.glb'
-	},
-	{
-		id: 'divisora-mesa',
-		name: 'Divisora de Mesa',
-		model: 'Linha DM 30 Mesa',
-		shortDesc: 'Divisão uniforme de 30 porções com base de bancada',
-		category: 'Divisão & Porcionamento',
-		img: divisoraColunaImg,
-		alt: 'Divisora de Mesa DeltaPan',
-		whatsappMsg: 'Olá! Gostaria de solicitar um orçamento para o equipamento: Divisora de Mesa (Linha DM 30 Mesa).',
-		description: 'Ideal para padarias e confeitarias que buscam alta produtividade com padronização rigorosa no peso das porções. Equipada com navalhas em aço inox de alta afiação e prato basculante que garante divisão exata em 30 porções iguais sem rasgar ou desgastar a estrutura da massa.',
-		differentials: [
-			{ title: 'Corte de 30 Divisões Iguais', desc: 'Conjunto de facas estampadas em aço inox com corte preciso e uniforme' },
-			{ title: 'Estrutura Compacta de Mesa', desc: 'Perfeita para bancadas ou cavalete de suporte em padarias e confeitarias' },
-			{ title: 'Prato Basculante Sanitário', desc: 'Alumínio naval de alta resistência com acabamento polido antiaderente' },
-			{ title: 'Alavanca Superior Balanceada', desc: 'Mecanismo multiplicador de torque exigindo mínimo esforço do operador' }
-		],
-		specs: [
-			{ label: 'Número de Divisões', value: '30 porções simultâneas' },
-			{ label: 'Capacidade de Massa', value: '0,9 kg a 3,0 kg por ciclo' },
-			{ label: 'Material das Lâminas', value: 'Aço inoxidável sanitário' },
-			{ label: 'Estrutura / Base', value: 'Base compacta para bancada / mesa' }
-		],
-		laudoNr12Url: '#',
-		manualUrl: '#'
 	},
 	{
 		id: 'divisora-coluna',
@@ -171,6 +171,22 @@ const machinesBatch2 = [
 		manualUrl: '#'
 	}
 ];
+
+// Unificação de todos os equipamentos
+const allMachines = [...machines, ...machinesBatch2];
+
+// Exibição Desktop / Tablet (> 500px): 3 equipamentos por imagem (2 linhas)
+const desktopGroups = [
+	allMachines.slice(0, 3), // [amassadeira, batedeira, cilindro]
+	allMachines.slice(3, 6)  // [divisora-mesa, modeladora, divisora-coluna]
+];
+
+// Exibição Mobile (<= 500px): 2 equipamentos por linha com imagem (3 linhas padronizadas)
+const mobileGroups = [
+	allMachines.slice(0, 2), // [amassadeira, batedeira]
+	allMachines.slice(2, 4), // [cilindro, divisora-mesa]
+	allMachines.slice(4, 6)  // [modeladora, divisora-coluna]
+];
 ---
 
 <Layout>
@@ -179,16 +195,24 @@ const machinesBatch2 = [
 
 	<main class="equipamentos-main">
 		
-		<!-- Dobra 1: Apresentação dos Equipamentos (Existente mantida intacta) -->
-		<EquipamentosShowcase machines={machines} />
+		<!-- Exibição Desktop (> 500px): 3 equipamentos por imagem -->
+		<div class="showcase-desktop-layout">
+			{desktopGroups.map((group) => (
+				<EquipamentosShowcase machines={group} />
+			))}
+		</div>
 
-		<!-- Dobra 2: Nova Linha de Equipamentos (Modeladora e Divisoras) -->
-		<EquipamentosShowcase machines={machinesBatch2} />
+		<!-- Exibição Mobile (<= 500px): 2 equipamentos por linha com imagem -->
+		<div class="showcase-mobile-layout">
+			{mobileGroups.map((group) => (
+				<EquipamentosShowcase machines={group} />
+			))}
+		</div>
 
 	</main>
 
 	<!-- Modal Interativo com Suporte a Todos os Equipamentos -->
-	<ProductModal machines={[...machines, ...machinesBatch2]} />
+	<ProductModal machines={allMachines} />
 
 	<!-- Footer Reutilizável -->
 	<Footer />
@@ -205,6 +229,30 @@ const machinesBatch2 = [
 		background: #f8fafc;
 		min-height: calc(100vh - 100px);
 		transition: filter 0.35s ease;
+	}
+
+	/* Controle Responsivo: 3 equipamentos por imagem (> 500px) e 2 por linha (<= 500px) */
+	.showcase-desktop-layout {
+		display: block;
+	}
+
+	.showcase-mobile-layout {
+		display: none;
+	}
+
+	@media (max-width: 500px) {
+		.equipamentos-main {
+			padding-top: 4.5rem;
+			padding-bottom: 2rem;
+		}
+
+		.showcase-desktop-layout {
+			display: none !important;
+		}
+
+		.showcase-mobile-layout {
+			display: block !important;
+		}
 	}
 
 	/* Desfoque do fundo da página quando o modal estiver aberto */

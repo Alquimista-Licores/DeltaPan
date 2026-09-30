@@ -45,6 +45,7 @@ const defaultMachines: MachineShowcaseItem[] = [
 ];
 
 const { machines = defaultMachines } = Astro.props;
+const cols = machines.length;
 ---
 
 <!-- ========================================================================= -->
@@ -65,79 +66,47 @@ const { machines = defaultMachines } = Astro.props;
 					class="scene-background-img"
 				/>
 
-				<!-- Camada das 3 Máquinas Sobrepostas no Chão da Cena -->
-				<div class="machines-overlay-grid">
-					
-					<!-- Máquina 1: Amassadeira Espiral (Esquerda) -->
-					<div class="machine-col machine-left" data-open-modal={machines[0].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[0].name}`}>
-						<div class="machine-inner">
-							<img 
-								src={machines[0].img.src} 
-								alt={machines[0].alt} 
-								class="machine-item-img img-ae" 
-								loading="eager"
-							/>
+				<!-- Camada das Máquinas Sobrepostas no Chão da Cena -->
+				<div class={`machines-overlay-grid cols-${cols}`}>
+					{machines.map((item, idx) => (
+						<div 
+							class={`machine-col machine-${idx}`} 
+							data-open-modal={item.id} 
+							role="button" 
+							tabindex="0" 
+							title={`Clique para ver detalhes de ${item.name}`}
+						>
+							<div class="machine-inner">
+								<img 
+									src={item.img.src} 
+									alt={item.alt} 
+									class={`machine-item-img img-${item.id}`} 
+									loading="eager"
+								/>
+							</div>
 						</div>
-					</div>
-
-					<!-- Máquina 2: Batedeira Planetária (Centro) -->
-					<div class="machine-col machine-center" data-open-modal={machines[1].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[1].name}`}>
-						<div class="machine-inner">
-							<img 
-								src={machines[1].img.src} 
-								alt={machines[1].alt} 
-								class="machine-item-img img-batedeira" 
-								loading="eager"
-							/>
-						</div>
-					</div>
-
-					<!-- Máquina 3: Cilindro Laminador (Direita) -->
-					<div class="machine-col machine-right" data-open-modal={machines[2].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[2].name}`}>
-						<div class="machine-inner">
-							<img 
-								src={machines[2].img.src} 
-								alt={machines[2].alt} 
-								class="machine-item-img img-cilindro" 
-								loading="eager"
-							/>
-						</div>
-					</div>
-
+					))}
 				</div>
 			</div>
 
 			<!-- 2. Faixa Inferior com Informações dos Modelos (Fundo 100% transparente) -->
 			<div class="models-bar">
-				<div class="models-columns-grid">
-					
-					<!-- Coluna 1: Modelo da Máquina 1 -->
-					<div class="model-info-column" data-open-modal={machines[0].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[0].name}`}>
-						<h2 class="model-title">
-							<span>{machines[0].name}</span>
-						</h2>
-						<p class="model-name">{machines[0].model}</p>
-						<p class="model-desc">{machines[0].shortDesc}</p>
-					</div>
-
-					<!-- Coluna 2: Modelo da Máquina 2 -->
-					<div class="model-info-column" data-open-modal={machines[1].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[1].name}`}>
-						<h2 class="model-title">
-							<span>{machines[1].name}</span>
-						</h2>
-						<p class="model-name">{machines[1].model}</p>
-						<p class="model-desc">{machines[1].shortDesc}</p>
-					</div>
-
-					<!-- Coluna 3: Modelo da Máquina 3 -->
-					<div class="model-info-column" data-open-modal={machines[2].id} role="button" tabindex="0" title={`Clique para ver detalhes de ${machines[2].name}`}>
-						<h2 class="model-title">
-							<span>{machines[2].name}</span>
-						</h2>
-						<p class="model-name">{machines[2].model}</p>
-						<p class="model-desc">{machines[2].shortDesc}</p>
-					</div>
-
+				<div class={`models-columns-grid cols-${cols}`}>
+					{machines.map((item) => (
+						<div 
+							class="model-info-column" 
+							data-open-modal={item.id} 
+							role="button" 
+							tabindex="0" 
+							title={`Clique para ver detalhes de ${item.name}`}
+						>
+							<h2 class="model-title">
+								<span>{item.name}</span>
+							</h2>
+							<p class="model-name">{item.model}</p>
+							<p class="model-desc">{item.shortDesc}</p>
+						</div>
+					))}
 				</div>
 			</div>
 
@@ -222,16 +191,21 @@ const { machines = defaultMachines } = Astro.props;
 		user-select: none;
 	}
 
-	/* Grid das 3 Máquinas Sobrepostas sobre o chão da imagem de fundo */
+	/* Grid das Máquinas Sobrepostas sobre o chão da imagem de fundo */
 	.machines-overlay-grid {
 		position: relative;
 		z-index: 5;
 		width: 100%;
 		height: 100%;
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: repeat(3, 1fr);
 		align-items: flex-end;
 		padding: 0 1.5rem 0.35rem 1.5rem; /* Posiciona os equipamentos bem próximos da base da moldura */
+	}
+
+	.machines-overlay-grid.cols-2 {
+		grid-template-columns: repeat(2, 1fr);
+		padding: 0 2.5rem 0.35rem 2.5rem;
 	}
 
 	.machine-col {
@@ -275,21 +249,36 @@ const { machines = defaultMachines } = Astro.props;
 		user-select: none;
 	}
 
-	/* Equipamentos ampliados em 20% para maior destaque visual sobre o cenário */
+	/* Equipamentos ampliados para maior destaque visual sobre o cenário */
+	.img-amassadeira-espiral,
 	.img-ae {
 		height: clamp(192px, 19.2vw, 276px);
 		max-height: 72%;
 		max-width: 90%;
 	}
 
-	/* Ajuste de tamanho da imagem da Modeladora (-10%) */
+	.img-batedeira-planetaria,
+	.img-batedeira {
+		height: clamp(216px, 21.6vw, 312px);
+		max-height: 80%;
+		max-width: 72%;
+	}
+
+	.img-cilindro-laminador,
+	.img-cilindro {
+		height: clamp(204px, 20.4vw, 294px);
+		max-height: 75%;
+		max-width: 90%;
+	}
+
+	.img-modeladora-esteira,
 	.machine-col[data-open-modal="modeladora-esteira"] .machine-item-img {
 		height: clamp(225px, 22.5vw, 324px);
 		max-height: 85%;
 		max-width: 86%;
 	}
 
-	/* Ajuste de tamanho da imagem da Divisora de Mesa (+20%) e elevação */
+	.img-divisora-mesa,
 	.machine-col[data-open-modal="divisora-mesa"] .machine-item-img {
 		height: clamp(235px, 23.5vw, 340px);
 		max-height: 88%;
@@ -297,16 +286,11 @@ const { machines = defaultMachines } = Astro.props;
 		transform: scale(1.2) translateY(-10px);
 	}
 
-	.img-batedeira {
-		height: clamp(216px, 21.6vw, 312px);
-		max-height: 80%;
-		max-width: 72%;
-	}
-
-	.img-cilindro {
-		height: clamp(204px, 20.4vw, 294px);
-		max-height: 75%;
-		max-width: 90%;
+	.img-divisora-coluna,
+	.machine-col[data-open-modal="divisora-coluna"] .machine-item-img {
+		height: clamp(220px, 22vw, 310px);
+		max-height: 85%;
+		max-width: 85%;
 	}
 
 	/* 2. Faixa Inferior de Nomes dos Modelos (Fundo 100% transparente) */
@@ -322,9 +306,14 @@ const { machines = defaultMachines } = Astro.props;
 	.models-columns-grid {
 		width: 100%;
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr; /* Sempre 3 colunas lado a lado em qualquer resolução */
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1.5rem;
 		text-align: center;
+	}
+
+	.models-columns-grid.cols-2 {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
 	}
 
 	.model-info-column {
@@ -448,9 +437,80 @@ const { machines = defaultMachines } = Astro.props;
 			white-space: normal;
 		}
 
-		/* Oculta descrição longa no mobile para garantir disposição lado a lado limpa */
-		.model-desc {
+		/* Oculta descrição longa no mobile de 3 colunas para garantir disposição lado a lado limpa */
+		.models-columns-grid:not(.cols-2) .model-desc {
 			display: none;
+		}
+	}
+
+	/* Ajuste específico para 2 equipamentos por linha quando tela <= 500px */
+	@media (max-width: 500px) {
+		.showcase-section {
+			padding: 0.75rem 0.75rem 1.75rem 0.75rem;
+		}
+
+		.scene-stage {
+			aspect-ratio: 16 / 9;
+			min-height: 180px;
+		}
+
+		.machines-overlay-grid.cols-2 {
+			grid-template-columns: 1fr 1fr !important;
+			padding: 0 1rem 0.35rem 1rem;
+			height: 100%;
+			min-height: 0;
+		}
+
+		.machines-overlay-grid.cols-2 .machine-col {
+			height: 100%;
+			min-height: 0;
+		}
+
+		.machines-overlay-grid.cols-2 .machine-inner {
+			height: 100%;
+			min-height: 0;
+			align-items: flex-end;
+		}
+
+		.models-columns-grid.cols-2 {
+			grid-template-columns: 1fr 1fr !important;
+			gap: 0.75rem;
+			padding: 0.75rem 0.25rem;
+		}
+
+		/* Sobrescreve TODOS os clamps desktop das máquinas em 2 colunas para nunca ultrapassar o chão */
+		.cols-2 .machine-item-img,
+		.cols-2 .machine-col .machine-item-img,
+		.cols-2 .machine-col[data-open-modal] .machine-item-img {
+			height: auto !important;
+			max-height: 82% !important;
+			max-width: 88% !important;
+			transform-origin: bottom center !important;
+			align-self: flex-end;
+		}
+
+		.cols-2 .img-divisora-mesa,
+		.cols-2 .machine-col[data-open-modal="divisora-mesa"] .machine-item-img {
+			transform: scale(1.12) translateY(0) !important;
+			transform-origin: bottom center !important;
+		}
+
+		.cols-2 .model-title {
+			font-size: 0.925rem;
+			line-height: 1.25;
+		}
+
+		.cols-2 .model-name {
+			font-size: 0.75rem;
+			line-height: 1.25;
+		}
+
+		.cols-2 .model-desc {
+			display: block;
+			font-size: 0.6875rem;
+			line-height: 1.35;
+			color: #64748b;
+			margin-top: 0.2rem;
 		}
 	}
 </style>

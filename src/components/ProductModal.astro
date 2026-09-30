@@ -1187,13 +1187,58 @@ const { machines = defaultMachines } = Astro.props;
 	/* ========================================================================= */
 	@media (max-width: 960px) {
 		.modal-inner-layout {
-			grid-template-columns: 1fr;
-			gap: 1.75rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
 			padding: 2.75rem 1.5rem 1.75rem 1.5rem;
 		}
 
+		.modal-media-col,
 		.modal-info-col {
-			padding-right: 0;
+			display: contents;
+		}
+
+		/* Sequência Mobile: imagem - descrição - diferenciais - botão verde - documentos */
+		/* 1. Imagem */
+		.modal-image-box {
+			order: 1;
+			min-height: 240px;
+			padding: 2rem 1rem 1.25rem 1rem;
+		}
+
+		/* 2. Descrição (Cabeçalho do produto + texto descritivo) */
+		.modal-header-block {
+			order: 2;
+			margin-bottom: 0.25rem;
+		}
+
+		.modal-desc-box {
+			order: 3;
+			margin-bottom: 0;
+		}
+
+		/* 3. Diferenciais */
+		.modal-differentials-box {
+			order: 4;
+			margin-bottom: 0;
+		}
+
+		/* 4. Botão Verde (WhatsApp) */
+		.modal-cta-box {
+			order: 5;
+			margin-bottom: 0;
+		}
+
+		/* 5. Documentos */
+		.modal-downloads-box {
+			order: 6;
+			border-top: 1px solid #e2e8f0;
+			padding-top: 1.25rem;
+		}
+
+		/* Ficha técnica oculta no mobile para manter estritamente a sequência solicitada */
+		.modal-quick-specs {
+			display: none;
 		}
 
 		.modal-close-btn {
@@ -1203,11 +1248,6 @@ const { machines = defaultMachines } = Astro.props;
 			height: 38px;
 			background: rgba(255, 255, 255, 0.95);
 			box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-		}
-
-		.modal-image-box {
-			min-height: 240px;
-			padding: 2rem 1rem 1.25rem 1rem;
 		}
 
 		.modal-main-img {
