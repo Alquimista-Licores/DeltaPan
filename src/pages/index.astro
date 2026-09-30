@@ -296,10 +296,13 @@ import modeladoraImg from '../assets/modeladora.jpg';
 
 	@media (max-width: 992px) {
 		.hero-bg-image {
-			object-position: calc(78% - 70px) center !important;
+			object-position: calc(78% + 130px) center !important;
 		}
 		.hero-logo-box {
 			display: none !important; /* No mobile o logo já fica exibido no header flutuante */
+		}
+		.hero-description {
+			display: none !important;
 		}
 		.hero-content-wrapper {
 			padding-top: 5.75rem;
@@ -445,13 +448,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		}
 
 		.hero-description {
-			font-size: clamp(0.95rem, 3.8vw, 1.05rem);
-			line-height: 1.55;
-			color: #091224;
-			font-weight: 600;
-			text-shadow: 0 1px 2px rgba(255, 255, 255, 1), 0 0 16px rgba(255, 255, 255, 0.95), 0 0 28px rgba(255, 255, 255, 0.9);
-			max-width: 100%;
-			overflow-wrap: break-word;
+			display: none !important;
 		}
 	}
 
