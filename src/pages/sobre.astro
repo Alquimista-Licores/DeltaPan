@@ -31,82 +31,52 @@ const valuesList = [
 	<main class="sobre-main">
 		
 		<!-- ========================================================================= -->
-		<!-- 1. HERO INSTITUCIONAL: ORIGEM E IDENTIDADE                                -->
-		<!-- ========================================================================= -->
-		<section class="sobre-hero">
-			<div class="sobre-hero-container">
-				
-				<h1 class="hero-heading">
-					Engenharia catarinense projetada para impulsionar a panificação no Brasil
-				</h1>
-
-				<p class="hero-lead">
-					A <strong>DeltaPan Equipamentos</strong> nasceu no polo industrial do Sul Catarinense, unindo tradição metalmecânica, tecnologia de automação e rigor no desenvolvimento de maquinários para panificação e confeitaria.
-				</p>
-
-				<!-- Indicadores Rápidos -->
-				<div class="hero-stats-row">
-					<div class="stat-card">
-						<span class="stat-number">100%</span>
-						<span class="stat-label">Fabricação e Engenharia Nacional</span>
-					</div>
-					<div class="stat-card">
-						<span class="stat-number">NR-12</span>
-						<span class="stat-label">Conformidade Total de Segurança</span>
-					</div>
-					<div class="stat-card">
-						<span class="stat-number">Criciúma / SC</span>
-						<span class="stat-label">Parque Fabril no Sul Catarinense</span>
-					</div>
-				</div>
-
-			</div>
-		</section>
-
-		<!-- ========================================================================= -->
-		<!-- 2. NOSSA HISTÓRIA E ENGENHARIA FABRIL                                      -->
+		<!-- HISTÓRIA E ENGENHARIA FABRIL                                              -->
 		<!-- ========================================================================= -->
 		<section class="history-section">
-			<div class="history-container">
-				
-				<div class="history-text-col">
-					<h2 class="section-title">
-						Nascida onde a indústria e a precisão técnica se encontram
-					</h2>
-					<p class="section-p">
-						Sediada em <strong>Criciúma, Santa Catarina</strong> — um dos mais consolidados polos de transformação metalmecânica do país —, a DeltaPan Equipamentos projeta e fabrica maquinários desenvolvidos sob medida para os desafios reais da panificação profissional.
-					</p>
-					<p class="section-p">
-						Nossas instalações combinam tecnologia de corte, conformação e solda de alta precisão com rigoroso controle dimensional. Do tacho em aço inox ao balanceamento milimétrico dos rolos laminadores e batedores, cada máquina é concebida para durar anos com máxima estabilidade e baixo custo de manutenção.
-					</p>
-					
-					<div class="location-box">
-						<div class="location-icon">
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-								<circle cx="12" cy="10" r="3"></circle>
-							</svg>
-						</div>
-						<div class="location-info">
-							<strong>Parque Fabril DeltaPan</strong>
-							<p>Rodovia Archimedes Naspolini, 2120 • Mina do Mato • Criciúma, SC — CEP 88810-560</p>
-						</div>
-					</div>
+			<div class="history-wrapper">
+
+				<div class="history-header">
+					<h1 class="history-title">
+						Tradição, tecnologia e qualidade na fabricação de equipamentos para panificação.
+					</h1>
 				</div>
 
-				<div class="history-media-col">
-					<div class="media-card-wrapper">
-						<img 
-							src={factoryImg.src} 
-							alt="Parque fabril de usinagem e fabricação de equipamentos DeltaPan" 
-							class="media-main-img" 
-							loading="lazy"
-						/>
-						<div class="media-floating-badge">
-							<span class="badge-title">Tecnologia & Robustez</span>
-							<span class="badge-sub">Estrutura pensada para regimes industriais contínuos</span>
+				<div class="history-container">
+					
+					<div class="history-text-col">
+						<p class="section-p">
+							Localizada em Criciúma, Santa Catarina, a Delta Pan Equipamentos é uma indústria brasileira especializada no desenvolvimento e fabricação de máquinas para o setor de panificação.
+						</p>
+						<p class="section-p">
+							Com mais de 30 anos de experiência no setor, reunimos conhecimento técnico, tecnologia e compromisso com a qualidade para desenvolver equipamentos industriais de elevada robustez, confiabilidade e desempenho.
+						</p>
+						<p class="section-p">
+							Nossos equipamentos são projetados para atender às exigências de aplicações profissionais e industriais, priorizando segurança operacional, durabilidade, produtividade e facilidade de manutenção.
+						</p>
+						<p class="section-p">
+							Valorizamos a fabricação nacional, a qualidade dos materiais e a eficiência dos processos, oferecendo aos nossos clientes facilidade na reposição de peças, assistência técnica e suporte especializado.
+						</p>
+						<p class="section-p">
+							Estamos em constante evolução, aperfeiçoando nossos equipamentos e desenvolvendo novas soluções para acompanhar as necessidades e os desafios do mercado.
+						</p>
+					</div>
+
+					<div class="history-media-col">
+						<div class="media-card-wrapper">
+							<img 
+								src={factoryImg.src} 
+								alt="Parque fabril de usinagem e fabricação de equipamentos DeltaPan" 
+								class="media-main-img" 
+								loading="lazy"
+							/>
+							<div class="media-floating-badge">
+								<span class="badge-title">Tecnologia & Robustez</span>
+								<span class="badge-sub">Estrutura pensada para regimes industriais contínuos</span>
+							</div>
 						</div>
 					</div>
+
 				</div>
 
 			</div>
@@ -221,116 +191,7 @@ const valuesList = [
 		min-height: 100vh;
 	}
 
-	/* ========================================================================= */
-	/* 2. HERO INSTITUCIONAL                                                     */
-	/* ========================================================================= */
-	.sobre-hero {
-		width: 100%;
-		padding: 3rem 1.5rem 4.5rem 1.5rem;
-		position: relative;
-		background: radial-gradient(circle at 50% 10%, rgba(226, 232, 240, 0.4) 0%, transparent 60%);
-	}
 
-	.sobre-hero-container {
-		width: 100%;
-		max-width: 1140px;
-		margin: 0 auto;
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.hero-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		background: #ffffff;
-		border: 1px solid #e2e8f0;
-		padding: 0.45rem 1.1rem;
-		border-radius: 9999px;
-		font-family: 'Inter', monospace;
-		font-size: 0.75rem;
-		font-weight: 700;
-		letter-spacing: 0.12em;
-		color: #475569;
-		margin-bottom: 1.75rem;
-		box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-	}
-
-	.badge-dot {
-		width: 7px;
-		height: 7px;
-		background-color: #e11d48;
-		border-radius: 50%;
-		display: inline-block;
-	}
-
-	.hero-heading {
-		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-		font-size: clamp(1.85rem, 3.8vw, 3.25rem);
-		font-weight: 800;
-		color: #0f172a;
-		letter-spacing: -0.03em;
-		line-height: 1.18;
-		max-width: 960px;
-		margin-bottom: 1.5rem;
-	}
-
-	.hero-lead {
-		font-family: 'Inter', sans-serif;
-		font-size: clamp(1rem, 1.4vw, 1.18rem);
-		color: #475569;
-		line-height: 1.65;
-		max-width: 780px;
-		margin-bottom: 3rem;
-	}
-
-	.hero-lead strong {
-		color: #0f172a;
-	}
-
-	/* Stats Row */
-	.hero-stats-row {
-		width: 100%;
-		max-width: 900px;
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 1.5rem;
-	}
-
-	.stat-card {
-		background: #ffffff;
-		border: 1px solid #e2e8f0;
-		border-radius: 16px;
-		padding: 1.5rem 1.25rem;
-		box-shadow: 0 8px 25px -5px rgba(15, 23, 42, 0.05);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		transition: transform 0.25s ease, box-shadow 0.25s ease;
-	}
-
-	.stat-card:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 14px 30px -8px rgba(15, 23, 42, 0.1);
-	}
-
-	.stat-number {
-		font-family: 'Montserrat', 'Inter', sans-serif;
-		font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-		font-weight: 800;
-		color: #0f172a;
-		margin-bottom: 0.35rem;
-	}
-
-	.stat-label {
-		font-size: 0.8125rem;
-		font-weight: 500;
-		color: #64748b;
-		text-align: center;
-		line-height: 1.4;
-	}
 
 	/* ========================================================================= */
 	/* 3. SEÇÃO HISTÓRIA & LOCALIZAÇÃO (CRICIÚMA/SC)                             */
@@ -343,14 +204,34 @@ const valuesList = [
 		border-bottom: 1px solid #e2e8f0;
 	}
 
-	.history-container {
+	.history-wrapper {
 		width: 100%;
 		max-width: 1240px;
 		margin: 0 auto;
+	}
+
+	.history-header {
+		max-width: 960px;
+		margin: 0 auto 3.5rem auto;
+		text-align: center;
+	}
+
+	.history-title {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+		font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+		font-weight: 800;
+		color: #0f172a;
+		letter-spacing: -0.03em;
+		line-height: 1.25;
+		margin: 0;
+	}
+
+	.history-container {
+		width: 100%;
 		display: grid;
 		grid-template-columns: 1.15fr 0.85fr;
 		gap: 4rem;
-		align-items: center;
+		align-items: stretch;
 	}
 
 	.section-tag {
@@ -403,42 +284,19 @@ const valuesList = [
 		margin-bottom: 1.25rem;
 	}
 
+	.section-p:last-child {
+		margin-bottom: 0;
+	}
+
 	.section-p strong {
 		color: #0f172a;
 	}
 
-	.location-box {
-		margin-top: 2rem;
-		background: #f8fafc;
-		border: 1px solid #e2e8f0;
-		border-radius: 12px;
-		padding: 1.25rem 1.5rem;
-		display: flex;
-		align-items: flex-start;
-		gap: 1rem;
-	}
-
-	.location-icon {
-		color: #e11d48;
-		margin-top: 0.15rem;
-		flex-shrink: 0;
-	}
-
-	.location-info strong {
-		display: block;
-		font-size: 0.92rem;
-		color: #0f172a;
-		margin-bottom: 0.25rem;
-	}
-
-	.location-info p {
-		font-size: 0.84rem;
-		color: #64748b;
-		line-height: 1.45;
-	}
-
 	.history-media-col {
 		position: relative;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.media-card-wrapper {
@@ -446,11 +304,15 @@ const valuesList = [
 		border-radius: 16px;
 		overflow: hidden;
 		box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.16);
+		height: 100%;
+		min-height: 440px;
+		display: flex;
 	}
 
 	.media-main-img {
 		width: 100%;
-		height: 440px;
+		height: 100%;
+		min-height: 440px;
 		object-fit: cover;
 		display: block;
 		transition: transform 0.4s ease;
@@ -678,15 +540,8 @@ const valuesList = [
 	}
 
 	@media (max-width: 640px) {
-		.hero-stats-row {
-			grid-template-columns: 1fr;
-			gap: 1rem;
-		}
-
 		.pillars-grid {
 			grid-template-columns: 1fr;
 		}
-
-
 	}
 </style>
