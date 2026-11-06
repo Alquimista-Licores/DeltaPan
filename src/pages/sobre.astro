@@ -409,23 +409,73 @@ const valuesList = [
 		gap: 2rem;
 	}
 
+	@property --border-angle {
+		syntax: "<angle>";
+		inherits: true;
+		initial-value: 0deg;
+	}
+
+	@keyframes rotateBorderAngle {
+		0% {
+			--border-angle: 0deg;
+		}
+		100% {
+			--border-angle: 360deg;
+		}
+	}
+
 	.mvv-card {
-		background: 
-			linear-gradient(#ffffff, #ffffff) padding-box,
-			linear-gradient(135deg, #090981 0%, #9f0101 100%) border-box;
-		border: 1px solid transparent;
+		position: relative;
 		border-radius: 18px;
+		background: #ffffff;
 		padding: 2.25rem 1.75rem;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 		box-shadow: 0 10px 30px -8px rgba(15, 23, 42, 0.05);
+		transition: 
+			transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+			box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.mvv-card::before {
+		content: '';
+		position: absolute;
+		inset: -1.5px;
+		border-radius: 19.5px;
+		--border-angle: 0deg;
+		background: conic-gradient(from var(--border-angle), #090981 0%, #9f0101 50%, #090981 100%);
+		pointer-events: none;
+		z-index: 0;
+		transition: 
+			inset 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+			border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+		animation: rotateBorderAngle 6s linear infinite;
+	}
+
+	.mvv-card::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 18px;
+		background: #ffffff;
+		pointer-events: none;
+		z-index: 1;
 	}
 
 	.mvv-card:hover {
-		transform: translateY(-6px);
-		box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+		transform: translateY(-5px);
+		box-shadow: 0 18px 40px -10px rgba(15, 23, 42, 0.12);
+	}
+
+	.mvv-card:hover::before {
+		inset: -2px;
+		border-radius: 20px;
+	}
+
+	.mvv-card > * {
+		position: relative;
+		z-index: 2;
 	}
 
 	.mvv-icon-wrap {
