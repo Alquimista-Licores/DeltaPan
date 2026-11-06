@@ -190,7 +190,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 					</div>
 					<h3 class="inst-card-title">MISSÃO</h3>
 					<p class="inst-card-text">
-						Desenvolver equipamentos para panificação que unam desempenho, qualidade e confiabilidade, ajudando nossos clientes a tornar sua produção mais eficiente, segura e produtiva.
+						Desenvolver e fabricar equipamentos para panificação com qualidade, robustez e segurança, proporcionando aos nossos clientes produtividade, confiabilidade e durabilidade, com assistência técnica e suporte especializado.
 					</p>
 				</div>
 
@@ -204,7 +204,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 					</div>
 					<h3 class="inst-card-title">VISÃO</h3>
 					<p class="inst-card-text">
-						Ser reconhecida pela excelência em equipamentos para panificação, ampliando nossa presença no mercado por meio da inovação, da qualidade e de relações duradouras com nossos clientes e parceiros.
+						Ser reconhecida como referência em qualidade na fabricação de equipamentos para panificação, destacando-se pela robustez, durabilidade e confiabilidade de nossos produtos, conquistando a confiança e a satisfação de nossos clientes.
 					</p>
 				</div>
 
@@ -217,7 +217,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 					</div>
 					<h3 class="inst-card-title">VALORES</h3>
 					<p class="inst-card-text">
-						Qualidade, compromisso, confiança, inovação e respeito fazem parte de cada etapa do nosso trabalho. Buscamos oferecer equipamentos duráveis, atendimento próximo e soluções que contribuam de forma real para o crescimento dos nossos clientes.
+						Na Delta Pan Equipamentos, acreditamos que a confiança se conquista com honestidade, respeito e compromisso.<br /><br />
+						Valorizamos a qualidade em tudo o que fazemos, a transparência nas relações com nossos clientes, a responsabilidade em cumprir o que prometemos e a dedicação em oferecer equipamentos confiáveis, seguros e duráveis.
 					</p>
 				</div>
 
@@ -277,13 +278,15 @@ import modeladoraImg from '../assets/modeladora.jpg';
 				const observerInst = new IntersectionObserver((entries) => {
 					entries.forEach((entry) => {
 						if (entry.isIntersecting) {
-							startInstAnim();
+							setTimeout(() => {
+								startInstAnim();
+							}, 200);
 							observerInst.unobserve(entry.target);
 						}
 					});
 				}, {
-					threshold: 0.22,
-					rootMargin: '0px 0px -40px 0px'
+					threshold: 0.45,
+					rootMargin: '0px 0px -60px 0px'
 				});
 				observerInst.observe(instGrid);
 			} else {
@@ -1055,17 +1058,17 @@ import modeladoraImg from '../assets/modeladora.jpg';
 			box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.04);
 		}
 
-		/* Card 1 (Missão): Atrás de Visão, aparecendo um pedaço na esquerda (~44px) */
+		/* Card 1 (Missão): Atrás de Visão, aparecendo um pedaço na esquerda (~64px) */
 		.card-missao {
 			z-index: 2;
-			transform: translateX(calc(100% + 2.25rem - 44px)) scale(0.96) rotate(-2deg);
+			transform: translateX(calc(100% + 2.25rem - 64px)) scale(0.96) rotate(-2.5deg);
 			box-shadow: 0 14px 35px -8px rgba(15, 23, 42, 0.09);
 		}
 
-		/* Card 3 (Valores): Atrás de Visão, aparecendo um pedaço na direita (~44px) */
+		/* Card 3 (Valores): Atrás de Visão, aparecendo um pedaço na direita (~64px) */
 		.card-valores {
 			z-index: 1;
-			transform: translateX(calc(-100% - 2.25rem + 44px)) scale(0.96) rotate(2deg);
+			transform: translateX(calc(-100% - 2.25rem + 64px)) scale(0.96) rotate(2.5deg);
 			box-shadow: 0 14px 35px -8px rgba(15, 23, 42, 0.09);
 		}
 

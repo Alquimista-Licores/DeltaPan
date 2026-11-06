@@ -6,20 +6,12 @@ import factoryImg from '../assets/sobre-fabrica.jpg';
 
 const valuesList = [
 	{
-		title: 'Qualidade e Engenharia Robusta',
-		desc: 'Uso de aço inoxidável certificado, eixos retificados e componentes de primeira linha dimensionados para regimes severos.'
+		title: 'Qualidade e Robustez',
+		desc: 'Na Delta Pan, cada equipamento é desenvolvido e fabricado com foco na qualidade, resistência e durabilidade. Utilizamos materiais e componentes de qualidade, aliados à experiência de mais de 30 anos no setor, para oferecer máquinas robustas, confiáveis e preparadas para atender às exigências da produção diária, reduzindo a necessidade de manutenção e proporcionando segurança e tranquilidade aos nossos clientes.'
 	},
 	{
-		title: 'Segurança Humana (NR-12)',
-		desc: 'Proteções mecânicas, sensores codificados e paradas instantâneas protegendo os operadores em cada etapa do processo.'
-	},
-	{
-		title: 'Inovação e Produtividade',
-		desc: 'Controles digitais, inversores de frequência e mecânica silenciosa que aumentam a taxa de rendimento das massas.'
-	},
-	{
-		title: 'Compromisso com o Cliente',
-		desc: 'Atendimento direto da fábrica, pós-venda técnico especializado e prontidão no envio de peças de reposição.'
+		title: 'Segurança e Conformidade NR12',
+		desc: 'Na Delta Pan, a segurança é prioridade em todas as etapas de desenvolvimento e fabricação dos nossos equipamentos. Cada máquina é projetada e fabricada conforme os requisitos da Norma Regulamentadora NR12, incorporando sistemas de proteção e dispositivos de segurança, sempre pensando em proporcionar segurança ao operador.<br /><br />Aliamos tecnologia, qualidade construtiva e responsabilidade para oferecer equipamentos seguros.'
 	}
 ];
 ---
@@ -63,17 +55,17 @@ const valuesList = [
 					</div>
 
 					<div class="history-media-col">
-						<div class="media-card-wrapper">
+						<div class="media-card-wrapper" id="media-parallax-wrapper">
 							<img 
 								src={factoryImg.src} 
 								alt="Parque fabril de usinagem e fabricação de equipamentos DeltaPan" 
 								class="media-main-img" 
+								id="media-parallax-img" 
 								loading="lazy"
 							/>
-							<div class="media-floating-badge">
-								<span class="badge-title">Tecnologia & Robustez</span>
-								<span class="badge-sub">Estrutura pensada para regimes industriais contínuos</span>
-							</div>
+						</div>
+						<div class="media-floating-badge">
+							<span class="badge-title">Força, tecnologia e confiança para sua produção</span>
 						</div>
 					</div>
 
@@ -109,7 +101,7 @@ const valuesList = [
 						<span class="mvv-kicker">PROPÓSITO</span>
 						<h3 class="mvv-card-title">Missão</h3>
 						<p class="mvv-card-desc">
-							Desenvolver equipamentos para panificação que unam desempenho, robustez e confiabilidade, ajudando nossos clientes a tornar sua produção mais eficiente, segura e produtiva.
+							Desenvolver e fabricar equipamentos para panificação com qualidade, robustez e segurança, proporcionando aos nossos clientes produtividade, confiabilidade e durabilidade, com assistência técnica e suporte especializado.
 						</p>
 					</div>
 
@@ -124,7 +116,7 @@ const valuesList = [
 						<span class="mvv-kicker">FUTURO</span>
 						<h3 class="mvv-card-title">Visão</h3>
 						<p class="mvv-card-desc">
-							Ser reconhecida pela excelência em equipamentos para panificação no Brasil, ampliando nossa presença no mercado por meio da inovação contínua, da qualidade e de relações duradouras com nossos clientes e parceiros.
+							Ser reconhecida como referência em qualidade na fabricação de equipamentos para panificação, destacando-se pela robustez, durabilidade e confiabilidade de nossos produtos, conquistando a confiança e a satisfação de nossos clientes.
 						</p>
 					</div>
 
@@ -138,7 +130,8 @@ const valuesList = [
 						<span class="mvv-kicker">CONDUTA</span>
 						<h3 class="mvv-card-title">Valores</h3>
 						<p class="mvv-card-desc">
-							Qualidade intransigente, compromisso, confiança mútua, inovação permanente e respeito irrestrito fazem parte de cada etapa do nosso processo e da nossa relação com o cliente.
+							Na Delta Pan Equipamentos, acreditamos que a confiança se conquista com honestidade, respeito e compromisso.<br /><br />
+							Valorizamos a qualidade em tudo o que fazemos, a transparência nas relações com nossos clientes, a responsabilidade em cumprir o que prometemos e a dedicação em oferecer equipamentos confiáveis, seguros e duráveis.
 						</p>
 					</div>
 
@@ -155,7 +148,7 @@ const valuesList = [
 				
 				<div class="pillars-header">
 					<h2 class="section-title center">
-						Pilares construtivos que diferenciam cada equipamento
+						Pilares Construtivos da Delta Pan
 					</h2>
 				</div>
 
@@ -164,7 +157,7 @@ const valuesList = [
 						<div class="pillar-card">
 							<div class="pillar-number">0{idx + 1}</div>
 							<h4 class="pillar-title">{item.title}</h4>
-							<p class="pillar-desc">{item.desc}</p>
+							<p class="pillar-desc" set:html={item.desc}></p>
 						</div>
 					))}
 				</div>
@@ -179,6 +172,40 @@ const valuesList = [
 	<!-- Footer Global Reutilizável -->
 	<Footer />
 </Layout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const parallaxWrapper = document.getElementById('media-parallax-wrapper');
+		const parallaxImg = document.getElementById('media-parallax-img');
+
+		if (parallaxWrapper && parallaxImg) {
+			let ticking = false;
+
+			function updateParallax() {
+				const rect = parallaxWrapper.getBoundingClientRect();
+				const winHeight = window.innerHeight;
+
+				if (rect.top < winHeight && rect.bottom > 0) {
+					// Progresso de entrada e saída (0 a 1)
+					const progress = (winHeight - rect.top) / (winHeight + rect.height);
+					// Ao descer a página, a imagem sobe internamente na moldura
+					const translateY = (0.5 - progress) * 110;
+					parallaxImg.style.transform = `translate3d(0, ${translateY.toFixed(2)}px, 0) scale(1.15)`;
+				}
+				ticking = false;
+			}
+
+			window.addEventListener('scroll', () => {
+				if (!ticking) {
+					window.requestAnimationFrame(updateParallax);
+					ticking = true;
+				}
+			}, { passive: true });
+
+			updateParallax();
+		}
+	});
+</script>
 
 <style>
 	/* ========================================================================= */
@@ -202,6 +229,7 @@ const valuesList = [
 		background: #ffffff;
 		border-top: 1px solid #e2e8f0;
 		border-bottom: 1px solid #e2e8f0;
+		overflow-x: clip;
 	}
 
 	.history-wrapper {
@@ -231,7 +259,7 @@ const valuesList = [
 		display: grid;
 		grid-template-columns: 1.15fr 0.85fr;
 		gap: 4rem;
-		align-items: stretch;
+		align-items: center;
 	}
 
 	.section-tag {
@@ -294,7 +322,7 @@ const valuesList = [
 
 	.history-media-col {
 		position: relative;
-		height: 100%;
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 	}
@@ -304,51 +332,55 @@ const valuesList = [
 		border-radius: 16px;
 		overflow: hidden;
 		box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.16);
-		height: 100%;
-		min-height: 440px;
+		height: 380px;
+		min-height: 380px;
+		max-height: 380px;
 		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.media-main-img {
 		width: 100%;
-		height: 100%;
-		min-height: 440px;
+		height: 125%;
+		min-height: 480px;
 		object-fit: cover;
 		display: block;
-		transition: transform 0.4s ease;
-	}
-
-	.media-card-wrapper:hover .media-main-img {
-		transform: scale(1.03);
+		will-change: transform;
+		transform: translate3d(0, 0px, 0) scale(1.15);
+		transition: filter 0.3s ease;
 	}
 
 	.media-floating-badge {
 		position: absolute;
-		bottom: 1.25rem;
+		bottom: 1.5rem;
 		left: 1.25rem;
-		right: 1.25rem;
-		background: rgba(13, 31, 71, 0.88);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		padding: 1rem 1.25rem;
-		border-radius: 10px;
-		border: 1px solid rgba(255, 255, 255, 0.15);
+		right: -1.25rem;
+		background: rgba(13, 31, 71, 0.94);
+		backdrop-filter: blur(14px);
+		-webkit-backdrop-filter: blur(14px);
+		padding: 1rem 1.4rem;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 0 16px 36px -6px rgba(13, 31, 71, 0.4), 0 4px 12px rgba(0, 0, 0, 0.12);
 		color: #ffffff;
 		display: flex;
 		flex-direction: column;
+		z-index: 10;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.history-media-col:hover .media-floating-badge {
+		transform: translateY(-2px);
+		box-shadow: 0 24px 48px -6px rgba(13, 31, 71, 0.48);
 	}
 
 	.badge-title {
-		font-size: 0.92rem;
+		font-size: 1rem;
 		font-weight: 700;
-		letter-spacing: -0.01em;
-		margin-bottom: 0.2rem;
-	}
-
-	.badge-sub {
-		font-size: 0.78rem;
-		color: #cbd5e1;
-		line-height: 1.35;
+		letter-spacing: -0.015em;
+		line-height: 1.45;
+		color: #ffffff;
 	}
 
 	/* ========================================================================= */
@@ -470,15 +502,15 @@ const valuesList = [
 
 	.pillars-grid {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 1.5rem;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
 	}
 
 	.pillar-card {
 		background: #f8fafc;
 		border: 1px solid #e2e8f0;
 		border-radius: 14px;
-		padding: 1.75rem 1.5rem;
+		padding: 2.25rem 2rem;
 		display: flex;
 		flex-direction: column;
 		transition: all 0.25s ease;
@@ -501,17 +533,17 @@ const valuesList = [
 
 	.pillar-title {
 		font-family: 'Inter', sans-serif;
-		font-size: 1.05rem;
+		font-size: 1.15rem;
 		font-weight: 700;
 		color: #0f172a;
 		line-height: 1.35;
-		margin-bottom: 0.65rem;
+		margin-bottom: 0.85rem;
 	}
 
 	.pillar-desc {
-		font-size: 0.85rem;
+		font-size: 0.95rem;
 		color: #64748b;
-		line-height: 1.55;
+		line-height: 1.65;
 	}
 
 
@@ -525,8 +557,22 @@ const valuesList = [
 			gap: 3rem;
 		}
 
+		.media-card-wrapper {
+			min-height: 280px;
+			height: 280px;
+			max-height: 280px;
+		}
+
 		.media-main-img {
-			height: 340px;
+			height: 135%;
+			min-height: 380px;
+		}
+
+		.media-floating-badge {
+			left: 1rem;
+			right: -0.75rem;
+			bottom: 1rem;
+			padding: 0.85rem 1.15rem;
 		}
 
 		.mvv-grid {
@@ -554,6 +600,13 @@ const valuesList = [
 	}
 
 	@media (max-width: 640px) {
+		.media-floating-badge {
+			right: 0.5rem;
+			left: 0.5rem;
+			width: auto;
+			max-width: none;
+		}
+
 		.pillars-grid {
 			grid-template-columns: 1fr;
 		}
