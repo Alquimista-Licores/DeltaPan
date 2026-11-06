@@ -339,7 +339,7 @@ import logo from '../assets/logo.png';
 		padding: 0.55rem 1.25rem;
 		border-radius: 9999px;
 		text-decoration: none;
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		transition: transform 0.2s var(--ease-out), background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 		box-shadow: 0 4px 12px rgba(13, 31, 71, 0.2);
 	}
 
@@ -350,8 +350,14 @@ import logo from '../assets/logo.png';
 		transform: translateY(-1px);
 	}
 
+	.btn-header-cta:active {
+		transform: translateY(0) scale(0.97);
+		box-shadow: 0 2px 8px rgba(225, 29, 72, 0.25);
+		transition-duration: 0.1s;
+	}
+
 	.icon-arrow {
-		transition: transform 0.25s ease;
+		transition: transform 0.2s var(--ease-out);
 	}
 
 	.btn-header-cta:hover .icon-arrow {
@@ -535,7 +541,7 @@ import logo from '../assets/logo.png';
 			text-decoration: none;
 			padding: 0.75rem 1rem;
 			border-radius: 12px;
-			transition: all 0.2s ease;
+			transition: background-color 0.15s ease, color 0.15s ease;
 		}
 
 		.mobile-nav-link:hover {
@@ -567,11 +573,16 @@ import logo from '../assets/logo.png';
 			padding: 0.85rem 1.5rem;
 			border-radius: 14px;
 			text-decoration: none;
-			transition: all 0.25s ease;
+			transition: transform 0.2s var(--ease-out), background-color 0.2s ease;
 		}
 
 		.btn-mobile-cta:hover {
 			background-color: #e11d48;
+		}
+
+		.btn-mobile-cta:active {
+			transform: scale(0.98);
+			transition-duration: 0.1s;
 		}
 	}
 </style>

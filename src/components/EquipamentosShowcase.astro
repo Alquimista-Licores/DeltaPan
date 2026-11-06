@@ -230,12 +230,17 @@ const cols = machines.length;
 		display: flex;
 		align-items: flex-end; /* Alinhamento pela base comum */
 		justify-content: center;
-		transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+		transition: transform 0.35s var(--ease-spring), filter 0.35s ease;
 	}
 
 	.machine-col:hover .machine-inner {
 		transform: translateY(-8px) scale(1.03);
 		filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+	}
+
+	.machine-col:active .machine-inner {
+		transform: translateY(-3px) scale(1.01);
+		transition-duration: 0.12s;
 	}
 
 	.machine-item-img {
@@ -323,7 +328,7 @@ const cols = machines.length;
 		align-items: center;
 		padding: 0.5rem 0.4rem;
 		border-radius: 12px;
-		transition: all 0.25s ease;
+		transition: transform 0.2s var(--ease-out), background-color 0.2s ease;
 		overflow-wrap: break-word;
 		word-break: normal;
 		cursor: pointer;
@@ -333,6 +338,11 @@ const cols = machines.length;
 	.model-info-column:hover {
 		transform: translateY(-3px);
 		background: rgba(255, 255, 255, 0.4);
+	}
+
+	.model-info-column:active {
+		transform: translateY(0) scale(0.98);
+		transition-duration: 0.1s;
 	}
 
 	.model-info-column:focus-visible {

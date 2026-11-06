@@ -152,11 +152,15 @@ import logo from '../assets/logo.png';
 	.footer-logo-link {
 		display: inline-block;
 		margin-bottom: 1.25rem;
-		transition: transform 0.25s ease;
+		transition: transform 0.2s var(--ease-out, ease);
 	}
 
 	.footer-logo-link:hover {
 		transform: scale(1.02);
+	}
+
+	.footer-logo-link:active {
+		transform: scale(0.98);
 	}
 
 	.footer-logo-img {
@@ -197,7 +201,7 @@ import logo from '../assets/logo.png';
 		font-size: 0.875rem;
 		font-weight: 500;
 		color: #334155;
-		transition: color 0.2s ease, transform 0.2s ease;
+		transition: color 0.2s ease, transform 0.2s var(--ease-out, ease);
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
@@ -208,11 +212,15 @@ import logo from '../assets/logo.png';
 		transform: translateX(2px);
 	}
 
+	.footer-nav-link:active {
+		transform: translateX(1px) scale(0.99);
+	}
+
 	.footer-contact-link {
 		font-size: 0.875rem;
 		font-weight: 500;
 		color: #334155;
-		transition: color 0.2s ease, transform 0.2s ease;
+		transition: color 0.2s ease, transform 0.2s var(--ease-out, ease);
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
@@ -227,6 +235,10 @@ import logo from '../assets/logo.png';
 	.footer-contact-link:hover {
 		color: #0f172a;
 		transform: translateX(2px);
+	}
+
+	.footer-contact-link:active {
+		transform: translateX(1px) scale(0.99);
 	}
 
 	.footer-contact-link:hover .contact-icon {
@@ -250,11 +262,12 @@ import logo from '../assets/logo.png';
 
 	.footer-icon-badge {
 		color: #cbd5e1;
-		transition: color 0.3s ease;
+		transition: color 0.3s ease, transform 0.3s var(--ease-out, ease);
 	}
 
 	.footer-col-legal:hover .footer-icon-badge {
 		color: #0D1F47;
+		transform: rotate(15deg);
 	}
 
 	.footer-copyright-text {

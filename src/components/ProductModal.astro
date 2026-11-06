@@ -649,7 +649,7 @@ const { machines = defaultMachines } = Astro.props;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		transition: all 0.2s ease;
+		transition: transform 0.2s var(--ease-out), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 	}
 
@@ -658,6 +658,11 @@ const { machines = defaultMachines } = Astro.props;
 		color: #ffffff;
 		border-color: #0D1F47;
 		transform: rotate(90deg);
+	}
+
+	.modal-close-btn:active {
+		transform: rotate(90deg) scale(0.92);
+		transition-duration: 0.1s;
 	}
 
 	/* ========================================================================= */
@@ -718,7 +723,7 @@ const { machines = defaultMachines } = Astro.props;
 		font-weight: 600;
 		letter-spacing: 0.03em;
 		cursor: pointer;
-		transition: all 0.25s ease;
+		transition: transform 0.2s var(--ease-out), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 		box-shadow: 0 4px 12px rgba(13, 31, 71, 0.25);
 	}
 
@@ -727,6 +732,12 @@ const { machines = defaultMachines } = Astro.props;
 		border-color: #e11d48;
 		transform: translateY(-2px);
 		box-shadow: 0 6px 16px rgba(225, 29, 72, 0.3);
+	}
+
+	.btn-3d-overlay:active {
+		transform: translateY(0) scale(0.97);
+		box-shadow: 0 2px 8px rgba(225, 29, 72, 0.2);
+		transition-duration: 0.1s;
 	}
 
 	.image-perspective-stage {
@@ -966,7 +977,7 @@ const { machines = defaultMachines } = Astro.props;
 		padding: 0.95rem 1.4rem;
 		color: #ffffff;
 		text-decoration: none;
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		transition: transform 0.2s var(--ease-out), box-shadow 0.2s ease, background 0.2s ease;
 		box-shadow: 0 8px 20px -4px rgba(22, 163, 74, 0.35);
 	}
 
@@ -974,6 +985,12 @@ const { machines = defaultMachines } = Astro.props;
 		transform: translateY(-2px);
 		box-shadow: 0 12px 28px -4px rgba(22, 163, 74, 0.48);
 		background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+	}
+
+	.btn-whatsapp-quote:active {
+		transform: translateY(0) scale(0.98);
+		box-shadow: 0 4px 12px -2px rgba(22, 163, 74, 0.3);
+		transition-duration: 0.1s;
 	}
 
 	.whatsapp-icon {
@@ -1116,7 +1133,7 @@ const { machines = defaultMachines } = Astro.props;
 		text-decoration: none;
 		border: 1px solid #e2e8f0;
 		background: #ffffff;
-		transition: all 0.2s ease;
+		transition: transform 0.2s var(--ease-out), border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 		min-width: 0;
 	}
 
@@ -1125,6 +1142,11 @@ const { machines = defaultMachines } = Astro.props;
 		background: #f8fafc;
 		transform: translateY(-2px);
 		box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+	}
+
+	.btn-doc-download:active {
+		transform: translateY(0) scale(0.98);
+		transition-duration: 0.1s;
 	}
 
 	.btn-nr12 .doc-icon-wrap {

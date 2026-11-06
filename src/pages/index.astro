@@ -525,10 +525,12 @@ import modeladoraImg from '../assets/modeladora.jpg';
 	@keyframes heroLogoFadeBlurIn {
 		0% {
 			opacity: 0;
-			filter: blur(14px) drop-shadow(0 4px 14px rgba(0, 0, 0, 0));
+			transform: scale(0.96);
+			filter: blur(10px) drop-shadow(0 4px 14px rgba(0, 0, 0, 0));
 		}
 		100% {
 			opacity: 1;
+			transform: scale(1);
 			filter: blur(0px) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.12));
 		}
 	}
@@ -536,8 +538,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 	@keyframes heroTextFadeBlurIn {
 		0% {
 			opacity: 0;
-			filter: blur(12px);
-			transform: translateY(18px);
+			filter: blur(8px);
+			transform: translateY(16px);
 		}
 		100% {
 			opacity: 1;
@@ -665,7 +667,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 	}
 
 	.equipments-grid.is-animated .bg-line-progress {
-		animation: drawLineHorizontal 2.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+		animation: drawLineHorizontal 1.3s var(--ease-out) forwards;
 	}
 
 	@keyframes drawLineHorizontal {
@@ -690,13 +692,13 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		position: relative;
 		z-index: 2;
 		opacity: 0;
-		transform: translateY(32px) scale(0.97);
-		filter: blur(5px);
-		transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-		            transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-		            filter 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-		            box-shadow 0.35s ease,
-		            border-color 0.35s ease;
+		transform: translateY(28px) scale(0.97);
+		filter: blur(4px);
+		transition: opacity 0.65s var(--ease-out),
+		            transform 0.65s var(--ease-out),
+		            filter 0.65s var(--ease-out),
+		            box-shadow 0.25s ease,
+		            border-color 0.25s ease;
 		will-change: opacity, transform, filter;
 	}
 
@@ -706,7 +708,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		opacity: 1;
 		transform: translateY(0) scale(1);
 		filter: blur(0px);
-		transition-delay: 0.25s;
+		transition-delay: 0.12s;
 	}
 
 	/* 2. Divisora */
@@ -714,7 +716,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		opacity: 1;
 		transform: translateY(0) scale(1);
 		filter: blur(0px);
-		transition-delay: 0.95s;
+		transition-delay: 0.36s;
 	}
 
 	/* 3. Modeladora */
@@ -722,7 +724,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		opacity: 1;
 		transform: translateY(0) scale(1);
 		filter: blur(0px);
-		transition-delay: 1.65s;
+		transition-delay: 0.60s;
 	}
 
 	/* Hover pós-animação */
@@ -731,7 +733,13 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		box-shadow: 0 22px 45px -10px rgba(0, 0, 0, 0.09), 0 0 0 1px rgba(15, 23, 42, 0.06);
 		border-color: #cbd5e1;
 		transition-delay: 0s;
-		transition-duration: 0.35s;
+		transition-duration: 0.25s;
+	}
+
+	.equipments-grid.is-animated .equipment-card:active {
+		transform: translateY(-2px) scale(0.99);
+		box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.06);
+		transition-duration: 0.12s;
 	}
 
 	/* Seta indicadora da direção do fluxo (Desktop) */
@@ -748,17 +756,17 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		z-index: 11;
 		pointer-events: none;
 		opacity: 0;
-		transition: opacity 0.4s ease;
+		transition: opacity 0.3s ease;
 	}
 
 	.equipments-grid.is-animated .card-step-1::before {
 		opacity: 1;
-		transition-delay: 0.85s;
+		transition-delay: 0.32s;
 	}
 
 	.equipments-grid.is-animated .card-step-2::before {
 		opacity: 1;
-		transition-delay: 1.55s;
+		transition-delay: 0.56s;
 	}
 
 	@media (max-width: 980px) {
@@ -840,7 +848,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		max-height: 100%;
 		object-fit: contain;
 		display: block;
-		transition: transform 0.4s ease;
+		transition: transform 0.35s var(--ease-out);
+		will-change: transform;
 	}
 
 	.equipment-card:hover .equipment-img {
@@ -916,7 +925,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		padding: 0.95rem 2.25rem;
 		border-radius: 10px;
 		box-shadow: 0 10px 25px -5px rgba(13, 31, 71, 0.28);
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		transition: transform 0.2s var(--ease-out), background-color 0.2s ease, box-shadow 0.2s ease;
 		white-space: nowrap;
 	}
 
@@ -928,6 +937,8 @@ import modeladoraImg from '../assets/modeladora.jpg';
 
 	.btn-explore-products:active {
 		transform: translateY(0) scale(0.98);
+		box-shadow: 0 6px 16px -3px rgba(13, 31, 71, 0.22);
+		transition-duration: 0.1s;
 	}
 
 	.icon-btn-arrow {
@@ -935,11 +946,11 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		height: 16px !important;
 		min-width: 16px !important;
 		max-width: 16px !important;
-		transition: transform 0.25s ease;
+		transition: transform 0.2s var(--ease-out);
 	}
 
 	.btn-explore-products:hover .icon-btn-arrow {
-		transform: translateX(3px);
+		transform: translateX(4px);
 	}
 
 
@@ -1013,7 +1024,7 @@ import modeladoraImg from '../assets/modeladora.jpg';
 		justify-content: center;
 		color: #0f172a;
 		margin-bottom: 1.75rem;
-		transition: transform 0.3s ease, background 0.3s ease;
+		transition: transform 0.25s var(--ease-out), background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 	}
 
 	.institutional-card:hover .inst-icon-box {
@@ -1095,6 +1106,12 @@ import modeladoraImg from '../assets/modeladora.jpg';
 			box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.05);
 			z-index: 10;
 			transition-duration: 0.35s;
+		}
+
+		.institutional-grid.is-animated .institutional-card:active {
+			transform: translateY(-4px) scale(1.005);
+			box-shadow: 0 14px 30px -8px rgba(15, 23, 42, 0.09);
+			transition-duration: 0.12s;
 		}
 	}
 

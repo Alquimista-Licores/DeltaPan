@@ -710,7 +710,7 @@ import Footer from '../components/Footer.astro';
 		border-radius: 12px;
 		padding: 0.75rem 1rem 0.75rem 2.5rem;
 		outline: none;
-		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		transition: border-color 0.2s var(--ease-out, ease), box-shadow 0.2s var(--ease-out, ease), background-color 0.2s ease;
 	}
 
 	.form-select {
@@ -808,14 +808,18 @@ import Footer from '../components/Footer.astro';
 		justify-content: center;
 		flex-shrink: 0;
 		margin-top: 2px;
-		transition: all 0.2s ease;
+		transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s var(--ease-out, ease);
+	}
+
+	.custom-checkbox-label:active .checkbox-box {
+		transform: scale(0.92);
 	}
 
 	.check-icon {
 		color: #ffffff;
 		opacity: 0;
 		transform: scale(0.5);
-		transition: all 0.2s ease;
+		transition: opacity 0.15s ease, transform 0.15s var(--ease-spring, cubic-bezier(0.16, 1, 0.3, 1));
 	}
 
 	.custom-checkbox-input:checked ~ .checkbox-box {
@@ -852,7 +856,7 @@ import Footer from '../components/Footer.astro';
 		padding: 0.95rem 1.75rem;
 		border-radius: 14px;
 		box-shadow: 0 10px 25px -5px rgba(13, 31, 71, 0.25);
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		transition: transform 0.2s var(--ease-out, ease), background-color 0.2s ease, box-shadow 0.2s ease;
 		position: relative;
 	}
 
@@ -863,11 +867,13 @@ import Footer from '../components/Footer.astro';
 	}
 
 	.btn-form-submit:active {
-		transform: translateY(0);
+		transform: translateY(0) scale(0.98);
+		box-shadow: 0 4px 12px rgba(13, 31, 71, 0.2);
+		transition-duration: 0.1s;
 	}
 
 	.btn-submit-icon {
-		transition: transform 0.25s ease;
+		transition: transform 0.2s var(--ease-out, ease);
 	}
 
 	.btn-form-submit:hover .btn-submit-icon {
@@ -908,7 +914,7 @@ import Footer from '../components/Footer.astro';
 		padding: 1.25rem 1.5rem;
 		gap: 1rem;
 		align-items: flex-start;
-		animation: fadeInUp 0.4s ease forwards;
+		animation: fadeInUp 0.35s var(--ease-out, ease) forwards;
 	}
 
 	.form-success-banner.is-visible {
@@ -918,11 +924,11 @@ import Footer from '../components/Footer.astro';
 	@keyframes fadeInUp {
 		from {
 			opacity: 0;
-			transform: translateY(8px);
+			transform: translateY(8px) scale(0.98);
 		}
 		to {
 			opacity: 1;
-			transform: translateY(0);
+			transform: translateY(0) scale(1);
 		}
 	}
 
@@ -1029,7 +1035,7 @@ import Footer from '../components/Footer.astro';
 		padding: 0.85rem 1.25rem;
 		border-radius: 12px;
 		text-decoration: none;
-		transition: all 0.25s ease;
+		transition: transform 0.2s var(--ease-out, ease), background-color 0.2s ease, box-shadow 0.2s ease;
 		box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
 	}
 
@@ -1037,6 +1043,12 @@ import Footer from '../components/Footer.astro';
 		background: #16a34a;
 		transform: translateY(-2px);
 		box-shadow: 0 12px 25px rgba(34, 197, 94, 0.4);
+	}
+
+	.btn-whatsapp-direct:active {
+		transform: translateY(0) scale(0.98);
+		box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+		transition-duration: 0.1s;
 	}
 
 	/* Card Canais */
@@ -1072,6 +1084,11 @@ import Footer from '../components/Footer.astro';
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
+		transition: transform 0.2s var(--ease-out, ease);
+	}
+
+	.method-item:hover .method-icon-box {
+		transform: scale(1.08);
 	}
 
 	.method-details {
@@ -1093,11 +1110,17 @@ import Footer from '../components/Footer.astro';
 		font-weight: 700;
 		color: #0f172a;
 		text-decoration: none;
-		transition: color 0.2s ease;
+		transition: color 0.2s ease, transform 0.2s var(--ease-out, ease);
+		display: inline-block;
 	}
 
 	.method-value:hover {
 		color: #e11d48;
+		transform: translateX(2px);
+	}
+
+	.method-value:active {
+		transform: translateX(1px);
 	}
 
 	.method-sub {
