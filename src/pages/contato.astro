@@ -60,6 +60,11 @@ import Footer from '../components/Footer.astro';
 						</div>
 
 						<form id="contact-form" class="friendly-form" novalidate>
+							<!-- Configuração Web3Forms -->
+							<input type="hidden" name="access_key" id="web3forms-key" value="72917848-43aa-4d9f-96dd-3647e6db0468" />
+							<input type="hidden" name="subject" value="Novo Contato via Site DeltaPan" />
+							<input type="hidden" name="from_name" value="DeltaPan Website" />
+							<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 							
 							<div class="form-row two-cols">
 								<!-- Campo Nome -->
@@ -455,19 +460,43 @@ import Footer from '../components/Footer.astro';
 				return;
 			}
 
-			// Animação de envio
+			// Estado de carregamento
 			submitBtn.classList.add('is-loading');
 			submitBtn.disabled = true;
 
-			setTimeout(() => {
+			// Coleta dos dados do formulário
+			const formData = new FormData(form);
+			const payload = Object.fromEntries(formData.entries());
+
+			// Envio via API Web3Forms
+			fetch('https://api.web3forms.com/submit', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'Accept': 'application/json'
+				},
+				body: JSON.stringify(payload)
+			})
+			.then(async (response) => {
+				const json = await response.json();
 				submitBtn.classList.remove('is-loading');
-				form.reset();
-				if (successBanner) {
-					successBanner.classList.add('is-visible');
-					successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-				}
 				submitBtn.disabled = false;
-			}, 1000);
+
+				if (response.status === 200 && json.success) {
+					form.reset();
+					if (successBanner) {
+						successBanner.classList.add('is-visible');
+						successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+					}
+				} else {
+					alert(json.message || 'Ocorreu um erro ao enviar. Verifique a chave de envio.');
+				}
+			})
+			.catch((error) => {
+				submitBtn.classList.remove('is-loading');
+				submitBtn.disabled = false;
+				alert('Erro de conexão ao enviar a mensagem. Tente novamente mais tarde.');
+			});
 		});
 
 		// Máscara simplificada amigável de telefone
